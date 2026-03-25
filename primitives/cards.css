@@ -1,0 +1,50 @@
+/* =================================================================
+   CARD PRIMITIVES
+   Shared card structure with glass treatment.
+   Project-specific card variants (showcase, overview, stat cards, etc.)
+   remain in each project's local styles.
+   ================================================================= */
+
+@layer components {
+  .card {
+    @apply rounded;
+    background: var(--color-glass-surface-panel);
+    backdrop-filter: blur(var(--blur-glass-sm));
+    -webkit-backdrop-filter: blur(var(--blur-glass-sm));
+    border: 1px solid var(--color-glass-border-subtle);
+    box-shadow: var(--shadow-glass);
+    transition: box-shadow var(--transition-normal) ease;
+  }
+
+  .dark .card {
+    background: var(--color-glass-surface-dark);
+    border-color: var(--color-glass-border-dark-subtle);
+    box-shadow: var(--shadow-glass-dark);
+  }
+
+  .card-header {
+    @apply px-4 py-2;
+    background: var(--color-glass-surface-elevated);
+    border-bottom: 1px solid var(--color-glass-border-subtle);
+  }
+
+  .dark .card-header {
+    background: var(--color-glass-surface-dark-elevated);
+    border-bottom-color: var(--color-glass-border-dark-subtle);
+  }
+
+  .card-body {
+    @apply px-4 py-4;
+  }
+
+  .card-footer {
+    @apply px-4 py-4;
+    background: var(--color-glass-surface-nested);
+    border-top: 1px solid var(--color-glass-border-subtle);
+  }
+
+  .dark .card-footer {
+    background: var(--color-glass-surface-dark-nested);
+    border-top-color: var(--color-glass-border-dark-subtle);
+  }
+}

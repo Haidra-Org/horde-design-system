@@ -1,0 +1,49 @@
+/* =================================================================
+   MODAL PRIMITIVES
+   Shared overlay and dialog structure with glass treatment.
+   Project-specific modal size variants remain in local styles.
+   ================================================================= */
+
+@layer components {
+  .modal-overlay {
+    @apply fixed inset-0 bg-black/50 backdrop-blur-sm z-50;
+    @apply flex items-center justify-center p-4;
+  }
+
+  .modal-dialog {
+    @apply rounded flex flex-col;
+    @apply p-6;
+    min-width: 20rem;
+    width: fit-content;
+    max-width: clamp(20rem, 90vw, 56rem);
+    max-height: 90vh;
+    background: var(--color-glass-surface-elevated);
+    backdrop-filter: blur(var(--blur-glass-lg));
+    -webkit-backdrop-filter: blur(var(--blur-glass-lg));
+    border: 1px solid var(--color-glass-border);
+    box-shadow: var(--shadow-glass-elevated), var(--shadow-glass-inset);
+  }
+
+  .dark .modal-dialog {
+    background: var(--color-glass-surface-dark-elevated);
+    border-color: var(--color-glass-border-dark);
+    box-shadow: var(--shadow-glass-dark-elevated);
+  }
+
+  .modal-title {
+    @apply text-xl font-semibold text-gray-900 mb-4;
+    @apply flex-shrink-0;
+    @apply dark:text-gray-100;
+  }
+
+  .modal-content {
+    @apply text-gray-700 mb-6;
+    @apply overflow-y-auto;
+    @apply dark:text-gray-300;
+  }
+
+  .modal-actions {
+    @apply flex gap-3 justify-end;
+    @apply flex-shrink-0;
+  }
+}

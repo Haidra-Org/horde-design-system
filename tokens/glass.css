@@ -1,0 +1,67 @@
+/* =================================================================
+   GLASSMORPHISM TOKENS
+   Translucent surfaces, blur, and layered shadows for depth.
+
+   Identical values across both Haidra-Org frontends.
+   See AiHordeFrontpage docs/design-system.md for design rationale.
+   ================================================================= */
+
+@theme {
+  /* Glass surfaces — light mode */
+  --color-glass-surface: rgb(255 255 255 / 0.6);
+  --color-glass-surface-panel: rgb(255 255 255 / 0.7);
+  --color-glass-surface-elevated: rgb(255 255 255 / 0.75);
+  --color-glass-surface-heavy: rgb(255 255 255 / 0.85);
+  --color-glass-surface-nested: rgb(255 255 255 / 0.58);
+  --color-glass-surface-subtle: rgb(255 255 255 / 0.35);
+
+  /* Glass surfaces — dark mode */
+  --color-glass-surface-dark: rgb(31 41 55 / 0.55);
+  --color-glass-surface-dark-elevated: rgb(31 41 55 / 0.65);
+  --color-glass-surface-dark-heavy: rgb(31 41 55 / 0.72);
+  --color-glass-surface-dark-nested: rgb(15 23 42 / 0.44);
+  --color-glass-surface-dark-subtle: rgb(17 24 39 / 0.3);
+  --color-glass-surface-dark-floating: rgb(17 24 39 / 0.85);
+
+  /* Glass borders — light mode */
+  --color-glass-border: rgb(255 255 255 / 0.35);
+  --color-glass-border-subtle: rgb(255 255 255 / 0.18);
+  --color-glass-border-strong: rgb(255 255 255 / 0.45);
+
+  /* Glass borders — dark mode */
+  --color-glass-border-dark: rgb(255 255 255 / 0.08);
+  --color-glass-border-dark-subtle: rgb(255 255 255 / 0.06);
+  --color-glass-border-dark-strong: rgb(255 255 255 / 0.12);
+
+  /* Glass highlight */
+  --color-glass-highlight: rgb(255 255 255 / 0.5);
+
+  /* Glass gradients — light mode */
+  --color-glass-gradient-hero-start: rgb(255 255 255 / 0.55);
+  --color-glass-gradient-hero-end: rgb(249 250 251 / 0.4);
+  --color-glass-gradient-accent-start: rgb(255 255 255 / 0.74);
+  --color-glass-gradient-accent-end: rgb(239 246 255 / 0.62);
+
+  /* Glass gradients — dark mode */
+  --color-glass-gradient-hero-dark-start: rgb(31 41 55 / 0.5);
+  --color-glass-gradient-hero-dark-end: rgb(17 24 39 / 0.4);
+  --color-glass-gradient-accent-dark-start: rgb(30 41 59 / 0.72);
+  --color-glass-gradient-accent-dark-end: rgb(15 23 42 / 0.66);
+
+  /* Glass blur radii */
+  --blur-glass-sm: 8px;
+  --blur-glass-md: 16px;
+  --blur-glass-lg: 24px;
+
+  /* Glass shadows — layered for depth (light mode) */
+  --shadow-glass: 0 4px 24px rgb(0 0 0 / 0.06), 0 1px 2px rgb(0 0 0 / 0.04);
+  --shadow-glass-hover: 0 8px 32px rgb(0 0 0 / 0.1), 0 2px 4px rgb(0 0 0 / 0.06);
+  --shadow-glass-elevated: 0 12px 40px rgb(0 0 0 / 0.12), 0 4px 8px rgb(0 0 0 / 0.06);
+  --shadow-glass-inset: inset 0 1px 1px rgb(255 255 255 / 0.3);
+
+  /* Glass shadows — dark mode */
+  --shadow-glass-dark: 0 4px 24px rgb(0 0 0 / 0.2), 0 1px 2px rgb(0 0 0 / 0.12);
+  --shadow-glass-dark-hover: 0 8px 32px rgb(0 0 0 / 0.35), 0 2px 4px rgb(0 0 0 / 0.18);
+  --shadow-glass-dark-elevated: 0 12px 40px rgb(0 0 0 / 0.4), 0 4px 8px rgb(0 0 0 / 0.18);
+  --shadow-glass-dark-inset: inset 0 1px 1px rgb(255 255 255 / 0.06);
+}

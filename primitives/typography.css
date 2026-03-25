@@ -1,0 +1,60 @@
+/* =================================================================
+   TYPOGRAPHY PRIMITIVES
+   Shared heading scales, text helpers, and link styles.
+   Project-specific heading variants (hero, admin, stats)
+   remain in each project's local styles.
+   ================================================================= */
+
+@layer components {
+  /* Headings */
+  .heading-page,
+  .heading-section,
+  .heading-card {
+    @apply font-semibold text-gray-900 dark:text-gray-100;
+  }
+
+  .heading-page {
+    @apply text-2xl;
+  }
+
+  .heading-section {
+    @apply text-lg;
+  }
+
+  .heading-card {
+    @apply text-base;
+  }
+
+  /* Links */
+  .link {
+    @apply text-primary-600 hover:underline;
+    @apply dark:text-primary-400;
+  }
+
+  /* Muted/helper text */
+  .text-muted {
+    @apply text-gray-500 dark:text-gray-400;
+  }
+
+  /* Field labels and values for detail views */
+  .field-label {
+    @apply font-medium text-gray-700 mb-0.5;
+    @apply dark:text-gray-300;
+  }
+
+  .field-value {
+    @apply text-gray-600;
+    @apply dark:text-gray-400;
+  }
+
+  /* Inline label annotations */
+  .label-hint {
+    @apply text-xs text-gray-500 font-normal ml-2;
+    @apply dark:text-gray-400;
+  }
+
+  .label-warning {
+    @apply text-xs text-warning-600 font-normal ml-1;
+    @apply dark:text-warning-400;
+  }
+}

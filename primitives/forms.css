@@ -1,0 +1,54 @@
+/* =================================================================
+   FORM PRIMITIVES
+   Shared form controls (input, textarea, select, checkbox, label).
+   Project-specific form layouts and validation states
+   remain in each project's local styles.
+   ================================================================= */
+
+@layer components {
+  .form-input,
+  .form-textarea,
+  .form-select {
+    @apply w-full px-3 py-2 border border-gray-300 rounded text-sm bg-white;
+    @apply transition-colors duration-100;
+    @apply focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-primary-500;
+    @apply disabled:bg-gray-100 disabled:cursor-not-allowed disabled:text-gray-500;
+    @apply placeholder:italic placeholder:text-gray-400;
+    @apply dark:bg-gray-800 dark:border-gray-600 dark:text-gray-100;
+    @apply dark:focus:ring-primary-400 dark:focus:border-primary-400 dark:disabled:bg-gray-900;
+    @apply dark:placeholder:text-gray-500;
+  }
+
+  .form-textarea {
+    @apply resize-y min-h-[80px];
+  }
+
+  .form-select {
+    @apply cursor-pointer;
+  }
+
+  .form-label {
+    @apply block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1.5;
+  }
+
+  .form-hint {
+    @apply text-gray-400 text-xs mt-1;
+    @apply dark:text-gray-500;
+  }
+
+  .form-error {
+    @apply text-danger-600 text-xs mt-1;
+    @apply dark:text-danger-400;
+  }
+
+  .form-checkbox {
+    @apply w-4 h-4 text-primary-600 bg-white border-gray-300 rounded;
+    @apply focus:ring-2 focus:ring-primary-500;
+    @apply dark:bg-gray-800 dark:border-gray-600;
+  }
+
+  .checkbox-label {
+    @apply text-sm text-gray-700;
+    @apply dark:text-gray-300;
+  }
+}
