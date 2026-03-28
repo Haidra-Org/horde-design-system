@@ -3,6 +3,7 @@
   "version": "0.1.0",
   "description": "Shared design tokens and CSS primitives for Haidra-Org frontends",
   "peerDependencies": {
+    "@angular/core": "^19.0.0 || ^20.0.0 || ^21.0.0",
     "tailwindcss": "^4.0.0"
   },
   "files": [
