@@ -3,6 +3,7 @@
 Shared design tokens and CSS primitives for [Haidra-Org](https://github.com/Haidra-Org) frontends.
 
 Consumed by:
+
 - **[horde-model-reference-frontend](https://github.com/Haidra-Org/horde-model-reference-frontend)** — Model reference management UI
 - **[AiHordeFrontpage](https://github.com/Haidra-Org/AiHordeFrontpage)** — AI Horde main frontend
 
@@ -25,15 +26,15 @@ git submodule update --init --recursive
 In your project's main CSS entry point (after `@import 'tailwindcss'`):
 
 ```css
-@import 'tailwindcss';
+@import "tailwindcss";
 
 /* Shared design system */
-@import '../shared/design-system/tokens/index.css';
-@import '../shared/design-system/primitives/index.css';
+@import "../shared/design-system/tokens/index.css";
+@import "../shared/design-system/primitives/index.css";
 
 /* Project-specific extensions */
-@import './theme/variables.css';
-@import './components/base.css';
+@import "./theme/variables.css";
+@import "./components/base.css";
 /* ... */
 ```
 
@@ -72,65 +73,65 @@ horde-design-system/
 
 All color scales follow the 50–950 shade convention. Available scales:
 
-| Scale | CSS prefix | Usage |
-|-------|-----------|-------|
-| Gray | `--color-gray-*` | Neutral backgrounds, text, borders |
+| Scale   | CSS prefix          | Usage                                      |
+| ------- | ------------------- | ------------------------------------------ |
+| Gray    | `--color-gray-*`    | Neutral backgrounds, text, borders         |
 | Primary | `--color-primary-*` | Blue — primary actions, links, focus rings |
-| Success | `--color-success-*` | Green — confirmations, positive states |
-| Danger | `--color-danger-*` | Red — errors, destructive actions |
-| Warning | `--color-warning-*` | Amber — cautions, pending states |
-| Info | `--color-info-*` | Cyan — informational content |
+| Success | `--color-success-*` | Green — confirmations, positive states     |
+| Danger  | `--color-danger-*`  | Red — errors, destructive actions          |
+| Warning | `--color-warning-*` | Amber — cautions, pending states           |
+| Info    | `--color-info-*`    | Cyan — informational content               |
 
 ### Glass Tokens
 
 Glassmorphism design tokens for translucent surfaces with depth.
 
-| Token group | Light mode | Dark mode |
-|-------------|-----------|-----------|
-| Surfaces | `--color-glass-surface-*` | `--color-glass-surface-dark-*` |
-| Borders | `--color-glass-border-*` | `--color-glass-border-dark-*` |
-| Gradients | `--color-glass-gradient-*` | `--color-glass-gradient-*-dark-*` |
-| Blur radii | `--blur-glass-sm/md/lg` | (same) |
-| Shadows | `--shadow-glass-*` | `--shadow-glass-dark-*` |
+| Token group | Light mode                 | Dark mode                         |
+| ----------- | -------------------------- | --------------------------------- |
+| Surfaces    | `--color-glass-surface-*`  | `--color-glass-surface-dark-*`    |
+| Borders     | `--color-glass-border-*`   | `--color-glass-border-dark-*`     |
+| Gradients   | `--color-glass-gradient-*` | `--color-glass-gradient-*-dark-*` |
+| Blur radii  | `--blur-glass-sm/md/lg`    | (same)                            |
+| Shadows     | `--shadow-glass-*`         | `--shadow-glass-dark-*`           |
 
 ### Spacing & Layout
 
-| Token | Value | Usage |
-|-------|-------|-------|
-| `--spacing-xs` | 0.25rem | Tight spacing |
-| `--spacing-sm` | 0.5rem | Small gaps |
-| `--spacing-md` | 1rem | Standard spacing |
-| `--spacing-lg` | 1.5rem | Section spacing |
-| `--spacing-xl` | 2rem | Large spacing |
-| `--spacing-2xl` | 3rem | Page-level spacing |
-| `--radius-sm/md/lg/xl` | 0.25–0.75rem | Border radius scale |
+| Token                           | Value         | Usage               |
+| ------------------------------- | ------------- | ------------------- |
+| `--spacing-xs`                  | 0.25rem       | Tight spacing       |
+| `--spacing-sm`                  | 0.5rem        | Small gaps          |
+| `--spacing-md`                  | 1rem          | Standard spacing    |
+| `--spacing-lg`                  | 1.5rem        | Section spacing     |
+| `--spacing-xl`                  | 2rem          | Large spacing       |
+| `--spacing-2xl`                 | 3rem          | Page-level spacing  |
+| `--radius-sm/md/lg/xl`          | 0.25–0.75rem  | Border radius scale |
 | `--transition-fast/normal/slow` | 150/200/300ms | Animation durations |
 
 ## Primitive Reference
 
 ### Surface Classes
 
-| Class | Purpose |
-|-------|---------|
-| `.surface-glass` | Base frosted glass panel |
+| Class                      | Purpose                                      |
+| -------------------------- | -------------------------------------------- |
+| `.surface-glass`           | Base frosted glass panel                     |
 | `.surface-glass--elevated` | Stronger glass with border + inset highlight |
-| `.surface-glass--nested` | Inner panel without backdrop blur |
-| `.surface-glass--subtle` | Subtle nested panel |
-| `.surface-glass--hero` | Gradient hero with medium blur |
-| `.surface-glass--accent` | Gradient accent surface |
-| `.surface-floating` | Elevated dropdown/popover with medium blur |
+| `.surface-glass--nested`   | Inner panel without backdrop blur            |
+| `.surface-glass--subtle`   | Subtle nested panel                          |
+| `.surface-glass--hero`     | Gradient hero with medium blur               |
+| `.surface-glass--accent`   | Gradient accent surface                      |
+| `.surface-floating`        | Elevated dropdown/popover with medium blur   |
 
 ### Button Classes
 
-| Class | Purpose |
-|-------|---------|
-| `.btn` | Base button with focus ring and disabled state |
-| `.btn-primary` | Blue primary action |
-| `.btn-secondary` | Gray secondary action |
-| `.btn-danger` | Red destructive action |
-| `.btn-success` | Green confirmation action |
-| `.btn-sm` | Small size variant |
-| `.btn-lg` | Large size variant |
+| Class            | Purpose                                        |
+| ---------------- | ---------------------------------------------- |
+| `.btn`           | Base button with focus ring and disabled state |
+| `.btn-primary`   | Blue primary action                            |
+| `.btn-secondary` | Gray secondary action                          |
+| `.btn-danger`    | Red destructive action                         |
+| `.btn-success`   | Green confirmation action                      |
+| `.btn-sm`        | Small size variant                             |
+| `.btn-lg`        | Large size variant                             |
 
 ### Other Primitives
 
@@ -169,18 +170,22 @@ Sticky tab behavior, overflow arrows, and route-specific tab mechanics remain lo
 
 ## Extending Locally
 
-Projects add their own tokens and classes in local CSS files that import *after* the shared system:
+Projects add their own tokens and classes in local CSS files that import _after_ the shared system:
 
 ```css
 /* Project-specific tokens */
 @theme {
-  --heat-1: #dbeafe;  /* heatmap colors — model-ref only */
+  --heat-1: #dbeafe; /* heatmap colors — model-ref only */
 }
 
 /* Project-specific classes */
 @layer components {
-  .data-table { /* ... */ }  /* model-ref only */
-  .btn-purple { /* ... */ }  /* frontpage only */
+  .data-table {
+    /* ... */
+  } /* model-ref only */
+  .btn-purple {
+    /* ... */
+  } /* frontpage only */
 }
 ```
 
@@ -204,4 +209,3 @@ Git tags mark milestones: `v0.1.0` (initial tokens + primitives), etc. Each cons
 ## License
 
 [MIT](LICENSE)
-
