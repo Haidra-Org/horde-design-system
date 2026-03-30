@@ -55,6 +55,8 @@ horde-design-system/
 │   ├── modals.css       .modal-overlay, .modal-dialog, .modal-title, .modal-content
 │   ├── alerts.css       .alert, .alert-success, .alert-danger, .alert-warning, .alert-info
 │   ├── typography.css   .heading-page, .heading-section, .link, .text-muted
+│   ├── tables.css       .table-head-subtle, .table-body-default, .table-cell-xs*
+│   ├── tabs.css         .tabs-nav/.tabs-link core + compatibility aliases
 │   └── index.css        Barrel import
 └── components/          Angular components (Phase 5 — future)
 ```
@@ -132,12 +134,38 @@ Glassmorphism design tokens for translucent surfaces with depth.
 
 ### Other Primitives
 
-- **Badges**: `.badge`, `.badge-success`, `.badge-danger`, `.badge-warning`, `.badge-info`, `.badge-secondary`
+- **Badges**: `.badge`, `.badge-base` (compatibility alias), `.badge-success`, `.badge-danger`, `.badge-warning`, `.badge-info`, `.badge-secondary`
 - **Cards**: `.card`, `.card-header`, `.card-body`, `.card-footer`
 - **Forms**: `.form-input`, `.form-textarea`, `.form-select`, `.form-label`, `.form-hint`, `.form-error`, `.form-checkbox`, `.checkbox-label`
 - **Modals**: `.modal-overlay`, `.modal-dialog`, `.modal-title`, `.modal-content`, `.modal-actions`
 - **Alerts**: `.alert`, `.alert-success`, `.alert-danger`, `.alert-warning`, `.alert-info`
 - **Typography**: `.heading-page`, `.heading-section`, `.heading-card`, `.link`, `.text-muted`, `.field-label`, `.field-value`, `.label-hint`, `.label-warning`
+
+### Table Primitives
+
+The shared table micro-primitives are intentionally low-level and feature-agnostic:
+
+- Header and body wrappers: `.table-head-subtle`, `.table-body-default`
+- Row treatment: `.table-row-hover-subtle`
+- Dense header cells: `.table-header-cell-xs*`, `.table-header-cell-xs-*-caps`
+- Dense body cells: `.table-cell-xs*`, `.table-cell-mono-xs`, `.table-cell-muted-xs-inline`
+
+Projects should keep feature-specific table layouts (column structures, domain-specific row classes) in local styles.
+
+### Tab Primitives
+
+Shared tab classes cover the common base interaction model:
+
+- Containers: `.tabs-nav`, `.tabs-nav--compact`
+- Items: `.tabs-link`, `.tabs-link--compact`
+- Active state: `.tabs-link-active`
+
+Compatibility aliases are included for existing horde-model-reference-frontend class names:
+
+- `.tab-navigation`, `.tab-navigation-compact`
+- `.tab-link`, `.tab-link-compact`, `.tab-active`
+
+Sticky tab behavior, overflow arrows, and route-specific tab mechanics remain local to each project.
 
 ## Extending Locally
 

@@ -1,0 +1,73 @@
+/* =================================================================
+   TABLE PRIMITIVES
+   Shared micro-primitives for dense data tables.
+   Feature-specific table layouts and domain cells remain local.
+   ================================================================= */
+
+@layer components {
+  .table-head-subtle {
+    @apply bg-gray-100 dark:bg-gray-700;
+  }
+
+  .table-body-default {
+    @apply bg-white divide-y divide-gray-200;
+    @apply dark:bg-gray-900 dark:divide-gray-700;
+  }
+
+  .table-row-hover-subtle {
+    @apply hover:bg-gray-50 dark:hover:bg-gray-800/50;
+  }
+
+  .table-header-cell-xs,
+  .table-header-cell-xs-center,
+  .table-header-cell-xs-right {
+    @apply px-3 py-2 text-xs font-medium text-gray-600 dark:text-gray-400;
+  }
+
+  .table-header-cell-xs {
+    @apply text-left;
+  }
+
+  .table-header-cell-xs-center {
+    @apply text-center;
+  }
+
+  .table-header-cell-xs-right {
+    @apply text-right;
+  }
+
+  .table-header-cell-xs-caps {
+    @apply px-3 py-2 text-left text-xs font-medium uppercase tracking-wider;
+    @apply text-gray-500 dark:text-gray-400;
+  }
+
+  .table-header-cell-xs-center-caps {
+    @apply px-3 py-2 text-center text-xs font-medium uppercase tracking-wider;
+    @apply text-gray-500 dark:text-gray-400;
+  }
+
+  .table-header-cell-xs-right-caps {
+    @apply px-3 py-2 text-right text-xs font-medium uppercase tracking-wider;
+    @apply text-gray-500 dark:text-gray-400;
+  }
+
+  .table-cell-xs {
+    @apply px-3 py-2 text-xs text-gray-700 dark:text-gray-300;
+  }
+
+  .table-cell-xs-center {
+    @apply px-3 py-2 text-center text-xs text-gray-700 dark:text-gray-300;
+  }
+
+  .table-cell-xs-right {
+    @apply px-3 py-2 text-right text-xs text-gray-700 dark:text-gray-300;
+  }
+
+  .table-cell-mono-xs {
+    @apply px-3 py-2 text-xs font-mono text-gray-900 dark:text-gray-100;
+  }
+
+  .table-cell-muted-xs-inline {
+    @apply text-xs text-gray-400 dark:text-gray-500;
+  }
+}

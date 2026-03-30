@@ -1,0 +1,45 @@
+/* =================================================================
+   TAB PRIMITIVES
+   Shared base tab navigation styling.
+   Sticky behavior, arrow controls, and route-specific variants stay local.
+   ================================================================= */
+
+@layer components {
+  .tabs-nav,
+  .tab-navigation {
+    @apply flex gap-2 border-b border-gray-200 dark:border-gray-700;
+  }
+
+  .tabs-nav--compact,
+  .tab-navigation-compact {
+    @apply gap-1;
+  }
+
+  .tabs-link,
+  .tab-link,
+  .tabs-link--compact,
+  .tab-link-compact {
+    @apply flex items-center gap-2 border-b-2 border-transparent;
+    @apply text-gray-600 hover:text-gray-900 hover:border-gray-300;
+    @apply transition-all duration-150 font-medium;
+    @apply dark:text-gray-400 dark:hover:text-gray-200 dark:hover:border-gray-600;
+  }
+
+  .tabs-link,
+  .tab-link {
+    @apply px-4 py-2.5 text-sm;
+  }
+
+  .tabs-link--compact,
+  .tab-link-compact {
+    @apply px-4 py-1 text-xs;
+  }
+
+  .tabs-link.tabs-link-active,
+  .tab-link.tab-active,
+  .tabs-link--compact.tabs-link-active,
+  .tab-link-compact.tab-active {
+    @apply text-primary-600 border-primary-600;
+    @apply dark:text-primary-400 dark:border-primary-400;
+  }
+}

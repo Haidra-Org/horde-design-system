@@ -6,7 +6,8 @@
    ================================================================= */
 
 @layer components {
-  .badge {
+  .badge,
+  .badge-base {
     @apply inline-flex items-center px-2 py-0.5 rounded-sm text-xs font-medium;
   }
 
