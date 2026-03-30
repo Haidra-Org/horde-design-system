@@ -59,7 +59,10 @@ horde-design-system/
 │   ├── tables.css       .table-head-subtle, .table-body-default, .table-cell-xs*
 │   ├── tabs.css         .tabs-nav/.tabs-link core + compatibility aliases
 │   └── index.css        Barrel import
-└── components/          Angular components (Phase 5 — future)
+└── components/          Angular standalone components
+  ├── badge/           HordeBadgeComponent
+  ├── alert/           HordeAlertComponent
+  └── button/          HordeButtonComponent
 ```
 
 ## Requirements
