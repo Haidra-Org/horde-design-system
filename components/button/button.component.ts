@@ -3,26 +3,26 @@ import {
   Component,
   computed,
   input,
-} from "@angular/core";
+} from '@angular/core';
 
 export type ButtonVariant =
-  | "primary"
-  | "secondary"
-  | "danger"
-  | "success"
-  | "info"
-  | "warning"
-  | "muted"
-  | "source-control"
-  | "purple"
-  | "icon"
-  | "icon-danger";
+  | 'primary'
+  | 'secondary'
+  | 'danger'
+  | 'success'
+  | 'info'
+  | 'warning'
+  | 'muted'
+  | 'source-control'
+  | 'purple'
+  | 'icon'
+  | 'icon-danger';
 
-export type ButtonSize = "xs" | "sm" | "md" | "lg";
-export type ButtonType = "button" | "submit" | "reset";
+export type ButtonSize = 'xs' | 'sm' | 'md' | 'lg';
+export type ButtonType = 'button' | 'submit' | 'reset';
 
 @Component({
-  selector: "horde-button",
+  selector: 'horde-button',
   changeDetection: ChangeDetectionStrategy.OnPush,
   template: `
     <button
@@ -36,23 +36,23 @@ export type ButtonType = "button" | "submit" | "reset";
   `,
 })
 export class HordeButtonComponent {
-  variant = input<ButtonVariant>("primary");
-  size = input<ButtonSize>("md");
-  type = input<ButtonType>("button");
+  variant = input<ButtonVariant>('primary');
+  size = input<ButtonSize>('md');
+  type = input<ButtonType>('button');
   disabled = input(false);
   loading = input(false);
 
   buttonClass = computed(() => {
-    const classes = ["btn", `btn-${this.variant()}`];
+    const classes = ['btn', `btn-${this.variant()}`];
 
-    if (this.size() !== "md") {
+    if (this.size() !== 'md') {
       classes.push(`btn-${this.size()}`);
     }
 
     if (this.loading()) {
-      classes.push("btn-loading");
+      classes.push('btn-loading');
     }
 
-    return classes.join(" ");
+    return classes.join(' ');
   });
 }
