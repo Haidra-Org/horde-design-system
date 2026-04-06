@@ -27,8 +27,12 @@
 
   /* Links */
   .link {
-    @apply text-primary-600 hover:underline;
-    @apply dark:text-primary-400;
+    @apply text-blue-600;
+    @apply dark:text-blue-500;
+  }
+
+  .link:hover {
+    @apply underline;
   }
 
   /* Muted/helper text */

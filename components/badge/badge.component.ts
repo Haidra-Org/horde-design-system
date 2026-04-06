@@ -6,11 +6,20 @@ import {
 } from '@angular/core';
 
 export type BadgeVariant =
+  | 'primary'
   | 'success'
   | 'danger'
   | 'warning'
   | 'info'
-  | 'secondary';
+  | 'secondary'
+  | 'purple'
+  | 'pink'
+  | 'indigo'
+  | 'teal'
+  | 'outline'
+  | 'recommended'
+  | 'easy-to-use'
+  | 'online';
 
 @Component({
   selector: 'horde-badge',

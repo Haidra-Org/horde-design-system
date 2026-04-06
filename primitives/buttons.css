@@ -1,66 +1,394 @@
 /* =================================================================
    BUTTON PRIMITIVES
-   Shared button base and semantic color variants.
-   Project-specific button variants (e.g. btn-purple, btn-source-control)
-   remain in each project's local styles.
+   Self-contained button variants matching AiHordeFrontpage.
+
+   Each variant includes its own sizing. The .btn base provides shared
+   structural defaults (flex layout, rounding, transitions, disabled).
+   Size modifiers (.btn-sm, .btn-xs, .btn-md) override padding/font.
    ================================================================= */
 
 @layer components {
+  /* =================================================================
+     BASE — structural defaults shared across all variants
+     ================================================================= */
+
   .btn {
-    @apply px-4 py-2 rounded font-medium text-sm transition-colors duration-100;
-    @apply disabled:opacity-50 disabled:cursor-not-allowed;
-    @apply focus:outline-none focus:ring-2 focus:ring-offset-2;
+    @apply inline-flex items-center gap-2;
+    @apply text-sm font-medium text-center;
+    @apply rounded-lg;
+    @apply transition-colors duration-200;
+    @apply focus:outline-none;
   }
+
+  .btn:disabled {
+    @apply opacity-50 cursor-not-allowed;
+  }
+
+  .btn .icon {
+    @apply w-5 h-5 shrink-0;
+  }
+
+  /* =================================================================
+     PRIMARY — Blue branded button
+     ================================================================= */
 
   .btn-primary {
-    @apply bg-primary-600 text-white;
-    @apply focus:ring-primary-500;
-    @apply dark:bg-primary-500 dark:focus:ring-primary-400;
+    @apply inline-flex items-center gap-2;
+    @apply px-5 py-2.5;
+    @apply text-sm font-medium text-white text-center;
+    @apply bg-brand-blue rounded-lg;
+    @apply transition-colors duration-200;
+    @apply hover:bg-brand-blue-hover;
+    @apply focus:outline-none;
+    @apply dark:bg-blue-600 dark:hover:bg-brand-blue;
   }
 
-  .btn-primary:hover:not(:disabled) {
-    @apply bg-primary-700;
-    @apply dark:bg-primary-600;
+  .btn-primary:focus {
+    box-shadow: var(--shadow-focus-blue);
   }
+
+  .dark .btn-primary:focus {
+    box-shadow: var(--shadow-focus-blue-dark);
+  }
+
+  .btn-primary:disabled {
+    @apply opacity-50 cursor-not-allowed;
+  }
+
+  .btn-primary .icon {
+    @apply w-5 h-5 shrink-0;
+  }
+
+  /* Error state — indicates validation failure */
+  .btn-primary--error {
+    @apply bg-red-600 hover:bg-red-700 dark:bg-red-700 dark:hover:bg-red-800;
+    @apply ring-2 ring-red-400 ring-offset-1 dark:ring-red-500;
+    animation: btn-shake 0.35s ease;
+  }
+
+  @keyframes btn-shake {
+    0%,
+    100% {
+      transform: translateX(0);
+    }
+    20% {
+      transform: translateX(-4px);
+    }
+    40% {
+      transform: translateX(4px);
+    }
+    60% {
+      transform: translateX(-3px);
+    }
+    80% {
+      transform: translateX(3px);
+    }
+  }
+
+  /* =================================================================
+     PURPLE — Brand purple button
+     ================================================================= */
+
+  .btn-purple {
+    @apply inline-flex items-center gap-2;
+    @apply px-5 py-2.5;
+    @apply text-sm font-medium text-white text-center;
+    @apply bg-brand-purple rounded-lg;
+    @apply transition-colors duration-200;
+    @apply hover:bg-brand-purple-hover;
+    @apply focus:outline-none;
+  }
+
+  .btn-purple:focus {
+    box-shadow: var(--shadow-focus-purple);
+  }
+
+  .dark .btn-purple:focus {
+    box-shadow: var(--shadow-focus-purple-dark);
+  }
+
+  .btn-purple:disabled {
+    @apply opacity-50 cursor-not-allowed;
+  }
+
+  .btn-purple .icon {
+    @apply w-5 h-5 shrink-0;
+  }
+
+  /* =================================================================
+     SECONDARY — Composable secondary; hmr uses this heavily
+     ================================================================= */
 
   .btn-secondary {
-    @apply bg-gray-200 text-gray-900 border border-gray-300;
-    @apply focus:ring-gray-500;
-    @apply dark:bg-gray-700 dark:text-gray-100 dark:border-gray-600 dark:focus:ring-gray-400;
+    @apply inline-flex items-center gap-2;
+    @apply px-5 py-2.5;
+    @apply text-sm font-medium text-center;
+    @apply text-gray-600 bg-gray-200 rounded-lg;
+    @apply transition-colors duration-200;
+    @apply hover:bg-gray-300 hover:text-gray-700;
+    @apply focus:outline-none;
+    @apply dark:text-gray-400 dark:bg-gray-700;
+    @apply dark:hover:bg-gray-600 dark:hover:text-gray-300;
   }
 
-  .btn-secondary:hover:not(:disabled) {
-    @apply bg-gray-300 border-gray-400;
-    @apply dark:bg-gray-600 dark:border-gray-500;
+  .btn-secondary:focus {
+    box-shadow: 0 0 0 4px rgb(229 231 235 / 0.5);
   }
+
+  .dark .btn-secondary:focus {
+    box-shadow: 0 0 0 4px rgb(55 65 81 / 0.5);
+  }
+
+  .btn-secondary:disabled {
+    @apply opacity-50 cursor-not-allowed;
+  }
+
+  .btn-secondary .icon {
+    @apply w-5 h-5 shrink-0;
+  }
+
+  /* =================================================================
+     SOURCE-CONTROL — Muted secondary for source control actions
+     ================================================================= */
+
+  .btn-source-control {
+    @apply inline-flex items-center gap-2;
+    @apply px-5 py-2.5;
+    @apply text-sm font-medium text-center;
+    @apply text-gray-600 bg-gray-200 rounded-lg;
+    @apply transition-colors duration-200;
+    @apply hover:bg-gray-300 hover:text-gray-700;
+    @apply focus:outline-none;
+    @apply dark:text-gray-400 dark:bg-gray-700;
+    @apply dark:hover:bg-gray-600 dark:hover:text-gray-300;
+  }
+
+  .btn-source-control:focus {
+    box-shadow: 0 0 0 4px rgb(229 231 235 / 0.5);
+  }
+
+  .dark .btn-source-control:focus {
+    box-shadow: 0 0 0 4px rgb(55 65 81 / 0.5);
+  }
+
+  .btn-source-control:disabled {
+    @apply opacity-50 cursor-not-allowed;
+  }
+
+  .btn-source-control .icon {
+    @apply w-5 h-5 shrink-0;
+  }
+
+  /* =================================================================
+     MUTED — Gray low-prominence button
+     ================================================================= */
+
+  .btn-muted {
+    @apply py-2 px-4 text-sm font-medium rounded-lg transition-colors duration-200;
+    color: var(--color-content-secondary);
+    background-color: var(--color-surface-secondary);
+  }
+
+  .btn-muted:hover {
+    background-color: var(--color-edge-primary);
+    color: var(--color-content-primary);
+  }
+
+  .dark .btn-muted {
+    @apply text-gray-300 bg-gray-700;
+  }
+
+  .dark .btn-muted:hover {
+    @apply bg-gray-600 text-white;
+  }
+
+  .btn-muted:disabled {
+    @apply opacity-50 cursor-not-allowed;
+  }
+
+  /* =================================================================
+     DANGER — Destructive actions
+     ================================================================= */
 
   .btn-danger {
-    @apply bg-danger-600 text-white;
-    @apply focus:ring-danger-500;
-    @apply dark:bg-danger-500 dark:focus:ring-danger-400;
+    @apply py-2 px-4 text-sm font-medium text-white bg-red-600 rounded-lg transition-colors duration-200;
   }
 
   .btn-danger:hover:not(:disabled) {
-    @apply bg-danger-700;
-    @apply dark:bg-danger-600;
+    @apply bg-red-700;
   }
+
+  .btn-danger:disabled {
+    @apply opacity-50 cursor-not-allowed;
+  }
+
+  /* =================================================================
+     SUCCESS — Positive confirmations
+     ================================================================= */
 
   .btn-success {
-    @apply bg-success-600 text-white;
-    @apply focus:ring-success-500;
-    @apply dark:bg-success-500 dark:focus:ring-success-400;
+    @apply inline-flex items-center gap-2;
+    @apply px-5 py-2.5;
+    @apply text-sm font-medium text-white text-center;
+    @apply bg-green-600 rounded-lg;
+    @apply transition-colors duration-200;
+    @apply hover:bg-green-700;
+    @apply focus:outline-none;
+    @apply dark:bg-green-500 dark:hover:bg-green-600;
   }
 
-  .btn-success:hover:not(:disabled) {
-    @apply bg-success-700;
-    @apply dark:bg-success-600;
+  .btn-success:focus {
+    box-shadow: 0 0 0 4px rgb(34 197 94 / 0.5);
+  }
+
+  .dark .btn-success:focus {
+    box-shadow: 0 0 0 4px rgb(34 197 94 / 0.3);
+  }
+
+  .btn-success:disabled {
+    @apply opacity-50 cursor-not-allowed;
+  }
+
+  /* =================================================================
+     INFO — Informational actions
+     ================================================================= */
+
+  .btn-info {
+    @apply inline-flex items-center gap-2;
+    @apply px-5 py-2.5;
+    @apply text-sm font-medium text-white text-center;
+    @apply bg-cyan-600 rounded-lg;
+    @apply transition-colors duration-200;
+    @apply hover:bg-cyan-700;
+    @apply focus:outline-none;
+    @apply dark:bg-cyan-500 dark:hover:bg-cyan-600;
+  }
+
+  .btn-info:disabled {
+    @apply opacity-50 cursor-not-allowed;
+  }
+
+  /* =================================================================
+     WARNING — Cautionary actions
+     ================================================================= */
+
+  .btn-warning {
+    @apply inline-flex items-center gap-2;
+    @apply px-5 py-2.5;
+    @apply text-sm font-medium text-center;
+    @apply bg-yellow-500 text-gray-900 rounded-lg;
+    @apply transition-colors duration-200;
+    @apply hover:bg-yellow-600;
+    @apply focus:outline-none;
+  }
+
+  .btn-warning:focus {
+    box-shadow: 0 0 0 4px rgb(234 179 8 / 0.5);
+  }
+
+  .dark .btn-warning:focus {
+    box-shadow: 0 0 0 4px rgb(234 179 8 / 0.3);
+  }
+
+  .btn-warning:disabled {
+    @apply opacity-50 cursor-not-allowed;
+  }
+
+  .btn-warning .icon {
+    @apply w-5 h-5 shrink-0;
+  }
+
+  /* =================================================================
+     ICON BUTTONS
+     ================================================================= */
+
+  .btn-icon {
+    @apply inline-flex items-center justify-center p-2 rounded-lg transition-colors duration-200;
+    color: var(--color-content-secondary);
+    background-color: var(--color-surface-secondary);
+  }
+
+  .btn-icon:hover {
+    background-color: var(--color-edge-primary);
+    color: var(--color-content-primary);
+  }
+
+  .dark .btn-icon {
+    @apply text-gray-400 bg-gray-700;
+  }
+
+  .dark .btn-icon:hover {
+    @apply bg-gray-600 text-white;
+  }
+
+  .btn-icon:disabled {
+    @apply opacity-50 cursor-not-allowed;
+  }
+
+  .btn-icon .icon {
+    @apply w-5 h-5;
+  }
+
+  .btn-icon-danger {
+    color: var(--color-content-secondary);
+  }
+
+  .btn-icon-danger:hover {
+    @apply text-red-600;
+    background-color: rgb(254 226 226);
+  }
+
+  .dark .btn-icon-danger:hover {
+    @apply text-red-400;
+    background-color: rgb(127 29 29 / 0.3);
+  }
+
+  /* =================================================================
+     SIZE VARIANTS — override padding/font from any variant
+     ================================================================= */
+
+  .btn-xs {
+    @apply px-2 py-1 text-xs;
   }
 
   .btn-sm {
-    @apply px-3 py-1.5 text-xs;
+    @apply px-3 py-1.5 text-xs whitespace-nowrap shrink-0;
+  }
+
+  .btn-md {
+    @apply px-4 py-2 text-sm whitespace-nowrap shrink-0;
   }
 
   .btn-lg {
     @apply px-6 py-3 text-base;
+  }
+
+  /* =================================================================
+     UTILITY MODIFIERS
+     ================================================================= */
+
+  .btn-responsive {
+    @apply w-full sm:w-auto;
+  }
+
+  .btn-disabled {
+    @apply cursor-not-allowed bg-gray-600 text-gray-500;
+  }
+
+  /* =================================================================
+     BUTTON GROUPS
+     ================================================================= */
+
+  .btn-group {
+    @apply flex flex-col gap-4;
+    @apply sm:flex-row;
+  }
+
+  .btn-group--center {
+    @apply justify-center;
+  }
+
+  .btn-group--inline {
+    @apply flex flex-row flex-wrap gap-1;
   }
 }

@@ -100,4 +100,39 @@
   --color-info-800: #155e75;
   --color-info-900: #164e63;
   --color-info-950: #083344;
+
+  /* =================================================================
+     BRAND COLORS
+     ================================================================= */
+  --color-brand-blue: #1d4ed8;
+  --color-brand-blue-hover: #1e40af;
+  --color-brand-purple: #9333ea;
+  --color-brand-purple-hover: #7e22ce;
+
+  /* =================================================================
+     SEMANTIC COLORS — Light Mode Defaults
+     Dark mode is handled by .dark overrides in each primitive.
+     ================================================================= */
+
+  /* Text/content */
+  --color-content-primary: rgb(17 24 39);
+  --color-content-secondary: rgb(107 114 128);
+  --color-content-muted: rgb(156 163 175);
+  --color-content-inverted: rgb(255 255 255);
+  --color-content-tertiary: rgb(156 163 175);
+
+  /* Surfaces */
+  --color-surface-primary: rgb(255 255 255);
+  --color-surface-secondary: rgb(249 250 251);
+  --color-surface-tertiary: rgb(243 244 246);
+  --color-surface-elevated: rgb(255 255 255);
+
+  /* Edges/borders */
+  --color-edge-primary: rgb(229 231 235);
+  --color-edge-secondary: rgb(243 244 246);
+  --color-edge-strong: rgb(209 213 219);
+
+  /* Legacy semantic aliases */
+  --color-text-primary: rgb(17 24 39);
+  --color-text-secondary: rgb(107 114 128);
 }
