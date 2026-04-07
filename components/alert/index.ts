@@ -4,4 +4,4 @@ export {
   type AlertRole,
   type AlertSize,
   type AlertVariant,
-} from './alert.component';
+} from "./alert.component";

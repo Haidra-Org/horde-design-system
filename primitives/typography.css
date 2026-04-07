@@ -25,7 +25,7 @@
     @apply text-base;
   }
 
-  /* Links */
+  /* Links — matches AiHordeFrontpage */
   .link {
     @apply text-blue-600;
     @apply dark:text-blue-500;

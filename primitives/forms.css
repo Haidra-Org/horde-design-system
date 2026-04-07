@@ -1,6 +1,6 @@
 /* =================================================================
    FORM PRIMITIVES
-   Glass-treated form controls.
+   Glass-treated form controls matching AiHordeFrontpage.
    Project-specific form layouts and validation states
    remain in each project's local styles.
    ================================================================= */
@@ -119,8 +119,60 @@
     @apply dark:text-red-400;
   }
 
-  .form-input-error {
-    @apply border-red-500;
+  /* =================================================================
+     VALIDATION STATES
+     ================================================================= */
+
+  .form-input-error,
+  .form-textarea-error,
+  .form-select-error {
+    border-color: var(--color-danger-500, #ef4444);
+  }
+
+  .form-input-error:focus,
+  .form-textarea-error:focus,
+  .form-select-error:focus {
+    border-color: var(--color-danger-500, #ef4444);
+    box-shadow: 0 0 0 3px rgb(239 68 68 / 0.15);
+  }
+
+  .dark .form-input-error,
+  .dark .form-textarea-error,
+  .dark .form-select-error {
+    border-color: var(--color-danger-400, #f87171);
+  }
+
+  .dark .form-input-error:focus,
+  .dark .form-textarea-error:focus,
+  .dark .form-select-error:focus {
+    border-color: var(--color-danger-400, #f87171);
+    box-shadow: 0 0 0 3px rgb(248 113 113 / 0.12);
+  }
+
+  .form-input-success,
+  .form-textarea-success,
+  .form-select-success {
+    border-color: var(--color-success-500, #22c55e);
+  }
+
+  .form-input-success:focus,
+  .form-textarea-success:focus,
+  .form-select-success:focus {
+    border-color: var(--color-success-500, #22c55e);
+    box-shadow: 0 0 0 3px rgb(34 197 94 / 0.15);
+  }
+
+  .dark .form-input-success,
+  .dark .form-textarea-success,
+  .dark .form-select-success {
+    border-color: var(--color-success-400, #4ade80);
+  }
+
+  .dark .form-input-success:focus,
+  .dark .form-textarea-success:focus,
+  .dark .form-select-success:focus {
+    border-color: var(--color-success-400, #4ade80);
+    box-shadow: 0 0 0 3px rgb(74 222 128 / 0.12);
   }
 
   /* =================================================================
@@ -154,5 +206,45 @@
 
   .form-checkbox .checkbox-label {
     @apply ml-0;
+  }
+
+  /* =================================================================
+     FORM LAYOUT — grids and field wrappers
+     ================================================================= */
+
+  .form-field {
+    @apply space-y-1.5;
+  }
+
+  .form-grid {
+    @apply grid grid-cols-1 gap-4;
+  }
+
+  .form-grid-2 {
+    @apply grid grid-cols-1 md:grid-cols-2 gap-4;
+  }
+
+  .form-grid-3 {
+    @apply grid grid-cols-1 md:grid-cols-3 gap-4;
+  }
+
+  .form-grid-4 {
+    @apply grid grid-cols-1 md:grid-cols-4 gap-4;
+  }
+
+  .grid-col-span-1 {
+    @apply col-span-1;
+  }
+
+  .grid-col-span-2 {
+    @apply col-span-1 md:col-span-2;
+  }
+
+  .grid-col-span-3 {
+    @apply col-span-1 md:col-span-3;
+  }
+
+  .grid-col-span-4 {
+    @apply col-span-1 md:col-span-4;
   }
 }
