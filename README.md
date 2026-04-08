@@ -58,11 +58,17 @@ horde-design-system/
 │   ├── typography.css   .heading-page, .heading-section, .link, .text-muted
 │   ├── tables.css       .table-head-subtle, .table-body-default, .table-cell-xs*
 │   ├── tabs.css         .tabs-nav/.tabs-link core + compatibility aliases
+│   ├── tooltips.css     .tooltip-wrapper, .tooltip-text, position variants
+│   ├── data-display.css .data-item, .data-value, .stat-column, grids
+│   ├── utilities.css    .sr-only
 │   └── index.css        Barrel import
-└── components/          Angular standalone components
-  ├── badge/           HordeBadgeComponent
-  ├── alert/           HordeAlertComponent
-  └── button/          HordeButtonComponent
+├── components/          Angular standalone components
+│   ├── badge/           HordeBadgeComponent
+│   ├── alert/           HordeAlertComponent
+│   └── button/          HordeButtonComponent
+└── docs/                Design language documentation
+    ├── design-system.md   Design ethic, tokens, surfaces, color system
+    └── component-patterns.md  Full CSS class catalog
 ```
 
 ## Requirements

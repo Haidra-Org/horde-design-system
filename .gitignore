@@ -42,6 +42,12 @@ build/Release
 node_modules/
 jspm_packages/
 
+# Lockfile — this is a peer-dep-only library, not an app.
+# Tracking a lockfile encourages `npm install` inside the submodule, which
+# creates a local node_modules/@angular/core that shadows the host app's
+# copy and causes Angular signal brand-type mismatches (TS2551).
+package-lock.json
+
 # Snowpack dependency directory (https://snowpack.dev/)
 web_modules/
 
