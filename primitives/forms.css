@@ -13,7 +13,14 @@
   .form-input,
   .form-textarea,
   .form-select {
-    @apply py-2.5 px-3.5 text-sm rounded-lg transition-all duration-150;
+    padding-block: --spacing(2.5);
+    padding-inline: --spacing(3.5);
+    font-size: var(--text-sm);
+    line-height: var(--text-sm--line-height);
+    border-radius: var(--radius-lg);
+    transition-property: all;
+    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+    transition-duration: 150ms;
     background: var(--color-glass-surface);
     backdrop-filter: blur(var(--blur-glass-sm));
     -webkit-backdrop-filter: blur(var(--blur-glass-sm));
@@ -25,7 +32,8 @@
   .form-input:focus,
   .form-select:focus,
   .form-textarea:focus {
-    @apply outline-none;
+    outline: 2px solid transparent;
+    outline-offset: 2px;
     border-color: var(--color-brand-blue);
     box-shadow:
       0 0 0 3px rgb(59 130 246 / 0.15),
@@ -54,14 +62,17 @@
 
   .form-input::placeholder,
   .form-textarea::placeholder {
-    @apply text-gray-400;
+    color: var(--color-gray-400);
   }
 
   /* Disabled — striped pattern */
   .form-input:disabled,
   .form-select:disabled,
   .form-textarea:disabled {
-    @apply opacity-60 cursor-not-allowed bg-gray-100 text-gray-500;
+    opacity: 0.6;
+    cursor: not-allowed;
+    background-color: var(--color-gray-100);
+    color: var(--color-gray-500);
     background-image: repeating-linear-gradient(
       45deg,
       transparent,
@@ -74,7 +85,8 @@
   .dark .form-input:disabled,
   .dark .form-select:disabled,
   .dark .form-textarea:disabled {
-    @apply bg-gray-800 text-gray-400;
+    background-color: var(--color-gray-800);
+    color: var(--color-gray-400);
     background-image: repeating-linear-gradient(
       45deg,
       transparent,
@@ -85,11 +97,12 @@
   }
 
   .form-textarea {
-    @apply resize-y min-h-[80px];
+    resize: vertical;
+    min-height: 80px;
   }
 
   .form-select {
-    @apply cursor-pointer;
+    cursor: pointer;
   }
 
   /* =================================================================
@@ -97,26 +110,38 @@
      ================================================================= */
 
   .form-label {
-    @apply block mb-2 text-sm font-medium;
+    display: block;
+    margin-bottom: --spacing(2);
+    font-size: var(--text-sm);
+    line-height: var(--text-sm--line-height);
+    font-weight: 500;
     color: var(--color-text-primary);
   }
 
   .dark .form-label {
-    @apply text-gray-200;
+    color: var(--color-gray-200);
   }
 
   .form-hint {
-    @apply m-0 text-xs;
+    margin: 0;
+    font-size: var(--text-xs);
+    line-height: var(--text-xs--line-height);
     color: var(--color-text-secondary);
   }
 
   .dark .form-hint {
-    @apply text-gray-400;
+    color: var(--color-gray-400);
   }
 
   .form-error {
-    @apply text-red-600 text-xs mt-1;
-    @apply dark:text-red-400;
+    color: var(--color-red-600);
+    font-size: var(--text-xs);
+    line-height: var(--text-xs--line-height);
+    margin-top: --spacing(1);
+  }
+
+  .dark .form-error {
+    color: var(--color-red-400);
   }
 
   /* =================================================================
@@ -126,27 +151,13 @@
   .form-input-error,
   .form-textarea-error,
   .form-select-error {
-    border-color: var(--color-danger-500, #ef4444);
+    border-color: var(--color-red-500);
   }
 
   .form-input-error:focus,
   .form-textarea-error:focus,
   .form-select-error:focus {
-    border-color: var(--color-danger-500, #ef4444);
-    box-shadow: 0 0 0 3px rgb(239 68 68 / 0.15);
-  }
-
-  .dark .form-input-error,
-  .dark .form-textarea-error,
-  .dark .form-select-error {
-    border-color: var(--color-danger-400, #f87171);
-  }
-
-  .dark .form-input-error:focus,
-  .dark .form-textarea-error:focus,
-  .dark .form-select-error:focus {
-    border-color: var(--color-danger-400, #f87171);
-    box-shadow: 0 0 0 3px rgb(248 113 113 / 0.12);
+    border-color: var(--color-red-500);
   }
 
   .form-input-success,
@@ -181,18 +192,31 @@
 
   /* Container for checkbox + label pairs */
   .form-checkbox {
-    @apply flex items-center gap-2;
+    display: flex;
+    align-items: center;
+    gap: --spacing(2);
   }
 
   /* The actual checkbox input */
   .checkbox-input {
-    @apply w-4 h-4 text-blue-600 bg-gray-100 border border-gray-300 rounded;
-    @apply focus:outline-none focus:border-blue-600;
-    @apply dark:bg-gray-700 dark:border-gray-600;
+    width: --spacing(4);
+    height: --spacing(4);
+    color: var(--color-blue-600);
+    background-color: var(--color-gray-100);
+    border: 1px solid var(--color-gray-300);
+    border-radius: 0.25rem;
   }
 
   .checkbox-input:focus {
+    outline: 2px solid transparent;
+    outline-offset: 2px;
+    border-color: var(--color-blue-600);
     box-shadow: 0 0 0 2px rgb(191 219 254);
+  }
+
+  .dark .checkbox-input {
+    background-color: var(--color-gray-700);
+    border-color: var(--color-gray-600);
   }
 
   .dark .checkbox-input:focus {
@@ -200,12 +224,20 @@
   }
 
   .checkbox-label {
-    @apply ml-2 text-sm font-medium text-gray-900 cursor-pointer;
-    @apply dark:text-gray-300;
+    margin-left: --spacing(2);
+    font-size: var(--text-sm);
+    line-height: var(--text-sm--line-height);
+    font-weight: 500;
+    color: var(--color-gray-900);
+    cursor: pointer;
+  }
+
+  .dark .checkbox-label {
+    color: var(--color-gray-300);
   }
 
   .form-checkbox .checkbox-label {
-    @apply ml-0;
+    margin-left: 0;
   }
 
   /* =================================================================
@@ -213,38 +245,74 @@
      ================================================================= */
 
   .form-field {
-    @apply space-y-1.5;
+    display: flex;
+    flex-direction: column;
+    gap: --spacing(1.5);
+    flex: 1 1 0%;
+    min-width: --spacing(64);
   }
 
   .form-grid {
-    @apply grid grid-cols-1 gap-4;
+    display: grid;
+    grid-template-columns: repeat(1, minmax(0, 1fr));
+    gap: --spacing(4);
   }
 
   .form-grid-2 {
-    @apply grid grid-cols-1 md:grid-cols-2 gap-4;
+    display: grid;
+    grid-template-columns: repeat(1, minmax(0, 1fr));
+    gap: --spacing(4);
+
+    @media (width >= 48rem) {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
   }
 
   .form-grid-3 {
-    @apply grid grid-cols-1 md:grid-cols-3 gap-4;
+    display: grid;
+    grid-template-columns: repeat(1, minmax(0, 1fr));
+    gap: --spacing(4);
+
+    @media (width >= 48rem) {
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
   }
 
   .form-grid-4 {
-    @apply grid grid-cols-1 md:grid-cols-4 gap-4;
+    display: grid;
+    grid-template-columns: repeat(1, minmax(0, 1fr));
+    gap: --spacing(4);
+
+    @media (width >= 48rem) {
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+    }
   }
 
   .grid-col-span-1 {
-    @apply col-span-1;
+    grid-column: span 1 / span 1;
   }
 
   .grid-col-span-2 {
-    @apply col-span-1 md:col-span-2;
+    grid-column: span 1 / span 1;
+
+    @media (width >= 48rem) {
+      grid-column: span 2 / span 2;
+    }
   }
 
   .grid-col-span-3 {
-    @apply col-span-1 md:col-span-3;
+    grid-column: span 1 / span 1;
+
+    @media (width >= 48rem) {
+      grid-column: span 3 / span 3;
+    }
   }
 
   .grid-col-span-4 {
-    @apply col-span-1 md:col-span-4;
+    grid-column: span 1 / span 1;
+
+    @media (width >= 48rem) {
+      grid-column: span 4 / span 4;
+    }
   }
 }

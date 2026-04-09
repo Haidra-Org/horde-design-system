@@ -115,7 +115,8 @@
      ================================================================= */
 
   .callout {
-    @apply p-4 rounded-lg;
+    padding: --spacing(4);
+    border-radius: var(--radius-lg);
     background: var(--color-glass-surface-panel);
     backdrop-filter: blur(var(--blur-glass-sm));
     -webkit-backdrop-filter: blur(var(--blur-glass-sm));
@@ -158,33 +159,47 @@
   }
 
   .callout-title {
-    @apply m-0 mb-2 text-lg font-semibold;
+    margin: 0;
+    margin-bottom: --spacing(2);
+    font-size: var(--text-lg);
+    line-height: var(--text-lg--line-height);
+    font-weight: 600;
     color: var(--color-content-primary, #111827);
   }
 
   .dark .callout-title {
-    @apply text-white;
+    color: #fff;
   }
 
   .callout-title-lg {
-    @apply text-xl;
+    font-size: var(--text-xl);
+    line-height: var(--text-xl--line-height);
   }
 
   .callout-body {
-    @apply m-0 mb-3 text-base;
+    margin: 0;
+    margin-bottom: --spacing(3);
+    font-size: var(--text-base);
+    line-height: var(--text-base--line-height);
     color: var(--color-content-secondary, #6b7280);
   }
 
   .dark .callout-body {
-    @apply text-gray-400;
+    color: var(--color-gray-400);
   }
 
   .callout-body-lg {
-    @apply text-lg leading-relaxed;
+    font-size: var(--text-lg);
+    line-height: var(--leading-relaxed);
   }
 
   .callout-2-grid {
-    @apply grid grid-cols-1 gap-6;
-    @apply md:grid-cols-2;
+    display: grid;
+    grid-template-columns: repeat(1, minmax(0, 1fr));
+    gap: --spacing(6);
+
+    @media (width >= 48rem) {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
   }
 }

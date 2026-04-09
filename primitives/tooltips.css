@@ -184,27 +184,68 @@
      ================================================================= */
 
   .tooltip-enhanced {
-    @apply absolute z-[9999] max-w-sm p-3 bg-gray-900 text-white text-sm rounded-lg shadow-xl;
-    @apply border border-gray-700;
-    @apply dark:bg-gray-800 dark:border-gray-600;
+    position: absolute;
+    z-index: 9999;
+    padding: --spacing(3);
+    background-color: var(--color-gray-900);
+    color: #fff;
+    font-size: var(--text-sm);
+    line-height: var(--text-sm--line-height);
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow-xl);
+    max-width: 24rem;
+    border: 1px solid var(--color-gray-700);
+  }
+
+  .dark .tooltip-enhanced {
+    background-color: var(--color-gray-800);
+    border-color: var(--color-gray-600);
   }
 
   .tooltip-enhanced-title {
-    @apply font-semibold text-primary-300 mb-1;
+    font-weight: 600;
+    color: var(--color-primary-300);
+    margin-bottom: --spacing(1);
   }
 
   .tooltip-enhanced-content {
-    @apply text-gray-200 leading-relaxed mb-2;
-    @apply dark:text-gray-300;
+    color: var(--color-gray-200);
+    line-height: var(--leading-relaxed);
+    margin-bottom: --spacing(2);
+  }
+
+  .dark .tooltip-enhanced-content {
+    color: var(--color-gray-300);
   }
 
   .tooltip-enhanced-example {
-    @apply text-xs text-gray-400 italic border-l-2 border-gray-600 pl-2 mt-2;
-    @apply dark:border-gray-500 dark:text-gray-400;
+    font-size: var(--text-xs);
+    line-height: var(--text-xs--line-height);
+    color: var(--color-gray-400);
+    font-style: italic;
+    border-left: 2px solid var(--color-gray-600);
+    padding-left: --spacing(2);
+    margin-top: --spacing(2);
+  }
+
+  .dark .tooltip-enhanced-example {
+    border-left-color: var(--color-gray-500);
+    color: var(--color-gray-400);
   }
 
   .tooltip-enhanced-link {
-    @apply text-xs text-primary-400 hover:underline mt-2 inline-block;
-    @apply dark:text-primary-300;
+    font-size: var(--text-xs);
+    line-height: var(--text-xs--line-height);
+    color: var(--color-primary-400);
+    margin-top: --spacing(2);
+    display: inline-block;
+  }
+
+  .tooltip-enhanced-link:hover {
+    text-decoration-line: underline;
+  }
+
+  .dark .tooltip-enhanced-link {
+    color: var(--color-primary-300);
   }
 }

@@ -10,55 +10,97 @@
   .heading-page,
   .heading-section,
   .heading-card {
-    @apply font-semibold text-gray-900 dark:text-gray-100;
+    font-weight: 600;
+    color: var(--color-content-primary);
+  }
+
+  .dark .heading-page,
+  .dark .heading-section,
+  .dark .heading-card {
+    color: #fff;
   }
 
   .heading-page {
-    @apply text-2xl;
+    font-size: var(--text-2xl);
+    line-height: var(--text-2xl--line-height);
   }
 
   .heading-section {
-    @apply text-lg;
+    font-size: var(--text-3xl);
+    line-height: var(--text-3xl--line-height);
+    font-weight: 800;
+    letter-spacing: var(--tracking-tight);
   }
 
   .heading-card {
-    @apply text-base;
+    margin-bottom: --spacing(4);
+    font-size: var(--text-2xl);
+    line-height: var(--text-2xl--line-height);
   }
 
   /* Links — matches AiHordeFrontpage */
   .link {
-    @apply text-blue-600;
-    @apply dark:text-blue-500;
+    color: var(--color-blue-600);
+  }
+
+  .dark .link {
+    color: var(--color-blue-500);
   }
 
   .link:hover {
-    @apply underline;
+    text-decoration-line: underline;
   }
 
   /* Muted/helper text */
   .text-muted {
-    @apply text-gray-500 dark:text-gray-400;
+    color: var(--color-gray-500);
+  }
+
+  .dark .text-muted {
+    color: var(--color-gray-400);
   }
 
   /* Field labels and values for detail views */
   .field-label {
-    @apply font-medium text-gray-700 mb-0.5;
-    @apply dark:text-gray-300;
+    font-weight: 500;
+    color: var(--color-gray-700);
+    margin-bottom: --spacing(0.5);
+  }
+
+  .dark .field-label {
+    color: var(--color-gray-300);
   }
 
   .field-value {
-    @apply text-gray-600;
-    @apply dark:text-gray-400;
+    color: var(--color-gray-600);
+  }
+
+  .dark .field-value {
+    color: var(--color-gray-400);
   }
 
   /* Inline label annotations */
   .label-hint {
-    @apply text-xs text-gray-500 font-normal ml-2;
-    @apply dark:text-gray-400;
+    font-size: var(--text-xs);
+    line-height: var(--text-xs--line-height);
+    color: var(--color-gray-500);
+    font-weight: 400;
+    margin-left: --spacing(2);
+  }
+
+  .dark .label-hint {
+    color: var(--color-gray-400);
   }
 
   .label-warning {
-    @apply text-xs text-warning-600 font-normal ml-1;
-    @apply dark:text-warning-400;
+    font-size: var(--text-xs);
+    line-height: var(--text-xs--line-height);
+    color: var(--color-warning-600);
+    font-weight: 400;
+    margin-left: --spacing(1);
+  }
+
+  .dark .label-warning {
+    color: var(--color-warning-400);
   }
 }

@@ -10,16 +10,25 @@
      ================================================================= */
 
   .modal-overlay {
-    @apply fixed inset-0 z-50 flex items-center justify-center p-4 overflow-y-auto;
+    position: fixed;
+    inset: 0;
+    z-index: 50;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: --spacing(4);
+    overflow-y: auto;
   }
 
   .modal-backdrop {
-    @apply fixed inset-0 -z-10;
+    position: fixed;
+    inset: 0;
+    z-index: -10;
     background-color: rgb(0 0 0 / 0.5);
   }
 
   .modal-backdrop--blur {
-    @apply backdrop-blur-sm;
+    backdrop-filter: blur(4px);
   }
 
   /* Higher z-index for nested modals */
@@ -36,8 +45,10 @@
      ================================================================= */
 
   .modal-dialog {
-    @apply rounded flex flex-col;
-    @apply p-6;
+    border-radius: 0.25rem;
+    display: flex;
+    flex-direction: column;
+    padding: --spacing(6);
     min-width: 20rem;
     width: fit-content;
     max-width: clamp(20rem, 90vw, 56rem);
@@ -69,7 +80,11 @@
      ================================================================= */
 
   .modal-panel {
-    @apply relative rounded-lg p-6 w-full overflow-y-auto;
+    position: relative;
+    border-radius: var(--radius-lg);
+    padding: --spacing(6);
+    width: 100%;
+    overflow-y: auto;
     background: var(--color-glass-surface-elevated);
     backdrop-filter: blur(var(--blur-glass-md));
     -webkit-backdrop-filter: blur(var(--blur-glass-md));
@@ -105,13 +120,13 @@
   }
 
   .modal-panel--xl {
-    @apply max-w-3xl;
+    max-width: 48rem;
     max-height: 85vh;
   }
 
   @media (min-width: 1024px) {
     .modal-panel--xl {
-      @apply max-w-4xl;
+      max-width: 56rem;
     }
   }
 
@@ -126,58 +141,88 @@
      ================================================================= */
 
   .modal-header {
-    @apply flex items-center justify-between mb-4;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: --spacing(4);
   }
 
   .modal-title {
-    @apply m-0 text-lg font-semibold;
-    color: var(--color-content-primary, #111827);
+    margin: 0;
+    font-size: var(--text-lg);
+    line-height: var(--text-lg--line-height);
+    font-weight: 600;
+    color: var(--color-content-primary);
   }
 
   .dark .modal-title {
-    @apply text-white;
+    color: #fff;
   }
 
   .modal-close {
-    @apply p-2 rounded-lg transition-colors duration-150;
-    color: var(--color-content-secondary, #6b7280);
+    padding: --spacing(2);
+    border-radius: var(--radius-lg);
+    transition-property: color, background-color, border-color;
+    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+    transition-duration: 150ms;
+    color: var(--color-content-secondary);
   }
 
   .modal-close:hover {
-    background-color: var(--color-surface-secondary, #f3f4f6);
-    color: var(--color-content-primary, #111827);
+    background-color: var(--color-surface-secondary);
+    color: var(--color-content-primary);
   }
 
   .dark .modal-close {
-    @apply text-gray-400;
+    color: var(--color-gray-400);
   }
 
   .dark .modal-close:hover {
-    @apply bg-gray-700 text-white;
+    background-color: var(--color-gray-700);
+    color: #fff;
   }
 
   .modal-content,
   .modal-body {
-    @apply text-sm;
-    color: var(--color-content-secondary, #6b7280);
+    font-size: var(--text-sm);
+    line-height: var(--text-sm--line-height);
+    color: var(--color-content-secondary);
   }
 
   .dark .modal-content,
   .dark .modal-body {
-    @apply text-gray-400;
+    color: var(--color-gray-400);
+  }
+
+  .modal-body p {
+    margin: 0;
+    margin-bottom: --spacing(4);
   }
 
   .modal-content {
-    @apply mb-6 overflow-y-auto;
+    margin-bottom: --spacing(6);
+    overflow-y: auto;
   }
 
   .modal-scroll {
-    @apply flex-1 overflow-y-auto pr-2 min-h-0;
+    flex: 1 1 0%;
+    overflow-y: auto;
+    padding-right: --spacing(2);
+    min-height: 0;
     max-height: 60vh;
   }
 
   .modal-actions {
-    @apply flex justify-end gap-3;
-    @apply flex-shrink-0;
+    display: flex;
+    justify-content: flex-end;
+    gap: --spacing(2);
+    margin-top: --spacing(6);
+    padding-top: --spacing(4);
+    flex-shrink: 0;
+    border-top: 1px solid var(--color-edge-primary);
+  }
+
+  .dark .modal-actions {
+    border-top-color: var(--color-gray-700);
   }
 }

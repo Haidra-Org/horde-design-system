@@ -13,19 +13,33 @@
      ================================================================= */
 
   .btn {
-    @apply inline-flex items-center gap-2;
-    @apply text-sm font-medium text-center;
-    @apply rounded-lg;
-    @apply transition-colors duration-200;
-    @apply focus:outline-none;
+    display: inline-flex;
+    align-items: center;
+    gap: --spacing(2);
+    font-size: var(--text-sm);
+    line-height: var(--text-sm--line-height);
+    font-weight: 500;
+    text-align: center;
+    border-radius: var(--radius-lg);
+    transition-property: color, background-color, border-color;
+    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+    transition-duration: 200ms;
+  }
+
+  .btn:focus {
+    outline: 2px solid transparent;
+    outline-offset: 2px;
   }
 
   .btn:disabled {
-    @apply opacity-50 cursor-not-allowed;
+    opacity: 0.5;
+    cursor: not-allowed;
   }
 
   .btn .icon {
-    @apply w-5 h-5 shrink-0;
+    width: --spacing(5);
+    height: --spacing(5);
+    flex-shrink: 0;
   }
 
   /* =================================================================
@@ -33,18 +47,39 @@
      ================================================================= */
 
   .btn-primary {
-    @apply inline-flex items-center gap-2;
-    @apply px-5 py-2.5;
-    @apply text-sm font-medium text-white text-center;
-    @apply bg-brand-blue rounded-lg;
-    @apply transition-colors duration-200;
-    @apply hover:bg-brand-blue-hover;
-    @apply focus:outline-none;
-    @apply dark:bg-blue-600 dark:hover:bg-brand-blue;
+    display: inline-flex;
+    align-items: center;
+    gap: --spacing(2);
+    padding-inline: --spacing(5);
+    padding-block: --spacing(2.5);
+    font-size: var(--text-sm);
+    line-height: var(--text-sm--line-height);
+    font-weight: 500;
+    color: #fff;
+    text-align: center;
+    background-color: var(--color-brand-blue);
+    border-radius: var(--radius-lg);
+    transition-property: color, background-color, border-color;
+    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+    transition-duration: 200ms;
+  }
+
+  .btn-primary:hover {
+    background-color: var(--color-brand-blue-hover);
   }
 
   .btn-primary:focus {
+    outline: 2px solid transparent;
+    outline-offset: 2px;
     box-shadow: var(--shadow-focus-blue);
+  }
+
+  .dark .btn-primary {
+    background-color: var(--color-blue-600);
+  }
+
+  .dark .btn-primary:hover {
+    background-color: var(--color-brand-blue);
   }
 
   .dark .btn-primary:focus {
@@ -52,18 +87,34 @@
   }
 
   .btn-primary:disabled {
-    @apply opacity-50 cursor-not-allowed;
+    opacity: 0.5;
+    cursor: not-allowed;
   }
 
   .btn-primary .icon {
-    @apply w-5 h-5 shrink-0;
+    width: --spacing(5);
+    height: --spacing(5);
+    flex-shrink: 0;
   }
 
   /* Error state — indicates validation failure */
   .btn-primary--error {
-    @apply bg-red-600 hover:bg-red-700 dark:bg-red-700 dark:hover:bg-red-800;
-    @apply ring-2 ring-red-400 ring-offset-1 dark:ring-red-500;
+    background-color: var(--color-red-600);
+    box-shadow: 0 0 0 2px var(--color-red-400), 0 0 0 calc(2px + 1px) transparent;
     animation: btn-shake 0.35s ease;
+  }
+
+  .btn-primary--error:hover {
+    background-color: var(--color-red-700);
+  }
+
+  .dark .btn-primary--error {
+    background-color: var(--color-red-700);
+    box-shadow: 0 0 0 2px var(--color-red-500), 0 0 0 calc(2px + 1px) transparent;
+  }
+
+  .dark .btn-primary--error:hover {
+    background-color: var(--color-red-800);
   }
 
   @keyframes btn-shake {
@@ -90,16 +141,30 @@
      ================================================================= */
 
   .btn-purple {
-    @apply inline-flex items-center gap-2;
-    @apply px-5 py-2.5;
-    @apply text-sm font-medium text-white text-center;
-    @apply bg-brand-purple rounded-lg;
-    @apply transition-colors duration-200;
-    @apply hover:bg-brand-purple-hover;
-    @apply focus:outline-none;
+    display: inline-flex;
+    align-items: center;
+    gap: --spacing(2);
+    padding-inline: --spacing(5);
+    padding-block: --spacing(2.5);
+    font-size: var(--text-sm);
+    line-height: var(--text-sm--line-height);
+    font-weight: 500;
+    color: #fff;
+    text-align: center;
+    background-color: var(--color-brand-purple);
+    border-radius: var(--radius-lg);
+    transition-property: color, background-color, border-color;
+    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+    transition-duration: 200ms;
+  }
+
+  .btn-purple:hover {
+    background-color: var(--color-brand-purple-hover);
   }
 
   .btn-purple:focus {
+    outline: 2px solid transparent;
+    outline-offset: 2px;
     box-shadow: var(--shadow-focus-purple);
   }
 
@@ -108,11 +173,14 @@
   }
 
   .btn-purple:disabled {
-    @apply opacity-50 cursor-not-allowed;
+    opacity: 0.5;
+    cursor: not-allowed;
   }
 
   .btn-purple .icon {
-    @apply w-5 h-5 shrink-0;
+    width: --spacing(5);
+    height: --spacing(5);
+    flex-shrink: 0;
   }
 
   /* =================================================================
@@ -120,31 +188,57 @@
      ================================================================= */
 
   .btn-secondary {
-    @apply inline-flex items-center gap-2;
-    @apply px-5 py-2.5;
-    @apply text-sm font-medium text-center;
-    @apply text-gray-600 bg-gray-200 rounded-lg;
-    @apply transition-colors duration-200;
-    @apply hover:bg-gray-300 hover:text-gray-700;
-    @apply focus:outline-none;
-    @apply dark:text-gray-400 dark:bg-gray-700;
-    @apply dark:hover:bg-gray-600 dark:hover:text-gray-300;
+    display: inline-flex;
+    align-items: center;
+    gap: --spacing(2);
+    padding-inline: --spacing(5);
+    padding-block: --spacing(2.5);
+    font-size: var(--text-sm);
+    line-height: var(--text-sm--line-height);
+    font-weight: 500;
+    text-align: center;
+    color: var(--color-gray-700);
+    background-color: var(--color-gray-100);
+    border-radius: var(--radius-lg);
+    transition-property: color, background-color, border-color;
+    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+    transition-duration: 200ms;
+  }
+
+  .btn-secondary:hover {
+    background-color: var(--color-gray-200);
+    color: var(--color-gray-900);
   }
 
   .btn-secondary:focus {
-    box-shadow: 0 0 0 4px rgb(229 231 235 / 0.5);
+    outline: 2px solid transparent;
+    outline-offset: 2px;
+    box-shadow: 0 0 0 4px rgb(156 163 175 / 0.5);
+  }
+
+  .dark .btn-secondary {
+    color: var(--color-gray-300);
+    background-color: var(--color-gray-700);
+  }
+
+  .dark .btn-secondary:hover {
+    background-color: var(--color-gray-600);
+    color: #fff;
   }
 
   .dark .btn-secondary:focus {
-    box-shadow: 0 0 0 4px rgb(55 65 81 / 0.5);
+    box-shadow: 0 0 0 4px rgb(75 85 99 / 0.5);
   }
 
   .btn-secondary:disabled {
-    @apply opacity-50 cursor-not-allowed;
+    opacity: 0.5;
+    cursor: not-allowed;
   }
 
   .btn-secondary .icon {
-    @apply w-5 h-5 shrink-0;
+    width: --spacing(5);
+    height: --spacing(5);
+    flex-shrink: 0;
   }
 
   /* =================================================================
@@ -152,19 +246,42 @@
      ================================================================= */
 
   .btn-source-control {
-    @apply inline-flex items-center gap-2;
-    @apply px-5 py-2.5;
-    @apply text-sm font-medium text-center;
-    @apply text-gray-600 bg-gray-200 rounded-lg;
-    @apply transition-colors duration-200;
-    @apply hover:bg-gray-300 hover:text-gray-700;
-    @apply focus:outline-none;
-    @apply dark:text-gray-400 dark:bg-gray-700;
-    @apply dark:hover:bg-gray-600 dark:hover:text-gray-300;
+    display: inline-flex;
+    align-items: center;
+    gap: --spacing(2);
+    padding-inline: --spacing(5);
+    padding-block: --spacing(2.5);
+    font-size: var(--text-sm);
+    line-height: var(--text-sm--line-height);
+    font-weight: 500;
+    text-align: center;
+    color: var(--color-gray-600);
+    background-color: var(--color-gray-200);
+    border-radius: var(--radius-lg);
+    transition-property: color, background-color, border-color;
+    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+    transition-duration: 200ms;
+  }
+
+  .btn-source-control:hover {
+    background-color: var(--color-gray-300);
+    color: var(--color-gray-700);
   }
 
   .btn-source-control:focus {
+    outline: 2px solid transparent;
+    outline-offset: 2px;
     box-shadow: 0 0 0 4px rgb(229 231 235 / 0.5);
+  }
+
+  .dark .btn-source-control {
+    color: var(--color-gray-400);
+    background-color: var(--color-gray-700);
+  }
+
+  .dark .btn-source-control:hover {
+    background-color: var(--color-gray-600);
+    color: var(--color-gray-300);
   }
 
   .dark .btn-source-control:focus {
@@ -172,11 +289,14 @@
   }
 
   .btn-source-control:disabled {
-    @apply opacity-50 cursor-not-allowed;
+    opacity: 0.5;
+    cursor: not-allowed;
   }
 
   .btn-source-control .icon {
-    @apply w-5 h-5 shrink-0;
+    width: --spacing(5);
+    height: --spacing(5);
+    flex-shrink: 0;
   }
 
   /* =================================================================
@@ -184,7 +304,15 @@
      ================================================================= */
 
   .btn-muted {
-    @apply py-2 px-4 text-sm font-medium rounded-lg transition-colors duration-200;
+    padding-block: --spacing(2);
+    padding-inline: --spacing(4);
+    font-size: var(--text-sm);
+    line-height: var(--text-sm--line-height);
+    font-weight: 500;
+    border-radius: var(--radius-lg);
+    transition-property: color, background-color, border-color;
+    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+    transition-duration: 200ms;
     color: var(--color-content-secondary);
     background-color: var(--color-surface-secondary);
   }
@@ -195,15 +323,18 @@
   }
 
   .dark .btn-muted {
-    @apply text-gray-300 bg-gray-700;
+    color: var(--color-gray-300);
+    background-color: var(--color-gray-700);
   }
 
   .dark .btn-muted:hover {
-    @apply bg-gray-600 text-white;
+    background-color: var(--color-gray-600);
+    color: #fff;
   }
 
   .btn-muted:disabled {
-    @apply opacity-50 cursor-not-allowed;
+    opacity: 0.5;
+    cursor: not-allowed;
   }
 
   /* =================================================================
@@ -211,15 +342,26 @@
      ================================================================= */
 
   .btn-danger {
-    @apply py-2 px-4 text-sm font-medium text-white bg-red-600 rounded-lg transition-colors duration-200;
+    padding-block: --spacing(2);
+    padding-inline: --spacing(4);
+    font-size: var(--text-sm);
+    line-height: var(--text-sm--line-height);
+    font-weight: 500;
+    color: #fff;
+    background-color: var(--color-red-600);
+    border-radius: var(--radius-lg);
+    transition-property: color, background-color, border-color;
+    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+    transition-duration: 200ms;
   }
 
   .btn-danger:hover:not(:disabled) {
-    @apply bg-red-700;
+    background-color: var(--color-red-700);
   }
 
   .btn-danger:disabled {
-    @apply opacity-50 cursor-not-allowed;
+    opacity: 0.5;
+    cursor: not-allowed;
   }
 
   /* =================================================================
@@ -227,18 +369,39 @@
      ================================================================= */
 
   .btn-success {
-    @apply inline-flex items-center gap-2;
-    @apply px-5 py-2.5;
-    @apply text-sm font-medium text-white text-center;
-    @apply bg-green-600 rounded-lg;
-    @apply transition-colors duration-200;
-    @apply hover:bg-green-700;
-    @apply focus:outline-none;
-    @apply dark:bg-green-500 dark:hover:bg-green-600;
+    display: inline-flex;
+    align-items: center;
+    gap: --spacing(2);
+    padding-inline: --spacing(5);
+    padding-block: --spacing(2.5);
+    font-size: var(--text-sm);
+    line-height: var(--text-sm--line-height);
+    font-weight: 500;
+    color: #fff;
+    text-align: center;
+    background-color: var(--color-green-600);
+    border-radius: var(--radius-lg);
+    transition-property: color, background-color, border-color;
+    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+    transition-duration: 200ms;
+  }
+
+  .btn-success:hover {
+    background-color: var(--color-green-700);
   }
 
   .btn-success:focus {
+    outline: 2px solid transparent;
+    outline-offset: 2px;
     box-shadow: 0 0 0 4px rgb(34 197 94 / 0.5);
+  }
+
+  .dark .btn-success {
+    background-color: var(--color-green-500);
+  }
+
+  .dark .btn-success:hover {
+    background-color: var(--color-green-600);
   }
 
   .dark .btn-success:focus {
@@ -246,7 +409,8 @@
   }
 
   .btn-success:disabled {
-    @apply opacity-50 cursor-not-allowed;
+    opacity: 0.5;
+    cursor: not-allowed;
   }
 
   /* =================================================================
@@ -254,18 +418,43 @@
      ================================================================= */
 
   .btn-info {
-    @apply inline-flex items-center gap-2;
-    @apply px-5 py-2.5;
-    @apply text-sm font-medium text-white text-center;
-    @apply bg-cyan-600 rounded-lg;
-    @apply transition-colors duration-200;
-    @apply hover:bg-cyan-700;
-    @apply focus:outline-none;
-    @apply dark:bg-cyan-500 dark:hover:bg-cyan-600;
+    display: inline-flex;
+    align-items: center;
+    gap: --spacing(2);
+    padding-inline: --spacing(5);
+    padding-block: --spacing(2.5);
+    font-size: var(--text-sm);
+    line-height: var(--text-sm--line-height);
+    font-weight: 500;
+    color: #fff;
+    text-align: center;
+    background-color: var(--color-cyan-600);
+    border-radius: var(--radius-lg);
+    transition-property: color, background-color, border-color;
+    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+    transition-duration: 200ms;
+  }
+
+  .btn-info:hover {
+    background-color: var(--color-cyan-700);
+  }
+
+  .btn-info:focus {
+    outline: 2px solid transparent;
+    outline-offset: 2px;
+  }
+
+  .dark .btn-info {
+    background-color: var(--color-cyan-500);
+  }
+
+  .dark .btn-info:hover {
+    background-color: var(--color-cyan-600);
   }
 
   .btn-info:disabled {
-    @apply opacity-50 cursor-not-allowed;
+    opacity: 0.5;
+    cursor: not-allowed;
   }
 
   /* =================================================================
@@ -273,16 +462,30 @@
      ================================================================= */
 
   .btn-warning {
-    @apply inline-flex items-center gap-2;
-    @apply px-5 py-2.5;
-    @apply text-sm font-medium text-center;
-    @apply bg-yellow-500 text-gray-900 rounded-lg;
-    @apply transition-colors duration-200;
-    @apply hover:bg-yellow-600;
-    @apply focus:outline-none;
+    display: inline-flex;
+    align-items: center;
+    gap: --spacing(2);
+    padding-inline: --spacing(5);
+    padding-block: --spacing(2.5);
+    font-size: var(--text-sm);
+    line-height: var(--text-sm--line-height);
+    font-weight: 500;
+    text-align: center;
+    background-color: var(--color-yellow-500);
+    color: var(--color-gray-900);
+    border-radius: var(--radius-lg);
+    transition-property: color, background-color, border-color;
+    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+    transition-duration: 200ms;
+  }
+
+  .btn-warning:hover {
+    background-color: var(--color-yellow-600);
   }
 
   .btn-warning:focus {
+    outline: 2px solid transparent;
+    outline-offset: 2px;
     box-shadow: 0 0 0 4px rgb(234 179 8 / 0.5);
   }
 
@@ -291,11 +494,14 @@
   }
 
   .btn-warning:disabled {
-    @apply opacity-50 cursor-not-allowed;
+    opacity: 0.5;
+    cursor: not-allowed;
   }
 
   .btn-warning .icon {
-    @apply w-5 h-5 shrink-0;
+    width: --spacing(5);
+    height: --spacing(5);
+    flex-shrink: 0;
   }
 
   /* =================================================================
@@ -303,7 +509,14 @@
      ================================================================= */
 
   .btn-icon {
-    @apply inline-flex items-center justify-center p-2 rounded-lg transition-colors duration-200;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: --spacing(2);
+    border-radius: var(--radius-lg);
+    transition-property: color, background-color, border-color;
+    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+    transition-duration: 200ms;
     color: var(--color-content-secondary);
     background-color: var(--color-surface-secondary);
   }
@@ -314,19 +527,23 @@
   }
 
   .dark .btn-icon {
-    @apply text-gray-400 bg-gray-700;
+    color: var(--color-gray-400);
+    background-color: var(--color-gray-700);
   }
 
   .dark .btn-icon:hover {
-    @apply bg-gray-600 text-white;
+    background-color: var(--color-gray-600);
+    color: #fff;
   }
 
   .btn-icon:disabled {
-    @apply opacity-50 cursor-not-allowed;
+    opacity: 0.5;
+    cursor: not-allowed;
   }
 
   .btn-icon .icon {
-    @apply w-5 h-5;
+    width: --spacing(5);
+    height: --spacing(5);
   }
 
   .btn-icon-danger {
@@ -334,12 +551,12 @@
   }
 
   .btn-icon-danger:hover {
-    @apply text-red-600;
+    color: var(--color-red-600);
     background-color: rgb(254 226 226);
   }
 
   .dark .btn-icon-danger:hover {
-    @apply text-red-400;
+    color: var(--color-red-400);
     background-color: rgb(127 29 29 / 0.3);
   }
 
@@ -348,19 +565,35 @@
      ================================================================= */
 
   .btn-xs {
-    @apply px-2 py-1 text-xs;
+    padding-inline: --spacing(2);
+    padding-block: --spacing(1);
+    font-size: var(--text-xs);
+    line-height: var(--text-xs--line-height);
   }
 
   .btn-sm {
-    @apply px-3 py-1.5 text-xs whitespace-nowrap shrink-0;
+    padding-inline: --spacing(3);
+    padding-block: --spacing(1.5);
+    font-size: var(--text-xs);
+    line-height: var(--text-xs--line-height);
+    white-space: nowrap;
+    flex-shrink: 0;
   }
 
   .btn-md {
-    @apply px-4 py-2 text-sm whitespace-nowrap shrink-0;
+    padding-inline: --spacing(4);
+    padding-block: --spacing(2);
+    font-size: var(--text-sm);
+    line-height: var(--text-sm--line-height);
+    white-space: nowrap;
+    flex-shrink: 0;
   }
 
   .btn-lg {
-    @apply px-6 py-3 text-base;
+    padding-inline: --spacing(6);
+    padding-block: --spacing(3);
+    font-size: var(--text-base);
+    line-height: var(--text-base--line-height);
   }
 
   /* =================================================================
@@ -368,11 +601,17 @@
      ================================================================= */
 
   .btn-responsive {
-    @apply w-full sm:w-auto;
+    width: 100%;
+
+    @media (width >= 40rem) {
+      width: auto;
+    }
   }
 
   .btn-disabled {
-    @apply cursor-not-allowed bg-gray-600 text-gray-500;
+    cursor: not-allowed;
+    background-color: var(--color-gray-600);
+    color: var(--color-gray-500);
   }
 
   /* =================================================================
@@ -380,15 +619,23 @@
      ================================================================= */
 
   .btn-group {
-    @apply flex flex-col gap-4;
-    @apply sm:flex-row;
+    display: flex;
+    flex-direction: column;
+    gap: --spacing(4);
+
+    @media (width >= 40rem) {
+      flex-direction: row;
+    }
   }
 
   .btn-group--center {
-    @apply justify-center;
+    justify-content: center;
   }
 
   .btn-group--inline {
-    @apply flex flex-row flex-wrap gap-1;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: --spacing(1);
   }
 }
