@@ -22,32 +22,32 @@ Tokens are defined in `tokens/` using CSS custom properties.
 
 ```css
 /* Glass surfaces */
---color-glass-surface:          rgb(255 255 255 / 0.6);
+--color-glass-surface: rgb(255 255 255 / 0.6);
 --color-glass-surface-elevated: rgb(255 255 255 / 0.75);
---color-glass-surface-heavy:    rgb(255 255 255 / 0.85);
---color-glass-border:           rgb(255 255 255 / 0.35);
---color-glass-border-subtle:    rgb(255 255 255 / 0.18);
---color-glass-highlight:        rgb(255 255 255 / 0.5);
+--color-glass-surface-heavy: rgb(255 255 255 / 0.85);
+--color-glass-border: rgb(255 255 255 / 0.35);
+--color-glass-border-subtle: rgb(255 255 255 / 0.18);
+--color-glass-highlight: rgb(255 255 255 / 0.5);
 
 /* Blur radii */
---blur-glass-sm: 8px;   /* Inline elements, badges, stat boxes */
---blur-glass-md: 16px;  /* Cards, panels, tab bars */
---blur-glass-lg: 24px;  /* Modals, overlays */
+--blur-glass-sm: 8px; /* Inline elements, badges, stat boxes */
+--blur-glass-md: 16px; /* Cards, panels, tab bars */
+--blur-glass-lg: 24px; /* Modals, overlays */
 
 /* Layered shadows */
---shadow-glass:          /* Base resting state */
---shadow-glass-hover:    /* Hovered / interactive state */
---shadow-glass-elevated: /* Modals, popovers, high-elevation */
---shadow-glass-inset:    /* Inner top highlight for extra depth */
-
-/* Focus rings */
---shadow-focus-blue:   0 0 0 3px color-mix(in srgb, var(--color-brand-blue) 30%, transparent);
---shadow-focus-purple: 0 0 0 3px color-mix(in srgb, var(--color-brand-purple) 30%, transparent);
+--shadow-glass:          /* Base resting state */ --shadow-glass-hover:
+  /* Hovered / interactive state */
+  --shadow-glass-elevated: /* Modals, popovers, high-elevation */
+  --shadow-glass-inset: /* Inner top highlight for extra depth */
+  /* Focus rings */ --shadow-focus-blue: 0 0 0 3px
+  color-mix(in srgb, var(--color-brand-blue) 30%, transparent);
+--shadow-focus-purple: 0 0 0 3px
+  color-mix(in srgb, var(--color-brand-purple) 30%, transparent);
 
 /* Transition tokens */
---transition-fast:   150ms;
+--transition-fast: 150ms;
 --transition-normal: 200ms;
---transition-slow:   300ms;
+--transition-slow: 300ms;
 ```
 
 Full token definitions are in `tokens/colors.css`, `tokens/glass.css`, and `tokens/spacing.css`.
@@ -56,15 +56,15 @@ Full token definitions are in `tokens/colors.css`, `tokens/glass.css`, and `toke
 
 ## Surface Primitives
 
-| Class                      | Purpose                                              | Blur   |
-| -------------------------- | ---------------------------------------------------- | ------ |
-| `.surface-glass`           | Shared frosted base for section-level surfaces       | `sm`   |
-| `.surface-glass--elevated` | Stronger glass surface for more prominent containers | `sm`   |
-| `.surface-glass--nested`   | Inner field/group surface without blur               | none   |
-| `.surface-glass--subtle`   | Nested panel surface for secondary containment       | none   |
-| `.surface-glass--hero`     | Gradient hero-stage glass surface                    | `md`   |
+| Class                      | Purpose                                              | Blur      |
+| -------------------------- | ---------------------------------------------------- | --------- |
+| `.surface-glass`           | Shared frosted base for section-level surfaces       | `sm`      |
+| `.surface-glass--elevated` | Stronger glass surface for more prominent containers | `sm`      |
+| `.surface-glass--nested`   | Inner field/group surface without blur               | none      |
+| `.surface-glass--subtle`   | Nested panel surface for secondary containment       | none      |
+| `.surface-glass--hero`     | Gradient hero-stage glass surface                    | `md`      |
 | `.surface-glass--accent`   | Gradient accent surface for intro/identity panels    | inherited |
-| `.surface-floating`        | Shared floating panel surface for menus and popovers | `md`   |
+| `.surface-floating`        | Shared floating panel surface for menus and popovers | `md`      |
 
 Start from these when building new surfaces. Layer a project-specific semantic class on top for domain meaning.
 
@@ -140,18 +140,18 @@ Projects may define additional identity colors (e.g., domain tinting) in their l
 
 ### Base Elements
 
-| Class              | Purpose                        |
-| ------------------ | ------------------------------ |
-| `.form-label`      | Input label                    |
-| `.form-input`      | Text input field               |
-| `.form-select`     | Select dropdown                |
-| `.form-textarea`   | Multi-line text input          |
-| `.form-hint`       | Help text below input          |
-| `.form-error`      | Error text below input         |
-| `.form-checkbox`   | Checkbox + label container     |
-| `.checkbox-input`  | Standard checkbox styling      |
-| `.checkbox-label`  | Label next to checkbox         |
-| `.form-field`      | Field container with spacing   |
+| Class             | Purpose                      |
+| ----------------- | ---------------------------- |
+| `.form-label`     | Input label                  |
+| `.form-input`     | Text input field             |
+| `.form-select`    | Select dropdown              |
+| `.form-textarea`  | Multi-line text input        |
+| `.form-hint`      | Help text below input        |
+| `.form-error`     | Error text below input       |
+| `.form-checkbox`  | Checkbox + label container   |
+| `.checkbox-input` | Standard checkbox styling    |
+| `.checkbox-label` | Label next to checkbox       |
+| `.form-field`     | Field container with spacing |
 
 ### Form Principles
 
@@ -215,18 +215,22 @@ All animations must respect `@media (prefers-reduced-motion: reduce)`. Content s
 
 ## Extending Locally
 
-Projects add their own tokens and classes in local CSS files that import *after* the shared system:
+Projects add their own tokens and classes in local CSS files that import _after_ the shared system:
 
 ```css
 /* Project-specific tokens */
 @theme {
-  --heat-1: #dbeafe;  /* heatmap colors — model-ref only */
+  --heat-1: #dbeafe; /* heatmap colors — model-ref only */
 }
 
 /* Project-specific classes */
 @layer components {
-  .data-table { /* ... */ }     /* model-ref only */
-  .btn-purple { /* ... */ }     /* frontpage only */
+  .data-table {
+    /* ... */
+  } /* model-ref only */
+  .btn-purple {
+    /* ... */
+  } /* frontpage only */
 }
 ```
 

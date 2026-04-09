@@ -95,25 +95,25 @@ Error state: `.btn-primary.btn--error` triggers a shake animation.
 
 ### Semantic Variants
 
-| Class              | Color  | Usage                  |
-| ------------------ | ------ | ---------------------- |
-| `.badge-primary`   | Blue   | Brand / default        |
-| `.badge-secondary` | Gray   | Neutral / deemphasized |
-| `.badge-info`      | Blue   | Informational          |
-| `.badge-warning`   | Amber  | Caution                |
-| `.badge-success`   | Green  | Positive / healthy     |
-| `.badge-danger`    | Red    | Error / destructive    |
+| Class              | Color | Usage                  |
+| ------------------ | ----- | ---------------------- |
+| `.badge-primary`   | Blue  | Brand / default        |
+| `.badge-secondary` | Gray  | Neutral / deemphasized |
+| `.badge-info`      | Blue  | Informational          |
+| `.badge-warning`   | Amber | Caution                |
+| `.badge-success`   | Green | Positive / healthy     |
+| `.badge-danger`    | Red   | Error / destructive    |
 
 ### Extra Color Variants
 
-| Class               | Color  | Usage              |
-| ------------------- | ------ | ------------------ |
-| `.badge-purple`     | Purple | Brand accent       |
-| `.badge-pink`       | Pink   | Alternative accent |
-| `.badge-indigo`     | Indigo | Secondary brand    |
-| `.badge-teal`       | Teal   | Categorical        |
-| `.badge-recommended`| Yellow | Featured / starred |
-| `.badge-easy-to-use`| Green  | Beginner-friendly  |
+| Class                | Color  | Usage              |
+| -------------------- | ------ | ------------------ |
+| `.badge-purple`      | Purple | Brand accent       |
+| `.badge-pink`        | Pink   | Alternative accent |
+| `.badge-indigo`      | Indigo | Secondary brand    |
+| `.badge-teal`        | Teal   | Categorical        |
+| `.badge-recommended` | Yellow | Featured / starred |
+| `.badge-easy-to-use` | Green  | Beginner-friendly  |
 
 ### Interactive Badges
 
@@ -264,11 +264,11 @@ Compatibility aliases for horde-model-reference-frontend:
 
 ### Grids
 
-| Class              | Columns                        |
-| ------------------ | ------------------------------ |
-| `.data-grid-2`     | `grid-cols-2`                  |
-| `.data-grid-2-3`   | `grid-cols-2 lg:grid-cols-3`   |
-| `.quick-nav-grid`  | `grid-cols-1 sm:grid-cols-3`   |
+| Class             | Columns                      |
+| ----------------- | ---------------------------- |
+| `.data-grid-2`    | `grid-cols-2`                |
+| `.data-grid-2-3`  | `grid-cols-2 lg:grid-cols-3` |
+| `.quick-nav-grid` | `grid-cols-1 sm:grid-cols-3` |
 
 ### Utility
 

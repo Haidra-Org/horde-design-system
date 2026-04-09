@@ -97,8 +97,8 @@
     margin-left: calc(-1 * var(--tooltip-arrow-size));
     border-width: var(--tooltip-arrow-size);
     border-style: solid;
-    border-color: var(--color-surface-secondary, #f3f4f6) transparent transparent
-      transparent;
+    border-color: var(--color-surface-secondary, #f3f4f6) transparent
+      transparent transparent;
   }
 
   /* =================================================================
@@ -175,8 +175,8 @@
   .tooltip-pos-bottom .tooltip-text::after {
     top: auto;
     bottom: 100%;
-    border-color: transparent transparent var(--color-surface-secondary, #f3f4f6)
-      transparent;
+    border-color: transparent transparent
+      var(--color-surface-secondary, #f3f4f6) transparent;
   }
 
   /* =================================================================
