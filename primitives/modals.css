@@ -93,15 +93,15 @@
      ================================================================= */
 
   .modal-panel--sm {
-    @apply max-w-sm;
+    max-width: 24rem;
   }
 
   .modal-panel--md {
-    @apply max-w-md;
+    max-width: 28rem;
   }
 
   .modal-panel--lg {
-    @apply max-w-xl;
+    max-width: 36rem;
   }
 
   .modal-panel--xl {

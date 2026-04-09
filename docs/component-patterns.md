@@ -165,7 +165,7 @@ All input elements include `:focus`, `.dark`, `::placeholder`, and `:disabled` s
 .modal-panel         /* Dialog container (glass surface, max-height: 80vh) */
 .modal-panel--sm     /* max-w-sm */
 .modal-panel--md     /* max-w-md */
-.modal-panel--lg     /* max-w-xl */
+.modal-panel--lg     /* 36rem */
 .modal-panel--xl     /* max-w-3xl (max-w-4xl on lg screens) */
 .modal-panel--full   /* Full viewport */
 .modal-header        /* Header row with justify-between */
