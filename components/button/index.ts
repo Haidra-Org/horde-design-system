@@ -3,4 +3,4 @@ export {
   type ButtonSize,
   type ButtonType,
   type ButtonVariant,
-} from './button.component';
+} from "./button.component";

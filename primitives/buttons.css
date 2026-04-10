@@ -100,7 +100,9 @@
   /* Error state — indicates validation failure */
   .btn-primary--error {
     background-color: var(--color-red-600);
-    box-shadow: 0 0 0 2px var(--color-red-400), 0 0 0 calc(2px + 1px) transparent;
+    box-shadow:
+      0 0 0 2px var(--color-red-400),
+      0 0 0 calc(2px + 1px) transparent;
     animation: btn-shake 0.35s ease;
   }
 
@@ -110,7 +112,9 @@
 
   .dark .btn-primary--error {
     background-color: var(--color-red-700);
-    box-shadow: 0 0 0 2px var(--color-red-500), 0 0 0 calc(2px + 1px) transparent;
+    box-shadow:
+      0 0 0 2px var(--color-red-500),
+      0 0 0 calc(2px + 1px) transparent;
   }
 
   .dark .btn-primary--error:hover {

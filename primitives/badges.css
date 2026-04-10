@@ -147,7 +147,9 @@
   .badge-dismissible:focus-visible {
     outline: 2px solid transparent;
     outline-offset: 2px;
-    box-shadow: 0 0 0 1px var(--color-white, #fff), 0 0 0 3px var(--color-orange-500);
+    box-shadow:
+      0 0 0 1px var(--color-white, #fff),
+      0 0 0 3px var(--color-orange-500);
   }
 
   .badge-outline {
