@@ -26,15 +26,15 @@ git submodule update --init --recursive
 In your project's main CSS entry point (after `@import 'tailwindcss'`):
 
 ```css
-@import "tailwindcss";
+@import 'tailwindcss';
 
 /* Shared design system */
-@import "../shared/design-system/tokens/index.css";
-@import "../shared/design-system/primitives/index.css";
+@import '../shared/design-system/tokens/index.css';
+@import '../shared/design-system/primitives/index.css';
 
 /* Project-specific extensions */
-@import "./theme/variables.css";
-@import "./components/base.css";
+@import './theme/variables.css';
+@import './components/base.css';
 /* ... */
 ```
 

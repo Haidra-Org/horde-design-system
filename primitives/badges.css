@@ -183,7 +183,7 @@
   }
 
   .badge-online::before {
-    content: "";
+    content: '';
     display: block;
     width: --spacing(1.5);
     height: --spacing(1.5);

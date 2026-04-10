@@ -10,5 +10,15 @@
     "tokens/",
     "primitives/",
     "components/"
-  ]
+  ],
+  "prettier": {
+    "tabWidth": 2,
+    "printWidth": 80,
+    "trailingComma": "all",
+    "bracketSpacing": true,
+    "semi": true,
+    "singleQuote": true,
+    "endOfLine": "lf",
+    "htmlWhitespaceSensitivity": "css"
+  }
 }
