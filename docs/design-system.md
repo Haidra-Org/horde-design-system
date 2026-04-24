@@ -123,7 +123,7 @@ All scales follow the 50–950 shade convention:
 
 ### Consistency Rules
 
-1. **Alerts**: `.alert-danger` = red, `.alert-warning` = amber, `.alert-info` = blue, `.alert-success` = green
+1. **Alerts**: `.alert--danger` = red, `.alert--warning` = amber, `.alert--info` = blue, `.alert--success` = green
 2. **Badges**: Same color mapping via `.badge-danger`, `.badge-warning`, etc.
 3. **Forms**: `.form-input-error` uses danger red for validation states.
 

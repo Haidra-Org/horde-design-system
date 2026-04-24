@@ -54,7 +54,7 @@ horde-design-system/
 │   ├── cards.css        .card, .card-header, .card-body, .card-footer
 │   ├── forms.css        .form-input, .form-label, .form-textarea, .form-select, .form-checkbox
 │   ├── modals.css       .modal-overlay, .modal-dialog, .modal-title, .modal-content
-│   ├── alerts.css       .alert, .alert-success, .alert-danger, .alert-warning, .alert-info
+│   ├── alerts.css       .alert, .alert--success, .alert--danger, .alert--warning, .alert--info
 │   ├── typography.css   .heading-page, .heading-section, .link, .text-muted
 │   ├── tables.css       .table-head-subtle, .table-body-default, .table-cell-xs*
 │   ├── tabs.css         .tabs-nav/.tabs-link core + compatibility aliases
@@ -148,7 +148,7 @@ Glassmorphism design tokens for translucent surfaces with depth.
 - **Cards**: `.card`, `.card-header`, `.card-body`, `.card-footer`
 - **Forms**: `.form-input`, `.form-textarea`, `.form-select`, `.form-label`, `.form-hint`, `.form-error`, `.form-checkbox`, `.checkbox-label`
 - **Modals**: `.modal-overlay`, `.modal-dialog`, `.modal-title`, `.modal-content`, `.modal-actions`
-- **Alerts**: `.alert`, `.alert-success`, `.alert-danger`, `.alert-warning`, `.alert-info`
+- **Alerts**: `.alert`, `.alert--success`, `.alert--danger`, `.alert--warning`, `.alert--info`
 - **Typography**: `.heading-page`, `.heading-section`, `.heading-card`, `.link`, `.text-muted`, `.field-label`, `.field-value`, `.label-hint`, `.label-warning`
 
 ### Table Primitives

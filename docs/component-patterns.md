@@ -69,13 +69,13 @@ Error state: `.btn-primary.btn--error` triggers a shake animation.
 .alert-content     /* Text content area */
 .alert-title       /* Bold title inside alert */
 .alert-actions     /* Action buttons inside alert */
-.alert-danger      /* Red error/danger variant */
-.alert-warning     /* Amber warning variant */
-.alert-info        /* Blue informational variant */
-.alert-success     /* Green success variant */
-.alert-sm          /* Small variant */
-.alert-lg          /* Large variant */
-.alert-inline      /* Inline compact variant */
+.alert--danger     /* Red error/danger variant */
+.alert--warning    /* Amber warning variant */
+.alert--info       /* Blue informational variant */
+.alert--success    /* Green success variant */
+.alert--sm         /* Small variant */
+.alert--lg         /* Large variant */
+.alert--inline     /* Inline compact variant */
 ```
 
 ---

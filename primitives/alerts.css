@@ -1,9 +1,11 @@
 /* =================================================================
    ALERT PRIMITIVES
-   Flex card layout with icon/content slots. Matches AiHordeFrontpage.
+   Flex card layout with icon/content slots.
 
-   Naming: BEM double-dash variants (alert--danger) are canonical.
-   Single-dash aliases (alert-danger) are provided for compatibility.
+   Naming: variants and sizes follow BEM double-dash convention
+   (.alert--danger, .alert--sm). Sub-elements use the flat
+   block-element form (.alert-icon, .alert-title, .alert-content,
+   .alert-actions) to match utility-class ergonomics.
 
    Structure:
      <div class="alert alert--danger">
@@ -59,27 +61,23 @@
      VARIANTS — Danger
      ================================================================= */
 
-  .alert--danger,
-  .alert-danger {
+  .alert--danger {
     background-color: var(--color-red-100);
     border-color: var(--color-red-300);
     color: var(--color-red-800);
   }
 
-  .dark .alert--danger,
-  .dark .alert-danger {
-    background-color: rgb(127 29 29 / 0.3);
-    border-color: rgb(185 28 28 / 0.5);
+  .dark .alert--danger {
+    background-color: rgb(127 29 29 / 0.95);
+    border-color: rgb(185 28 28 / 0.9);
     color: var(--color-red-200);
   }
 
-  .alert--danger .alert-icon,
-  .alert-danger .alert-icon {
+  .alert--danger .alert-icon {
     color: var(--color-red-600);
   }
 
-  .dark .alert--danger .alert-icon,
-  .dark .alert-danger .alert-icon {
+  .dark .alert--danger .alert-icon {
     color: var(--color-red-400);
   }
 
@@ -87,27 +85,23 @@
      VARIANTS — Warning
      ================================================================= */
 
-  .alert--warning,
-  .alert-warning {
+  .alert--warning {
     background-color: var(--color-amber-100);
     border-color: var(--color-amber-300);
     color: var(--color-amber-800);
   }
 
-  .dark .alert--warning,
-  .dark .alert-warning {
-    background-color: rgb(146 64 14 / 0.3);
-    border-color: rgb(217 119 6 / 0.5);
+  .dark .alert--warning {
+    background-color: rgb(146 64 14 / 0.95);
+    border-color: rgb(217 119 6 / 0.9);
     color: var(--color-amber-200);
   }
 
-  .alert--warning .alert-icon,
-  .alert-warning .alert-icon {
+  .alert--warning .alert-icon {
     color: var(--color-amber-600);
   }
 
-  .dark .alert--warning .alert-icon,
-  .dark .alert-warning .alert-icon {
+  .dark .alert--warning .alert-icon {
     color: var(--color-amber-400);
   }
 
@@ -115,27 +109,23 @@
      VARIANTS — Info
      ================================================================= */
 
-  .alert--info,
-  .alert-info {
+  .alert--info {
     background-color: var(--color-blue-50);
     border-color: var(--color-blue-200);
     color: var(--color-blue-800);
   }
 
-  .dark .alert--info,
-  .dark .alert-info {
-    background-color: rgb(30 58 138 / 0.2);
-    border-color: rgb(59 130 246 / 0.5);
+  .dark .alert--info {
+    background-color: rgb(30 58 138 / 0.95);
+    border-color: rgb(59 130 246 / 0.9);
     color: var(--color-blue-200);
   }
 
-  .alert--info .alert-icon,
-  .alert-info .alert-icon {
+  .alert--info .alert-icon {
     color: var(--color-blue-600);
   }
 
-  .dark .alert--info .alert-icon,
-  .dark .alert-info .alert-icon {
+  .dark .alert--info .alert-icon {
     color: var(--color-blue-400);
   }
 
@@ -143,27 +133,23 @@
      VARIANTS — Success
      ================================================================= */
 
-  .alert--success,
-  .alert-success {
+  .alert--success {
     background-color: var(--color-green-100);
     border-color: var(--color-green-300);
     color: var(--color-green-800);
   }
 
-  .dark .alert--success,
-  .dark .alert-success {
-    background-color: rgb(22 101 52 / 0.3);
-    border-color: rgb(34 197 94 / 0.5);
+  .dark .alert--success {
+    background-color: rgb(22 101 52 / 0.95);
+    border-color: rgb(34 197 94 / 0.9);
     color: var(--color-green-200);
   }
 
-  .alert--success .alert-icon,
-  .alert-success .alert-icon {
+  .alert--success .alert-icon {
     color: var(--color-green-600);
   }
 
-  .dark .alert--success .alert-icon,
-  .dark .alert-success .alert-icon {
+  .dark .alert--success .alert-icon {
     color: var(--color-green-400);
   }
 
@@ -203,23 +189,19 @@
     padding: 0;
   }
 
-  .alert--inline.alert--danger,
-  .alert--inline.alert-danger {
+  .alert--inline.alert--danger {
     color: var(--color-red-600);
   }
 
-  .dark .alert--inline.alert--danger,
-  .dark .alert--inline.alert-danger {
+  .dark .alert--inline.alert--danger {
     color: var(--color-red-400);
   }
 
-  .alert--inline.alert--warning,
-  .alert--inline.alert-warning {
+  .alert--inline.alert--warning {
     color: var(--color-amber-600);
   }
 
-  .dark .alert--inline.alert--warning,
-  .dark .alert--inline.alert-warning {
+  .dark .alert--inline.alert--warning {
     color: var(--color-amber-400);
   }
 }
