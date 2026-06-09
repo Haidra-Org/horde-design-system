@@ -132,6 +132,16 @@
   --color-edge-secondary: rgb(243 244 246);
   --color-edge-strong: rgb(209 213 219);
 
+  /* Hairline borders — for subtle divider / chip / rail boundaries */
+  --color-border-hairline: rgb(17 24 39 / 0.08);
+  --color-border-hairline-strong: rgb(17 24 39 / 0.14);
+  --color-border-hairline-dark: rgb(255 255 255 / 0.08);
+  --color-border-hairline-strong-dark: rgb(255 255 255 / 0.15);
+
+  /* Code surface — background for <pre>/<code> blocks */
+  --color-surface-code: rgb(243 244 246 / 0.85);
+  --color-surface-code-dark: rgb(8 12 20 / 0.7);
+
   /* Legacy semantic aliases */
   --color-text-primary: rgb(17 24 39);
   --color-text-secondary: rgb(107 114 128);

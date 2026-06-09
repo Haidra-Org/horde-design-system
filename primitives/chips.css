@@ -1,0 +1,135 @@
+/* =================================================================
+   FILTER CHIP PRIMITIVES
+   Pill-shaped toggles for filter bars and category selectors.
+
+   Generic — domain knowledge (colors, accents) is applied by the
+   consumer through modifier classes and the --chip-accent property.
+
+   Matches the prototype's filter-chip + count pattern.
+   ================================================================= */
+
+@layer components {
+  /* =================================================================
+     BASE FILTER CHIP
+     ================================================================= */
+
+  .filter-chip {
+    display: inline-flex;
+    align-items: center;
+    gap: --spacing(1.5);
+    padding-inline: --spacing(3);
+    padding-block: --spacing(1.5);
+    border-radius: var(--radius-full);
+    font-size: var(--text-sm);
+    line-height: var(--text-sm--line-height);
+    font-weight: 500;
+    cursor: pointer;
+    user-select: none;
+    white-space: nowrap;
+    transition:
+      background-color var(--transition-fast) ease,
+      border-color var(--transition-fast) ease,
+      box-shadow var(--transition-fast) ease;
+
+    /* Default neutral appearance */
+    background: var(--color-glass-surface-subtle);
+    border: 1px solid var(--color-border-hairline);
+    color: var(--color-content-secondary);
+  }
+
+  .dark .filter-chip {
+    background: var(--color-glass-surface-dark-subtle);
+    border-color: var(--color-border-hairline-dark);
+    color: var(--color-gray-400);
+  }
+
+  /* Hover */
+  .filter-chip:hover {
+    background: var(--color-glass-surface-panel);
+    border-color: var(--color-border-hairline-strong);
+  }
+
+  .dark .filter-chip:hover {
+    background: var(--color-glass-surface-dark);
+    border-color: var(--color-border-hairline-strong-dark);
+  }
+
+  /* Active / pressed state */
+  .filter-chip[aria-pressed='true'],
+  .filter-chip--active {
+    background: var(--color-glass-surface-panel);
+    border-color: var(--chip-accent, var(--color-primary-500));
+    color: var(--color-content-primary);
+    box-shadow: 0 0 0 1px var(--chip-accent, var(--color-primary-500) / 0.3);
+  }
+
+  .dark .filter-chip[aria-pressed='true'],
+  .dark .filter-chip--active {
+    background: var(--color-glass-surface-dark);
+    color: rgb(229 231 235);
+    box-shadow: 0 0 0 1px var(--chip-accent, var(--color-primary-400) / 0.35);
+  }
+
+  /* Focus visible */
+  .filter-chip:focus-visible {
+    outline: 2px solid var(--chip-accent, var(--color-primary-500));
+    outline-offset: 2px;
+  }
+
+  /* =================================================================
+     COUNT BADGE inside a filter chip
+     ================================================================= */
+
+  .filter-chip__count {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 1.25rem;
+    height: 1.25rem;
+    padding-inline: --spacing(1);
+    border-radius: var(--radius-full);
+    font-size: var(--text-xs);
+    line-height: 1;
+    font-weight: 600;
+    background: var(--color-glass-surface-nested);
+    color: var(--color-content-secondary);
+  }
+
+  .dark .filter-chip__count {
+    background: var(--color-glass-surface-dark-nested);
+    color: var(--color-gray-400);
+  }
+
+  .filter-chip[aria-pressed='true'] .filter-chip__count,
+  .filter-chip--active .filter-chip__count {
+    background: var(--chip-accent, var(--color-primary-100));
+    color: var(--chip-accent, var(--color-primary-800));
+  }
+
+  .dark .filter-chip[aria-pressed='true'] .filter-chip__count,
+  .dark .filter-chip--active .filter-chip__count {
+    background: var(--chip-accent, var(--color-primary-900) / 0.5);
+    color: var(--chip-accent, var(--color-primary-200));
+  }
+
+  /* =================================================================
+     ACCENT MODIFIER
+     Consumers set --chip-accent on the element to apply domain color.
+     ================================================================= */
+
+  .filter-chip--accent {
+    /* --chip-accent must be set by the consumer (e.g. inline style or a
+       domain-specific utility). This class only signals intent. */
+  }
+
+  /* =================================================================
+     CHIP GROUP — horizontal row of chips
+     ================================================================= */
+
+  .filter-chip-group {
+    display: flex;
+    flex-wrap: wrap;
+    gap: --spacing(2);
+    align-items: center;
+  }
+}

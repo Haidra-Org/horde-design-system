@@ -136,6 +136,22 @@ Error state: `.btn-primary.btn--error` triggers a shake animation.
 
 ---
 
+## Filter Chips (`primitives/chips.css`)
+
+```css
+.filter-chip            /* Pill toggle: hairline border, glass-subtle fill, cursor pointer */
+.filter-chip--active    /* Active/pressed state (alias for [aria-pressed="true"]) */
+.filter-chip__count     /* Count badge inside the chip */
+.filter-chip--accent    /* Signals that --chip-accent is set (domain color applied by consumer) */
+.filter-chip-group      /* Horizontal flex row of chips with gap */
+```
+
+States: `:hover`, `[aria-pressed="true"]` (active), `:focus-visible`.
+
+**Accent pattern**: The consumer sets `--chip-accent: var(--color-accent-image)` (or text/utility) on the chip element. The `--active` state and `__count` badge read this property for domain coloring. The generic `.filter-chip--accent` class is a no-op marker — color comes from the custom property.
+
+---
+
 ## Forms (`primitives/forms.css`)
 
 ```css
