@@ -25,7 +25,9 @@ A denser register for working surfaces: opaque planes, a low shadow ladder, smal
 
 `tokens/scale.css` holds the type, space, radius and control scales; `tokens/semantic.css` holds surfaces, elevation, ink, fields, popovers, accents, status, motion and the picture stage. The elevation ladder is the spine of the family: **canvas** (the page floor) → **panel** (the workspace) → **card** (a group of controls). Deepening the canvas is what lets a white panel read as a raised plane instead of dissolving into the page.
 
-Ink is measured against the deepest ground it lands on rather than the lightest, so `--hd-label` and `--hd-muted` clear AA on the canvas, the card and the panel alike.
+Ink is measured against the ground that gives it the least contrast, so `--hd-label` and `--hd-muted` clear AA on the canvas, the card and the panel alike.
+
+The dark theme has two surface ramps. The default is a slate matched to a consuming app's own dark body, so an HD plane dropped into an ordinary page sits level with the page around it. A root that adds the `hd-deep` class gets the neutral, deeper charcoal instead: it is for surfaces where pictures are judged, where a hue in the surround would bias the eye. The two ramps differ only in the surfaces, their edges and the two quiet inks; the light values are shared, and `hd-deep` says nothing outside `.dark`.
 
 ### Consumer-supplied identity
 

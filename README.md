@@ -165,6 +165,8 @@ Plain custom properties on `:root`, with a `.dark` block that redefines the half
 
 `--hd-pop-accent` is the accent as text or icon on a popover surface; `--hd-accent` is a fill with white text on it, which is why one lightens in dark and the other does not.
 
+The dark theme carries two surface ramps. The default is a slate matched to a consuming app's own dark body, so an HD plane sits level with the page around it; a root wearing `hd-deep` takes the neutral, deeper charcoal instead, for surfaces where pictures are judged and a hue in the surround would bias the eye. `hd-deep` restates only the surfaces, their edges, the fields, the popover planes and `--hd-label`/`--hd-muted`/`--hd-pop-accent`, and only under `.dark`.
+
 #### Consumer-supplied identity
 
 Six names are read by the primitives but declared by the consuming app, on whatever element bounds the region:

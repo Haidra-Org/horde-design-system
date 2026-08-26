@@ -7,7 +7,9 @@
    after it, not `@theme`: they generate no Tailwind utilities, and a
    primitive reads one name that changes value under `.dark`. That is
    what lets the family carry both themes without a single
-   `.dark .hd-*` rule — never add one.
+   `.dark .hd-*` rule — never add one. `.dark .hd-deep` below is not an
+   exception: it rewrites token values for a subtree, and no primitive
+   knows it exists.
 
    Two names are supplied by the consumer rather than declared here;
    see the identity contract at the foot of this file.
@@ -120,17 +122,24 @@
   --hd-stage-scrim: rgb(14 16 22 / 88%);
 }
 
+/* The dark theme has two surface ramps. This one, the default, is a
+   slate matched to the consumer's own dark body, so an HD plane dropped
+   into an ordinary page sits level with the page around it instead of
+   reading as a colder pit cut into it. The neutral ramp lives under
+   `.hd-deep` after this block. Only the surfaces, their edges and the
+   quiet inks differ between the two; everything else here is shared, as
+   are all the light values. */
 .dark {
-  --hd-canvas: #0f1115;
+  --hd-canvas: #1f2937;
   /* One visible step above the canvas; cards take a second step so
      grouped controls read as objects on the workspace rather than
      outlines in it. */
-  --hd-panel: #1c202a;
-  --hd-card: #242a36;
-  --hd-card-border: #3a4150;
-  --hd-border: #2a2e37;
-  --hd-border-soft: #23262d;
-  --hd-border-subtle: #23262d;
+  --hd-panel: #283449;
+  --hd-card: #303d54;
+  --hd-card-border: #48566f;
+  --hd-border: #37445a;
+  --hd-border-soft: #2e3a4e;
+  --hd-border-subtle: #2e3a4e;
 
   --hd-elev-1: 0 1px 2px rgba(0, 0, 0, 0.35), 0 1px 1px rgba(0, 0, 0, 0.25);
   --hd-elev-2: 0 4px 14px rgba(0, 0, 0, 0.45), 0 1px 2px rgba(0, 0, 0, 0.3);
@@ -138,24 +147,30 @@
 
   --hd-ink: #e5e7eb;
   --hd-ink-2: #cbd5e1;
-  --hd-label: #9ca3af;
-  /* 5.4:1 on the dark panel: the old #7c828d sat below AA for small
-     text. */
-  --hd-muted: #98a0ac;
+  /* Both quiet inks are measured against the lightest ground they land
+     on, the card, which the popover surface shares: label 4.74:1 and
+     muted 4.51:1 there, and higher on the panel and the canvas, so small
+     type clears AA wherever the pair is used. Muted takes the smallest
+     lift that passes and label stays a step above it, because the two
+     carry different weights of meaning and collapsing them to one value
+     would say they do not. */
+  --hd-label: #a5abb6;
+  --hd-muted: #a0a7b2;
 
-  --hd-field: #14171d;
-  --hd-field-soft: #14171d;
-  --hd-field-border: #313640;
+  --hd-field: #171e2b;
+  --hd-field-soft: #171e2b;
+  --hd-field-border: #3a4761;
 
   /* Dark popovers rise by getting lighter: they take the card step above
      the panel, and lean on a deeper, wider shadow to sit clear of it. */
-  --hd-pop-surface: #242a36;
-  --hd-pop-border: #3f4756;
-  --hd-pop-hover: #2c3444;
-  --hd-pop-stripe: #2a3140;
+  --hd-pop-surface: #303d54;
+  --hd-pop-border: #4c5b76;
+  --hd-pop-hover: #3a4860;
+  --hd-pop-stripe: #35435a;
   /* --hd-accent is the same #1d4ed8 in both themes and sinks into a dark
-     popover at 2.2:1, so the accent takes a lighter blue here. */
-  --hd-pop-accent: #60a5fa;
+     popover at 1.6:1, so the accent takes a lighter blue here, lifted
+     until it clears 4.5:1 on that surface. */
+  --hd-pop-accent: #68aafa;
   --hd-pop-shadow: 0 22px 56px rgba(0, 0, 0, 0.66);
 
   --hd-accent-tint: rgba(29, 78, 216, 0.16);
@@ -164,8 +179,10 @@
   --hd-purple-tint-border: rgba(147, 51, 234, 0.4);
   --hd-green-tint: rgba(22, 163, 74, 0.18);
   --hd-green-tint-border: rgba(34, 197, 94, 0.35);
-  /* #dc2626 drops to 3.4:1 on the dark field; the lighter red holds AA. */
-  --hd-danger: #f87171;
+  /* #dc2626 drops to 3.4:1 on the dark field. The lighter red is measured
+     as small text on its own tint composited over the slate card, the
+     brightest ground a danger mark sits on: 4.69:1 there. */
+  --hd-danger: #fc9292;
   --hd-danger-tint: rgba(220, 38, 38, 0.22);
   /* #b45309 is unreadable on the dark panel; the lighter amber holds AA. */
   --hd-changed: #fbbf24;
@@ -177,6 +194,44 @@
 
   /* Lightened to clear 3:1 on the dark panel and card. */
   --hd-stage-rim: #3b4252;
+}
+
+/* The neutral ramp, for the rooms where pictures are judged. A rendered
+   frame is read against whatever surrounds it, and a hue in the
+   surround biases that reading, so those surfaces drop the consumer's
+   slate for a charcoal that declares no colour of its own and sits
+   deeper, letting the plate carry the light. A root opts in by wearing
+   `hd-deep`; it changes nothing in the light theme, where the surfaces
+   are already near-neutral and the plate is the only dark thing on the
+   page. */
+.dark .hd-deep {
+  --hd-canvas: #0f1115;
+  --hd-panel: #1c202a;
+  --hd-card: #242a36;
+  --hd-card-border: #3a4150;
+  --hd-border: #2a2e37;
+  --hd-border-soft: #23262d;
+  --hd-border-subtle: #23262d;
+
+  /* Measured against the card, the lightest ground here: label 5.67:1
+     and muted 5.45:1. The greys can sit lower on this ramp than on the
+     slate one, whose card is lighter again. */
+  --hd-label: #9ca3af;
+  --hd-muted: #98a0ac;
+
+  --hd-field: #14171d;
+  --hd-field-soft: #14171d;
+  --hd-field-border: #313640;
+
+  --hd-pop-surface: #242a36;
+  --hd-pop-border: #3f4756;
+  --hd-pop-hover: #2c3444;
+  --hd-pop-stripe: #2a3140;
+  --hd-pop-accent: #60a5fa;
+
+  /* On the darker neutral card the same mark measures 4.54:1, so the
+     red can stay a shade deeper here. */
+  --hd-danger: #f87171;
 }
 
 @media (prefers-reduced-motion: reduce) {
