@@ -204,8 +204,10 @@
     cursor: pointer;
   }
 
+  /* The accent as text, not as a fill: the fill accent sits near 2:1 on a
+     dark card, while the popover accent is tuned for reading. */
   .hd-row-val {
-    color: var(--hd-accent);
+    color: var(--hd-pop-accent);
     font-weight: 700;
   }
 
