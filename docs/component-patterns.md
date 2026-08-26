@@ -2,6 +2,8 @@
 
 Class catalog for the shared Horde design system primitives. For design philosophy, tokens, and surface primitives, see [design-system.md](design-system.md). For layout in the shared `primitives/` directory, see the [README](../README.md).
 
+Everything from here to [HD Family](#hd-family) belongs to the glass family, whose classes are unprefixed and whose dark mode is written as per-rule `.dark` overrides of `@theme` token pairs. The HD family is prefixed `hd-`, reads `--hd-*` custom properties, and gets its dark mode entirely from those tokens: it has no `.dark` rules and must never gain one.
+
 ---
 
 ## Surfaces (`primitives/surfaces.css`)
@@ -339,6 +341,108 @@ Compatibility aliases for horde-model-reference-frontend:
 ```css
 .sr-only             /* Visually hidden, accessible to screen readers */
 ```
+
+---
+
+## HD Family
+
+A denser register for working surfaces. Each block lives in a `/* ===== HD family ===== */` section of the file that owns its kind, beside the glass classes above. All of it reads `--hd-*` tokens; see the README's HD Token Reference.
+
+Two contracts run through the family. `--hd-sec*` is the identity of one section and `--hd-zone*` the identity of a whole plane; both are declared by the consuming app and both fall back to `--hd-accent` when nothing is supplied.
+
+### Buttons (`primitives/buttons.css`)
+
+```css
+.hd-btn             /* Base and neutral weight: panel surface, border, elev-1 */
+.hd-btn--primary    /* Accent fill, white text */
+.hd-btn--tonal      /* Accent tint, accent text */
+.hd-btn--ghost      /* No surface until hover */
+.hd-btn--dense      /* 36px instead of 40px, tighter padding */
+.hd-btn--icon       /* Square, with the word in aria-label */
+```
+
+The neutral weight is the base rule, so the other three restate the surface they replace rather than only adding to it. Under `(pointer: coarse)` every weight takes a 44px floor, dense included.
+
+### Chips (`primitives/chips.css`)
+
+```css
+.hd-chip            /* Pill, field surface, section-tinted edge */
+.hd-chip--active    /* Section hue as a surface, mixed back towards the card */
+```
+
+### Badges and identity chips (`primitives/badges.css`)
+
+```css
+.hd-badge           /* Small text mark, transparent edge for a caller to colour */
+.hd-sec-chip        /* 18px square carrying a section's glyph */
+.hd-sec-chip--sm    /* 14px, for dense lists */
+.hd-sec-chip--lg    /* 22px, for page and section heads */
+```
+
+`.hd-sec-chip` carries a glyph, never text: several identity hues fall under 4.5:1 on the surfaces it sits on.
+
+### Cards (`primitives/cards.css`)
+
+```css
+.hd-card            /* Card surface, plane-hued 2px top edge, tighter row-gap */
+.hd-card-title      /* Uppercase eyebrow with a hairline running out to the row's end */
+.hd-card-title--sm
+```
+
+The card's top edge and the title's hairline are the same identity rule at two scales. The title prefers `--hd-sec-tint-border`, falling back to `--hd-zone-tint-border` and then to `--hd-border`.
+
+### Fields and help (`primitives/forms.css`)
+
+```css
+.hd-input             /* 40px single-line field */
+.hd-textarea          /* Fixed-height multi-line field */
+.hd-textarea--resize  /* Starts at two rows, three from 1024px, drag-to-grow */
+.hd-label
+.hd-sublabel
+.hd-help              /* display: contents — a wrapper transparent to layout */
+.hd-help-btn          /* The glyph; hue from --hd-zone, open state on aria-expanded */
+.hd-help-note         /* Full-width note under the row it explains */
+```
+
+Fields share one focus treatment: a ring outside the edge, never a glow. On coarse pointers `.hd-help-btn` grows a 44px `::after` overlay rather than growing itself, so the glyph stays small beside its label.
+
+### Segmented control (`primitives/segmented.css`)
+
+```css
+.hd-seg              /* Track with a 3px inset */
+.hd-seg-opt          /* Option; selected state hangs off aria-pressed="true" */
+.hd-seg--xs          /* Narrow: horizontal padding tightens, height does not */
+```
+
+### Subtabs (`primitives/tabs.css`)
+
+```css
+.hd-subtabs          /* The bar; height behind --hd-subtab-h, default 45px */
+.hd-subtabs-scroll   /* The scrolling half, with the scrollbar hidden */
+.hd-subtab
+.hd-subtab--active   /* Ink only — the underline colour is the consumer's */
+```
+
+Only the tabs scroll, so anything parked at the far edge should be a sibling of `.hd-subtabs-scroll` rather than its last child.
+
+### Rows and empty states (`primitives/data-display.css`)
+
+```css
+.hd-row              /* Label left, value right; clears button chrome */
+.hd-row-val
+.hd-empty            /* Centred nothing-here state */
+.hd-empty-title
+.hd-empty-sub
+```
+
+### Menus (`primitives/menus.css`)
+
+```css
+.hd-menu             /* Popover plane: surface, edge, shadow, scrolling */
+.hd-menu-item
+```
+
+`.hd-menu` carries no position: where it opens, and above what, is the caller's business.
 
 ---
 

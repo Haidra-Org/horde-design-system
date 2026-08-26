@@ -7,6 +7,19 @@ Consumed by:
 - **[horde-model-reference-frontend](https://github.com/Haidra-Org/horde-model-reference-frontend)** — Model reference management UI
 - **[AiHordeFrontpage](https://github.com/Haidra-Org/AiHordeFrontpage)** — AI Horde main frontend
 
+## Two families
+
+The system ships two independent visual families. Pick one per surface; they are not meant to be mixed on the same element.
+
+|                     | Glass (`.btn`, `.card`, `.surface-glass`, …)                      | HD (`.hd-btn`, `.hd-card`, `.hd-chip`, …)                                    |
+| ------------------- | ----------------------------------------------------------------- | ---------------------------------------------------------------------------- |
+| Look                | Translucent, blurred, gradient-lit                                | Opaque, dense, low-shadow working surfaces                                   |
+| Tokens              | `@theme` names in `tokens/colors.css`, `glass.css`, `spacing.css` | `--hd-*` custom properties in `tokens/scale.css`, `tokens/semantic.css`      |
+| Utilities generated | Yes — Tailwind builds `bg-*`/`text-*` from `@theme`               | No — `--hd-*` are plain custom properties and generate nothing               |
+| Dark mode           | Static light/dark token pairs plus per-rule `.dark` overrides     | One token name whose value changes under `.dark`; never a `.dark .hd-*` rule |
+
+Neither family reads the other's tokens, so a change to one cannot move the other.
+
 ## Usage
 
 This repository is integrated as a **git submodule** at `src/shared/design-system/` in each consuming project.
@@ -46,20 +59,25 @@ horde-design-system/
 │   ├── colors.css       Gray, primary, success, danger, warning, info scales
 │   ├── glass.css        Glassmorphism surfaces, borders, blurs, shadows
 │   ├── spacing.css      Spacing, border radius, shadows, transitions
+│   ├── scale.css        HD type, space, radius and control scales
+│   ├── semantic.css     HD surfaces, ink, fields, popovers, accents, motion, stage
 │   └── index.css        Barrel import
 ├── primitives/          Reusable CSS component classes
 │   ├── surfaces.css     .surface-glass family, .surface-floating
-│   ├── buttons.css      .btn, .btn-primary, .btn-secondary, .btn-danger, .btn-success
-│   ├── badges.css       .badge, .badge-success, .badge-danger, .badge-warning, .badge-info
-│   ├── cards.css        .card, .card-header, .card-body, .card-footer
-│   ├── forms.css        .form-input, .form-label, .form-textarea, .form-select, .form-checkbox
+│   ├── buttons.css      .btn family; .hd-btn family
+│   ├── badges.css       .badge family; .hd-badge, .hd-sec-chip
+│   ├── cards.css        .card family; .hd-card, .hd-card-title
+│   ├── chips.css        .filter-chip; .hd-chip
+│   ├── forms.css        .form-* family; .hd-input, .hd-textarea, .hd-label, .hd-help
 │   ├── modals.css       .modal-overlay, .modal-dialog, .modal-title, .modal-content
 │   ├── alerts.css       .alert, .alert--success, .alert--danger, .alert--warning, .alert--info
 │   ├── typography.css   .heading-page, .heading-section, .link, .text-muted
 │   ├── tables.css       .table-head-subtle, .table-body-default, .table-cell-xs*
-│   ├── tabs.css         .tabs-nav/.tabs-link core + compatibility aliases
+│   ├── tabs.css         .tabs-nav/.tabs-link core + aliases; .hd-subtabs
 │   ├── tooltips.css     .tooltip-wrapper, .tooltip-text, position variants
-│   ├── data-display.css .data-item, .data-value, .stat-column, grids
+│   ├── data-display.css .data-item, .data-value, .stat-column, grids; .hd-row, .hd-empty
+│   ├── menus.css        .hd-menu, .hd-menu-item
+│   ├── segmented.css    .hd-seg, .hd-seg-opt
 │   ├── utilities.css    .sr-only
 │   └── index.css        Barrel import
 ├── components/          Angular standalone components
@@ -115,6 +133,48 @@ Glassmorphism design tokens for translucent surfaces with depth.
 | `--spacing-2xl`                 | 3rem          | Page-level spacing  |
 | `--radius-sm/md/lg/xl`          | 0.25–0.75rem  | Border radius scale |
 | `--transition-fast/normal/slow` | 150/200/300ms | Animation durations |
+
+### HD Tokens
+
+Plain custom properties on `:root`, with a `.dark` block that redefines the half that flips. They generate no Tailwind utilities: read them with `var()`.
+
+`tokens/scale.css` — light and dark alike:
+
+| Token                       | Values                                         |
+| --------------------------- | ---------------------------------------------- |
+| `--hd-text-2xs … -xl`       | 10, 11.5, 12.5, 13.5, 15.5, 20px               |
+| `--hd-space-1 … -8`         | 4, 8, 10 (`-2-5`), 12, 16, 24, 32px            |
+| `--hd-radius-sm/md/lg/pill` | 8, 12, 16, 999px                               |
+| `--hd-control-h`            | 40px, with `--hd-control-h-dense` at 36px      |
+| `--hd-help-trigger`         | 24px — the box a per-field help glyph reserves |
+
+`tokens/semantic.css` — each of these has a dark value:
+
+| Token group | Names                                                                                                                                                        |
+| ----------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| Surfaces    | `--hd-canvas`, `--hd-panel`, `--hd-card`, `--hd-card-border`, `--hd-border`, `--hd-border-soft`, `--hd-border-subtle`                                        |
+| Elevation   | `--hd-elev-1/2/3`                                                                                                                                            |
+| Ink         | `--hd-ink`, `--hd-ink-2`, `--hd-label`, `--hd-muted`                                                                                                         |
+| Fields      | `--hd-field`, `--hd-field-soft`, `--hd-field-border`                                                                                                         |
+| Popover     | `--hd-pop-surface`, `--hd-pop-border`, `--hd-pop-hover`, `--hd-pop-stripe`, `--hd-pop-accent`, `--hd-pop-shadow`                                             |
+| Accents     | `--hd-accent`, `--hd-accent-hover`, `--hd-accent-tint`, `--hd-accent-tint-border`, and the same shape for `--hd-purple*` and `--hd-green*`                   |
+| Status      | `--hd-danger`, `--hd-danger-tint`, `--hd-changed`                                                                                                            |
+| Controls    | `--hd-seg-track`, `--hd-seg-active`, `--hd-seg-active-ink`, `--hd-switch-off`                                                                                |
+| Motion      | `--hd-dur-fast`, `--hd-dur`, `--hd-ease` — the two durations go to `0ms` under `prefers-reduced-motion`                                                      |
+| Stage       | `--hd-stage`, `--hd-stage-rim`, `--hd-stage-ink`, `--hd-stage-label`, `--hd-stage-scrim` — a dark lightbox that does not flip with the theme, except its rim |
+
+`--hd-pop-accent` is the accent as text or icon on a popover surface; `--hd-accent` is a fill with white text on it, which is why one lightens in dark and the other does not.
+
+#### Consumer-supplied identity
+
+Six names are read by the primitives but declared by the consuming app, on whatever element bounds the region:
+
+| Token                                                  | Meaning                                                                                           |
+| ------------------------------------------------------ | ------------------------------------------------------------------------------------------------- |
+| `--hd-sec`, `--hd-sec-tint`, `--hd-sec-tint-border`    | The identity of one section: `.hd-chip`, `.hd-sec-chip` and the `.hd-card-title` hairline take it |
+| `--hd-zone`, `--hd-zone-tint`, `--hd-zone-tint-border` | The identity of a whole plane: `.hd-card`'s top edge and `.hd-help-*` take it                     |
+
+Every primitive that reads one falls back to the accent, so an app that supplies nothing still gets a coherent result. Identity hues are audited as graphic colour: use them for glyphs and edges, never for text.
 
 ## Primitive Reference
 
@@ -176,6 +236,29 @@ Compatibility aliases are included for existing horde-model-reference-frontend c
 - `.tab-link`, `.tab-link-compact`, `.tab-active`
 
 Sticky tab behavior, overflow arrows, and route-specific tab mechanics remain local to each project.
+
+### HD Family
+
+Dense working-surface primitives, each in a `/* ===== HD family ===== */` section of the file that owns its kind.
+
+| Classes                                                                                                                       | File               |
+| ----------------------------------------------------------------------------------------------------------------------------- | ------------------ |
+| `.hd-btn` + `--primary`, `--tonal`, `--ghost`, `--dense`, `--icon`                                                            | `buttons.css`      |
+| `.hd-chip`, `.hd-chip--active`                                                                                                | `chips.css`        |
+| `.hd-badge`, `.hd-sec-chip` + `--sm`, `--lg`                                                                                  | `badges.css`       |
+| `.hd-card`, `.hd-card-title`, `.hd-card-title--sm`                                                                            | `cards.css`        |
+| `.hd-input`, `.hd-textarea`, `.hd-textarea--resize`, `.hd-label`, `.hd-sublabel`, `.hd-help`, `.hd-help-btn`, `.hd-help-note` | `forms.css`        |
+| `.hd-seg`, `.hd-seg-opt`, `.hd-seg--xs`                                                                                       | `segmented.css`    |
+| `.hd-subtabs`, `.hd-subtabs-scroll`, `.hd-subtab`, `.hd-subtab--active`                                                       | `tabs.css`         |
+| `.hd-row`, `.hd-row-val`, `.hd-empty`, `.hd-empty-title`, `.hd-empty-sub`                                                     | `data-display.css` |
+| `.hd-menu`, `.hd-menu-item`                                                                                                   | `menus.css`        |
+
+Rules for working in this family:
+
+- Read `--hd-*` only. A HD rule that reaches for a glass token has crossed the line between the two.
+- No `.dark` rules. If something needs to change in dark, it needs a token, not a selector.
+- `font-family: inherit` — the family sets no typeface, so a consumer's choice reaches it.
+- Layout that belongs to the caller stays with the caller: `.hd-menu` carries its plane but no position, and `.hd-subtab--active` carries its ink but no underline colour.
 
 ## Extending Locally
 

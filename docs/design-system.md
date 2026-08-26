@@ -4,6 +4,53 @@ Shared design language for [Haidra-Org](https://github.com/Haidra-Org) frontends
 
 ---
 
+## Two families, two dark-mode conventions
+
+The system carries two visual families side by side. Everything below the next heading describes the glass family; the HD family is described in [its own section](#the-hd-family) and in the README's HD Token and Primitive references.
+
+They differ most in how dark mode is reached, and mixing the two conventions is the mistake to watch for:
+
+- **Glass** stores light and dark as separate `@theme` names (`--color-glass-surface-*` and `--color-glass-surface-dark-*`), and a rule picks between them with a `.dark` override of itself. A glass component without its paired `.dark` rules is unfinished.
+- **HD** stores one name per role in `tokens/semantic.css`, declared on `:root` and redeclared under `.dark`. A rule reads the name once and is correct in both themes. **Never write a `.dark .hd-*` rule**: it duplicates a decision the token already made, and the two copies drift.
+
+A second difference matters when reaching for utilities: glass tokens live in `@theme`, so Tailwind generates `bg-*`/`text-*`/`border-*` from them. HD tokens are plain custom properties and generate nothing. Read them with `var()`.
+
+---
+
+## The HD family
+
+A denser register for working surfaces: opaque planes, a low shadow ladder, small type, and 40px controls. It is used where someone is operating a tool rather than reading a page, and it is deliberately quiet, so that whatever the tool produces is the loudest thing on screen.
+
+### What the tokens carry
+
+`tokens/scale.css` holds the type, space, radius and control scales; `tokens/semantic.css` holds surfaces, elevation, ink, fields, popovers, accents, status, motion and the picture stage. The elevation ladder is the spine of the family: **canvas** (the page floor) → **panel** (the workspace) → **card** (a group of controls). Deepening the canvas is what lets a white panel read as a raised plane instead of dissolving into the page.
+
+Ink is measured against the deepest ground it lands on rather than the lightest, so `--hd-label` and `--hd-muted` clear AA on the canvas, the card and the panel alike.
+
+### Consumer-supplied identity
+
+Six tokens are read by the primitives and declared by the app: `--hd-sec`, `--hd-sec-tint`, `--hd-sec-tint-border` for one section's identity, and `--hd-zone`, `--hd-zone-tint`, `--hd-zone-tint-border` for a whole plane's. Set them as ordinary custom properties on the element that bounds the region:
+
+```css
+.settings-panel {
+  --hd-zone: var(--my-create-hue);
+  --hd-zone-tint: var(--my-create-tint);
+  --hd-zone-tint-border: var(--my-create-tint-border);
+}
+```
+
+Every primitive that reads one falls back to `--hd-accent`, so supplying nothing is a valid choice. Identity hues are audited as graphic colour only: several of them fall under 4.5:1 on the surfaces they are drawn against, so they may tint glyphs and edges and must never colour text.
+
+### Writing new HD rules
+
+1. Read `--hd-*` tokens only. Reaching for a glass token couples the two families.
+2. No `.dark` rules. If a value has to change in dark, it needs a token.
+3. `font-family: inherit`. The family sets no typeface.
+4. Leave the caller's layout to the caller: position, stacking order and identity hue come from outside.
+5. Off-scale numbers need a reason. Use the scales, and keep a literal only where the value is doing something the scale cannot.
+
+---
+
 ## Design Ethic: Glassmorphism & Depth
 
 The design system uses a glassmorphism-leaning surface system: translucent layers, restrained blur, and soft depth. The goal is hierarchy and polish, not decoration for its own sake.
@@ -210,6 +257,8 @@ Interactive elements use `box-shadow` focus rings:
 ### Reduced Motion
 
 All animations must respect `@media (prefers-reduced-motion: reduce)`. Content should be shown immediately without transitions.
+
+In the HD family this is already handled at the token: `--hd-dur-fast` and `--hd-dur` both go to `0ms` under the query, so any transition timed with them stops. A HD rule that hardcodes a duration opts itself out of that and has to restate the query.
 
 ---
 
