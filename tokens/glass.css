@@ -14,6 +14,9 @@
   --color-glass-surface-heavy: rgb(255 255 255 / 0.85);
   --color-glass-surface-nested: rgb(255 255 255 / 0.58);
   --color-glass-surface-subtle: rgb(255 255 255 / 0.35);
+  /* A menu is read, not looked through: near-opaque so page text does not
+     show under its items. */
+  --color-glass-surface-menu: rgb(255 255 255 / 0.94);
 
   /* Glass surfaces — dark mode */
   --color-glass-surface-dark: rgb(31 41 55 / 0.55);
@@ -22,6 +25,7 @@
   --color-glass-surface-dark-nested: rgb(15 23 42 / 0.44);
   --color-glass-surface-dark-subtle: rgb(17 24 39 / 0.3);
   --color-glass-surface-dark-floating: rgb(17 24 39 / 0.85);
+  --color-glass-surface-dark-menu: rgb(17 24 39 / 0.94);
 
   /* Glass borders — light mode */
   --color-glass-border: rgb(255 255 255 / 0.35);
