@@ -742,8 +742,16 @@
     padding: 0;
   }
 
-  .hd-btn:disabled {
-    opacity: 0.55;
+  /* Flattened rather than faded: fading label and fill together drops the
+     tonal and ghost weights below AA, while a muted label on the track
+     surface stays readable in both themes. */
+  .hd-btn:disabled,
+  .hd-btn--primary:disabled,
+  .hd-btn--tonal:disabled,
+  .hd-btn--ghost:disabled {
+    background: var(--hd-seg-track);
+    border-color: var(--hd-border);
+    color: var(--hd-muted);
     cursor: not-allowed;
     box-shadow: none;
   }

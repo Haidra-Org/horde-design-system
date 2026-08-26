@@ -175,7 +175,9 @@
      produces, and a saturated block holds the eye longer than the choice
      it reports is worth. */
   .hd-chip--active {
-    color: var(--hd-card);
+    /* The fill is mixed towards the card, which is dark in dark mode, so
+       the card colour cannot double as the ink on it. */
+    color: var(--hd-on-accent);
     border-color: color-mix(
       in srgb,
       var(--hd-sec, var(--hd-accent)) 60%,

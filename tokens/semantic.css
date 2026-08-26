@@ -76,6 +76,9 @@
 
   --hd-accent: #1d4ed8;
   --hd-accent-hover: #1e40af;
+  /* Ink on an accent fill; white in both themes because the fills stay
+     saturated enough to carry it. */
+  --hd-on-accent: #ffffff;
   --hd-accent-tint: #eff6ff;
   --hd-accent-tint-border: #dbeafe;
   --hd-purple: #9333ea;
