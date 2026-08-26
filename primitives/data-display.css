@@ -235,3 +235,119 @@
     margin-top: 3px;
   }
 }
+
+@layer components {
+  /* =================================================================
+     STAT TILES
+     One total, printed the same way wherever a surface prints one. The
+     unit belongs in the label, so the value stays a number.
+     ================================================================= */
+
+  /* Tiles fit themselves to the width they are given rather than to a
+     count: the same row of totals serves four figures on a desktop and
+     one on a phone without the consumer restating a grid. */
+  .hd-stats {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(9rem, 1fr));
+    gap: var(--hd-space-2);
+  }
+
+  /* A tile is a card at tile scale, down to the identity edge along the
+     top, so a plane's hue reads the same across its cards and its
+     figures. */
+  .hd-stat {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+    padding: var(--hd-space-2-5);
+    border: 1px solid var(--hd-card-border);
+    border-top: 2px solid var(--hd-zone-tint-border, var(--hd-card-border));
+    border-radius: var(--hd-radius-md);
+    background: var(--hd-card);
+  }
+
+  .hd-stat-label {
+    font-size: var(--hd-text-2xs);
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--hd-label);
+  }
+
+  .hd-stat-value {
+    font-size: var(--hd-text-lg);
+    font-weight: 700;
+    font-variant-numeric: tabular-nums;
+    color: var(--hd-ink);
+  }
+
+  .hd-stat-note {
+    font-size: var(--hd-text-xs);
+    color: var(--hd-muted);
+  }
+
+  /* =================================================================
+     SKELETON
+     What stands in while a surface is still loading. Bars rather than a
+     structured placeholder: most responses arrive whole, so there is
+     nothing to lay a shape out against, and a wrong shape reads worse
+     than an honest one.
+     ================================================================= */
+
+  .hd-skeleton {
+    display: flex;
+    flex-direction: column;
+    gap: var(--hd-space-3);
+    padding: var(--hd-space-4);
+    border: 1px solid var(--hd-card-border);
+    border-radius: var(--hd-radius-md);
+    background: var(--hd-card);
+  }
+
+  /* The bar is the border tone, which is the one grey that reads against
+     the card in either theme; the field tone is only the highlight
+     travelling through it. Drawn from tokens rather than a fixed pair of
+     greys, the sweep never flashes near-white on a dark plane, and it
+     never disappears into a white one. */
+  .hd-skeleton-bar {
+    height: 10px;
+    width: 40%;
+    border-radius: var(--hd-radius-sm);
+    background: linear-gradient(
+      90deg,
+      var(--hd-border) 25%,
+      var(--hd-field) 50%,
+      var(--hd-border) 75%
+    );
+    background-size: 200% 100%;
+    animation: hd-shim 1.6s linear infinite;
+  }
+
+  .hd-skeleton-bar--title {
+    height: 18px;
+    width: 55%;
+  }
+
+  .hd-skeleton-bar--wide {
+    width: 70%;
+  }
+
+  /* The motion tokens cannot switch off an animation the way they switch
+     off a transition, so the query is restated here. What is left is a
+     flat bar in the field tone, which still says "coming". */
+  @media (prefers-reduced-motion: reduce) {
+    .hd-skeleton-bar {
+      background: var(--hd-border);
+      animation: none;
+    }
+  }
+}
+
+@keyframes hd-shim {
+  0% {
+    background-position: -200% 0;
+  }
+  100% {
+    background-position: 200% 0;
+  }
+}

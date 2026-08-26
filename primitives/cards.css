@@ -114,3 +114,138 @@
     );
   }
 }
+
+@layer components {
+  /* =================================================================
+     DISCLOSURE
+     A card that is a single line until it is opened. Folded, it reads
+     as a line of the plane rather than as another card competing with
+     the ones a reader cannot do without; open, it is a card like any
+     other. The keyboard contract belongs to the consumer: the head
+     holds a button, and that button carries aria-expanded.
+     ================================================================= */
+
+  .hd-disclosure {
+    border: 1px solid var(--hd-card-border);
+    border-radius: var(--hd-radius-md);
+    background: var(--hd-card);
+  }
+
+  /* The head is the row, and the press that opens it takes all of the
+     row the group's own actions do not. It wraps so a note or a second
+     control can take the line under the name it belongs to instead of
+     being squeezed in beside it. */
+  .hd-disclosure-head {
+    display: flex;
+    min-width: 0;
+    min-height: 44px;
+    align-items: center;
+    column-gap: var(--hd-space-2);
+    padding: var(--hd-space-2) var(--hd-space-3);
+    border-radius: var(--hd-radius-md);
+    text-align: left;
+    color: var(--hd-ink);
+  }
+
+  .hd-disclosure-head:hover {
+    background: var(--hd-sec-tint, transparent);
+  }
+
+  .hd-disclosure-name {
+    flex: none;
+    font-size: var(--hd-text-2xs);
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+  }
+
+  /* What the group is currently set to, run out to the far end. It
+     gives way first: a long summary is trimmed rather than allowed to
+     push the name off its own row. */
+  .hd-disclosure-sum {
+    flex: 1 1 auto;
+    min-width: 0;
+    overflow: hidden;
+    color: var(--hd-muted);
+    font-size: var(--hd-text-xs);
+    text-align: right;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+
+  .hd-disclosure-chev {
+    flex: none;
+    color: var(--hd-muted);
+    transition: transform var(--hd-dur-fast) var(--hd-ease);
+  }
+
+  .hd-disclosure--open .hd-disclosure-chev {
+    transform: rotate(90deg);
+  }
+
+  .hd-disclosure-body {
+    display: flex;
+    flex-direction: column;
+    row-gap: var(--hd-space-2-5);
+    padding: 0 var(--hd-space-3) var(--hd-space-3);
+  }
+
+  @media (max-width: 639.98px) {
+    .hd-disclosure-body {
+      padding: 0 var(--hd-space-2-5) var(--hd-space-2-5);
+    }
+  }
+
+  /* =================================================================
+     CALLOUT
+     A banner addressed to the whole plane rather than to one control:
+     what to read first on arriving, or what to do next on leaving. It
+     is a card turned on its side, the identity edge running down the
+     start rather than across the top, so it never reads as one more
+     card in the column it interrupts.
+     ================================================================= */
+
+  .hd-callout {
+    display: flex;
+    flex-direction: column;
+    gap: var(--hd-space-2);
+    padding: var(--hd-space-3);
+    border: 1px solid var(--hd-card-border);
+    border-inline-start: 3px solid
+      var(--hd-sec-tint-border, var(--hd-zone-tint-border, var(--hd-border)));
+    border-radius: var(--hd-radius-md);
+    background: var(--hd-card);
+  }
+
+  /* The tinted form, for a banner that has to be found rather than
+     merely read past. The tint is the plane's own identity at the
+     weight the tokens already picked for a fill, so it adds no colour
+     the surface did not have. */
+  .hd-callout--accent {
+    background: var(--hd-sec-tint, var(--hd-zone-tint, var(--hd-accent-tint)));
+    border-color: var(
+      --hd-sec-tint-border,
+      var(--hd-zone-tint-border, var(--hd-accent-tint-border))
+    );
+  }
+
+  .hd-callout-title {
+    font-size: var(--hd-text-md);
+    font-weight: 700;
+    color: var(--hd-ink);
+  }
+
+  .hd-callout-body {
+    margin: 0;
+    color: var(--hd-ink-2);
+    font-size: var(--hd-text-sm);
+    line-height: 1.5;
+  }
+
+  .hd-callout-actions {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: var(--hd-space-2);
+  }
+}

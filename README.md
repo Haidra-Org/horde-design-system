@@ -66,16 +66,17 @@ horde-design-system/
 │   ├── surfaces.css     .surface-glass family, .surface-floating
 │   ├── buttons.css      .btn family; .hd-btn family
 │   ├── badges.css       .badge family; .hd-badge, .hd-sec-chip
-│   ├── cards.css        .card family; .hd-card, .hd-card-title
+│   ├── cards.css        .card family; .hd-card, .hd-card-title, .hd-disclosure, .hd-callout
 │   ├── chips.css        .filter-chip; .hd-chip
-│   ├── forms.css        .form-* family; .hd-input, .hd-textarea, .hd-label, .hd-help
+│   ├── forms.css        .form-* family; .hd-input, .hd-textarea, .hd-label, .hd-help, .hd-switch
 │   ├── modals.css       .modal-overlay, .modal-dialog, .modal-title, .modal-content
 │   ├── alerts.css       .alert, .alert--success, .alert--danger, .alert--warning, .alert--info
 │   ├── typography.css   .heading-page, .heading-section, .link, .text-muted
 │   ├── tables.css       .table-head-subtle, .table-body-default, .table-cell-xs*
 │   ├── tabs.css         .tabs-nav/.tabs-link core + aliases; .hd-subtabs
 │   ├── tooltips.css     .tooltip-wrapper, .tooltip-text, position variants
-│   ├── data-display.css .data-item, .data-value, .stat-column, grids; .hd-row, .hd-empty
+│   ├── data-display.css .data-item, .data-value, .stat-column, grids; .hd-row, .hd-empty, .hd-stat, .hd-skeleton
+│   ├── lists.css        .hd-list, .hd-list-head, .hd-list-th, .hd-list-row
 │   ├── menus.css        .hd-menu, .hd-menu-item
 │   ├── segmented.css    .hd-seg, .hd-seg-opt
 │   ├── utilities.css    .sr-only
@@ -249,10 +250,16 @@ Dense working-surface primitives, each in a `/* ===== HD family ===== */` sectio
 | `.hd-chip`, `.hd-chip--active`                                                                                                | `chips.css`        |
 | `.hd-badge`, `.hd-sec-chip` + `--sm`, `--lg`                                                                                  | `badges.css`       |
 | `.hd-card`, `.hd-card-title`                                                                                                  | `cards.css`        |
+| `.hd-disclosure` + `--open`, `.hd-disclosure-head`, `-name`, `-sum`, `-chev`, `-body`                                         | `cards.css`        |
+| `.hd-callout` + `--accent`, `.hd-callout-title`, `.hd-callout-body`, `.hd-callout-actions`                                    | `cards.css`        |
 | `.hd-input`, `.hd-textarea`, `.hd-textarea--resize`, `.hd-label`, `.hd-sublabel`, `.hd-help`, `.hd-help-btn`, `.hd-help-note` | `forms.css`        |
+| `.hd-switch` + `--purple`, `.hd-switch-row`, `.hd-switch-track`, `.hd-switch-thumb`                                           | `forms.css`        |
 | `.hd-seg`, `.hd-seg-opt`, `.hd-seg--xs`                                                                                       | `segmented.css`    |
 | `.hd-subtabs`, `.hd-subtabs-scroll`, `.hd-subtab`, `.hd-subtab--active`                                                       | `tabs.css`         |
 | `.hd-row`, `.hd-row-val`, `.hd-empty`, `.hd-empty-title`, `.hd-empty-sub`                                                     | `data-display.css` |
+| `.hd-stats`, `.hd-stat`, `.hd-stat-label`, `.hd-stat-value`, `.hd-stat-note`                                                  | `data-display.css` |
+| `.hd-skeleton`, `.hd-skeleton-bar` + `--title`, `--wide`                                                                      | `data-display.css` |
+| `.hd-list`, `.hd-list-head`, `.hd-list-th` + `--active`, `--right`, `.hd-list-sort`, `.hd-list-row` + `--idle`                | `lists.css`        |
 | `.hd-menu`, `.hd-menu-item`                                                                                                   | `menus.css`        |
 
 Rules for working in this family:
@@ -261,6 +268,7 @@ Rules for working in this family:
 - No `.dark` rules. If something needs to change in dark, it needs a token, not a selector.
 - `font-family: inherit` — the family sets no typeface, so a consumer's choice reaches it.
 - Layout that belongs to the caller stays with the caller: `.hd-menu` carries its plane but no position, and `.hd-subtab--active` carries its ink but no underline colour.
+- Where a primitive needs a measurement only the consumer can know, it reads a custom property with a sane fallback rather than growing a modifier per case: `.hd-list-head` and `.hd-list-row` take their grid from `--hd-list-cols`, declared on whatever element wraps the list, so a breakpoint that changes the columns changes the header and the rows together.
 
 ## Extending Locally
 

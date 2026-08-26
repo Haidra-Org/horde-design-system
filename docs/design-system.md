@@ -43,6 +43,22 @@ Six tokens are read by the primitives and declared by the app: `--hd-sec`, `--hd
 
 Every primitive that reads one falls back to `--hd-accent`, so supplying nothing is a valid choice. Identity hues are audited as graphic colour only: several of them fall under 4.5:1 on the surfaces they are drawn against, so they may tint glyphs and edges and must never colour text.
 
+### What the primitives cover
+
+The family is built out from the elevation ladder rather than from a component list, so a surface is assembled from the pieces that suit its job:
+
+| Piece                        | What it is for                                                                                                         |
+| ---------------------------- | ---------------------------------------------------------------------------------------------------------------------- |
+| `.hd-card`, `.hd-card-title` | A group of controls on a plane, under an eyebrow and a hairline in the identity hue                                    |
+| `.hd-disclosure`             | The same group when it is a single line until opened; the keyboard contract and `aria-expanded` stay with the consumer |
+| `.hd-callout`                | A banner addressed to the whole plane, the identity edge running down its start instead of across its top              |
+| `.hd-list`                   | A dense record list: one-line rows under an optional sortable header, both on the grid the consumer names              |
+| `.hd-stats`, `.hd-stat`      | One total printed as a tile, sized to the width it is given rather than to a count                                     |
+| `.hd-skeleton`               | Bars standing in while a response is still on the way                                                                  |
+| `.hd-switch`                 | A binary that takes effect where it is pressed; the real checkbox stays in the label                                   |
+
+`.hd-list` is the one that asks something of its caller. The columns of a record list are the caller's decision, so the header and the row both read `grid-template-columns` out of `--hd-list-cols`, which the caller declares on the element wrapping the list. One declaration per breakpoint moves the header and the rows together, which is what keeps them from disagreeing about which columns are showing.
+
 ### Writing new HD rules
 
 1. Read `--hd-*` tokens only. Reaching for a glass token couples the two families.
