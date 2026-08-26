@@ -1,0 +1,76 @@
+/* =================================================================
+   SEGMENTED CONTROL PRIMITIVE (HD family)
+   A track of mutually exclusive options, on the --hd-* tokens.
+
+   The selected option is reported with aria-pressed, so the styling
+   hangs off that attribute rather than a class: the control cannot look
+   chosen without saying so. Dark mode is carried by the tokens; never
+   add a `.dark` rule here.
+   ================================================================= */
+
+@layer components {
+  /* A track with a 3px inset, so the selected option reads as a tile
+     lifted out of a well rather than a button sitting on a strip. */
+  .hd-seg {
+    display: inline-flex;
+    gap: 2px;
+    background: var(--hd-seg-track);
+    padding: 3px;
+    border-radius: var(--hd-radius-md);
+  }
+
+  .hd-seg-opt {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: var(--hd-space-1);
+    min-height: 32px;
+    cursor: pointer;
+    border-radius: var(--hd-radius-sm);
+    padding: 0 var(--hd-space-3);
+    font-family: inherit;
+    font-size: var(--hd-text-sm);
+    font-weight: 600;
+    color: var(--hd-label);
+    transition:
+      color var(--hd-dur-fast) var(--hd-ease),
+      background-color var(--hd-dur-fast) var(--hd-ease),
+      box-shadow var(--hd-dur-fast) var(--hd-ease);
+  }
+
+  .hd-seg-opt:hover:not([aria-pressed='true']):not(:disabled) {
+    color: var(--hd-ink);
+  }
+
+  .hd-seg-opt[aria-pressed='true'] {
+    background: var(--hd-seg-active);
+    color: var(--hd-seg-active-ink);
+    box-shadow: var(--hd-elev-1);
+  }
+
+  .hd-seg-opt:disabled {
+    opacity: 0.55;
+    cursor: not-allowed;
+  }
+
+  .hd-seg-opt:focus-visible {
+    outline: 2px solid var(--hd-accent);
+    outline-offset: 2px;
+  }
+
+  /* Narrow track. Only the horizontal padding tightens: the option keeps
+     the full height, so a toggle in a card header is the same target as
+     one in a row. */
+  .hd-seg--xs .hd-seg-opt {
+    padding: 0 var(--hd-space-2);
+    font-size: var(--hd-text-xs);
+  }
+
+  /* 38px inside a track with a 3px inset is a 44px control under a
+     thumb. */
+  @media (pointer: coarse) {
+    .hd-seg-opt {
+      min-height: 38px;
+    }
+  }
+}

@@ -105,3 +105,73 @@
     border-bottom-color: var(--color-primary-400);
   }
 }
+
+/* =================================================================
+   ===== HD family =====
+   The secondary tab row that sits under a page's own header, on the
+   --hd-* tokens. Independent of the tab primitives above. Dark mode is
+   carried by the tokens; never add a `.dark` rule here.
+   ================================================================= */
+
+@layer components {
+  .hd-subtabs {
+    flex: none;
+    display: flex;
+    align-items: stretch;
+    gap: 4px;
+    height: var(--hd-subtab-h, 45px);
+    padding: 0 14px;
+    background: var(--hd-panel);
+    border-bottom: 1px solid var(--hd-border);
+  }
+
+  /* Only the tabs scroll, so anything the consumer parks at the far edge
+     is a sibling of this row rather than its last child: a narrow
+     viewport then moves the tabs under that thing instead of pushing it
+     off the edge. */
+  .hd-subtabs-scroll {
+    display: flex;
+    align-items: stretch;
+    gap: 4px;
+    min-width: 0;
+    flex: 1 1 auto;
+    overflow-x: auto;
+    scrollbar-width: none;
+  }
+
+  .hd-subtabs-scroll::-webkit-scrollbar {
+    display: none;
+  }
+
+  .hd-subtab {
+    display: inline-flex;
+    align-items: center;
+    gap: 7px;
+    padding: 0 12px;
+    font-family: inherit;
+    font-size: 13px;
+    font-weight: 600;
+    white-space: nowrap;
+    color: var(--hd-label);
+    border-bottom: 2px solid transparent;
+    text-decoration: none;
+  }
+
+  .hd-subtab:hover {
+    color: var(--hd-ink);
+    text-decoration: none;
+  }
+
+  /* The underline colour is left to the consumer: which hue marks the
+     current tab is an identity decision, not a shape one. */
+  .hd-subtab--active {
+    color: var(--hd-ink);
+  }
+
+  /* Inset, because the row is only as tall as the tab and an outset ring
+     would be clipped by the bar's bottom edge. */
+  .hd-subtab:focus-visible {
+    outline: 2px solid var(--hd-accent);
+    outline-offset: -2px;
+  }
+}
