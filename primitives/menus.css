@@ -1,0 +1,60 @@
+/* =================================================================
+   MENU PRIMITIVE (HD family)
+   A popover list of actions, on the --hd-* tokens.
+
+   The menu carries its own plane (surface, edge, shadow, scrolling) but
+   no position: where it opens is the caller's business, so the caller
+   supplies position, offset and stacking order. Dark mode is carried by
+   the tokens; never add a `.dark` rule here.
+   ================================================================= */
+
+@layer components {
+  .hd-menu {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+    width: min(360px, calc(100vw - 24px));
+    max-height: min(64vh, 420px);
+    overflow-y: auto;
+    padding: 6px;
+    background: var(--hd-pop-surface);
+    border: 1px solid var(--hd-pop-border);
+    border-radius: var(--hd-radius-md);
+    box-shadow: var(--hd-pop-shadow);
+  }
+
+  .hd-menu-item {
+    display: flex;
+    flex: 1;
+    flex-direction: column;
+    gap: 2px;
+    min-width: 0;
+    min-height: 36px;
+    padding: 7px 9px;
+    border: 0;
+    border-radius: var(--hd-radius-sm);
+    background: none;
+    color: var(--hd-ink-2);
+    font-family: inherit;
+    font-size: var(--hd-text-xs);
+    text-align: left;
+    cursor: pointer;
+  }
+
+  .hd-menu-item:hover {
+    background: var(--hd-pop-hover);
+    color: var(--hd-ink);
+  }
+
+  .hd-menu-item:disabled {
+    opacity: 0.4;
+    cursor: not-allowed;
+  }
+
+  /* Inset, because an item runs the full width of the menu's padding box
+     and an outset ring would be clipped by the menu's own edge. */
+  .hd-menu-item:focus-visible {
+    outline: 2px solid var(--hd-accent);
+    outline-offset: -2px;
+  }
+}
