@@ -1,0 +1,47 @@
+/* =================================================================
+   HD SCALE TOKENS
+   The type, space, radius and control scales the `.hd-*` primitives
+   draw from.
+
+   These are plain custom properties on `:root`, not `@theme`: they
+   generate no Tailwind utilities, and the primitives read them
+   directly. A consumer may restate any of them on a subtree to retune
+   a region without touching the family.
+   ================================================================= */
+
+:root {
+  /* Type scale. The half steps exist because the family is dense:
+     control labels and hint lines sit between the whole sizes. */
+  --hd-text-2xs: 10px;
+  --hd-text-xs: 11.5px;
+  --hd-text-sm: 12.5px;
+  --hd-text-md: 13.5px;
+  --hd-text-lg: 15.5px;
+  --hd-text-xl: 20px;
+
+  /* Space scale. */
+  --hd-space-1: 4px;
+  --hd-space-2: 8px;
+  /* A half step between 8 and 12, for dense surfaces: card padding on a
+     phone and the rows inside a card, where 12 is loose and 8 leaves the
+     content touching its edge. */
+  --hd-space-2-5: 10px;
+  --hd-space-3: 12px;
+  --hd-space-4: 16px;
+  --hd-space-6: 24px;
+  --hd-space-8: 32px;
+
+  /* Radius scale. */
+  --hd-radius-sm: 8px;
+  --hd-radius-md: 12px;
+  --hd-radius-lg: 16px;
+  --hd-radius-pill: 999px;
+
+  /* Control heights. The dense step is for controls that stack inside a
+     card, where the full height would crowd the group. */
+  --hd-control-h: 40px;
+  --hd-control-h-dense: 36px;
+  /* The help glyph's box. A row without a trigger reserves this width so
+     the controls in a group still end on one edge. */
+  --hd-help-trigger: 24px;
+}
