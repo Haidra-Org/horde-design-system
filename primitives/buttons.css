@@ -702,15 +702,23 @@
     transform: translateY(1px);
   }
 
+  /* The label reads the popover accent rather than --hd-accent: on a dark
+     tinted fill the plain accent sinks to about 1.5:1, and --hd-pop-accent
+     is the family's blue that stays readable on a dark accent surface. In
+     the light theme the two are the same colour. */
   .hd-btn--tonal {
     border-color: transparent;
     background: var(--hd-accent-tint);
-    color: var(--hd-accent);
+    color: var(--hd-pop-accent);
     box-shadow: none;
   }
 
   .hd-btn--tonal:hover:not(:disabled) {
-    background: color-mix(in srgb, var(--hd-accent) 12%, var(--hd-accent-tint));
+    background: color-mix(
+      in srgb,
+      var(--hd-pop-accent) 12%,
+      var(--hd-accent-tint)
+    );
     box-shadow: none;
   }
 

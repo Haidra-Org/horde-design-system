@@ -173,9 +173,10 @@
   --hd-pop-hover: #3a4860;
   --hd-pop-stripe: #35435a;
   /* --hd-accent is the same #1d4ed8 in both themes and sinks into a dark
-     popover at 1.6:1, so the accent takes a lighter blue here, lifted
-     until it clears 4.5:1 on that surface. */
-  --hd-pop-accent: #68aafa;
+     popover at 1.6:1, so the accent takes a lighter blue here. It is also
+     the label of a tonal button, whose tinted fill over the card is the
+     lightest ground it meets: 4.56:1 there, 4.86:1 on the popover. */
+  --hd-pop-accent: #74b0fb;
   --hd-pop-shadow: 0 22px 56px rgba(0, 0, 0, 0.66);
 
   --hd-accent-tint: rgba(29, 78, 216, 0.16);
