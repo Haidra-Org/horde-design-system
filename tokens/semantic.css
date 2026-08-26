@@ -82,13 +82,18 @@
      saturated enough to carry it. */
   --hd-on-accent: #ffffff;
   --hd-accent-tint: #eff6ff;
-  --hd-accent-tint-border: #dbeafe;
+  /* Identity edges carry the hue at an alpha, as the dark theme does,
+     rather than a pastel step: a 100-level pastel sits near 1.2:1 on a
+     white card and the zone colour washes out of a tile edge, a group
+     frame and an eyebrow rule alike. These land near 1.6:1, quiet but
+     hued. */
+  --hd-accent-tint-border: rgba(29, 78, 216, 0.32);
   --hd-purple: #9333ea;
   --hd-purple-tint: #faf5ff;
-  --hd-purple-tint-border: #e9d5ff;
+  --hd-purple-tint-border: rgba(147, 51, 234, 0.32);
   --hd-green: #16a34a;
   --hd-green-tint: #dcfce7;
-  --hd-green-tint-border: #bbf7d0;
+  --hd-green-tint-border: rgba(22, 163, 74, 0.4);
   /* The one red: a field that will not submit as typed carries it on its
      edge, always beside a hint line, never as the only signal. */
   --hd-danger: #dc2626;
