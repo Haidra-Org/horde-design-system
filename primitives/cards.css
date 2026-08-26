@@ -89,8 +89,7 @@
      than of colour is what separates a section title from the field
      labels packed around it, so a long column of settings stays
      scannable without gaining any new hues. */
-  .hd-card-title,
-  .hd-card-title--sm {
+  .hd-card-title {
     display: flex;
     align-items: center;
     gap: var(--hd-space-2);
@@ -103,8 +102,7 @@
     color: var(--hd-ink);
   }
 
-  .hd-card-title::after,
-  .hd-card-title--sm::after {
+  .hd-card-title::after {
     content: '';
     flex: 1 1 auto;
     height: 1px;

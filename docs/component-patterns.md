@@ -386,7 +386,6 @@ The neutral weight is the base rule, so the other three restate the surface they
 ```css
 .hd-card            /* Card surface, plane-hued 2px top edge, tighter row-gap */
 .hd-card-title      /* Uppercase eyebrow with a hairline running out to the row's end */
-.hd-card-title--sm
 ```
 
 The card's top edge and the title's hairline are the same identity rule at two scales. The title prefers `--hd-sec-tint-border`, falling back to `--hd-zone-tint-border` and then to `--hd-border`.

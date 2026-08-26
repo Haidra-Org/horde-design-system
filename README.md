@@ -246,7 +246,7 @@ Dense working-surface primitives, each in a `/* ===== HD family ===== */` sectio
 | `.hd-btn` + `--primary`, `--tonal`, `--ghost`, `--dense`, `--icon`                                                            | `buttons.css`      |
 | `.hd-chip`, `.hd-chip--active`                                                                                                | `chips.css`        |
 | `.hd-badge`, `.hd-sec-chip` + `--sm`, `--lg`                                                                                  | `badges.css`       |
-| `.hd-card`, `.hd-card-title`, `.hd-card-title--sm`                                                                            | `cards.css`        |
+| `.hd-card`, `.hd-card-title`                                                                                                  | `cards.css`        |
 | `.hd-input`, `.hd-textarea`, `.hd-textarea--resize`, `.hd-label`, `.hd-sublabel`, `.hd-help`, `.hd-help-btn`, `.hd-help-note` | `forms.css`        |
 | `.hd-seg`, `.hd-seg-opt`, `.hd-seg--xs`                                                                                       | `segmented.css`    |
 | `.hd-subtabs`, `.hd-subtabs-scroll`, `.hd-subtab`, `.hd-subtab--active`                                                       | `tabs.css`         |
