@@ -342,3 +342,70 @@
     border-color: var(--color-danger-700);
   }
 }
+
+/* =================================================================
+   ===== HD family =====
+   Two small marks on the --hd-* tokens: a text badge, and the square
+   identity chip that stands beside a section's title. Dark mode is
+   carried by the tokens; never add a `.dark` rule here.
+   ================================================================= */
+
+@layer components {
+  .hd-badge {
+    display: inline-flex;
+    align-items: center;
+    padding: 0 var(--hd-space-2);
+    min-height: 24px;
+    border: 1px solid transparent;
+    border-radius: var(--hd-radius-sm);
+    font-family: inherit;
+    font-size: var(--hd-text-xs);
+    font-weight: 600;
+  }
+
+  /* The identity chip carries a glyph, never text: the hues it is drawn
+     in are audited as graphic colour and several of them fall under
+     4.5:1 on the surfaces it sits on. */
+  .hd-sec-chip {
+    display: inline-flex;
+    flex: none;
+    align-items: center;
+    justify-content: center;
+    width: 18px;
+    height: 18px;
+    border-radius: 5px;
+    color: var(--hd-sec, var(--hd-accent));
+    background: var(--hd-sec-tint, var(--hd-accent-tint));
+    border: 1px solid var(--hd-sec-tint-border, var(--hd-accent-tint-border));
+  }
+
+  .hd-sec-chip svg {
+    width: 12px;
+    height: 12px;
+  }
+
+  /* Dense lists, where the mark rides beside a small label and has to
+     stay out of the way of the value it is introducing. */
+  .hd-sec-chip--sm {
+    width: 14px;
+    height: 14px;
+    border-radius: 4px;
+  }
+
+  .hd-sec-chip--sm svg {
+    width: 10px;
+    height: 10px;
+  }
+
+  /* Page and section heads, where the chip is read at arm's length
+     rather than beside an eyebrow. */
+  .hd-sec-chip--lg {
+    width: 22px;
+    height: 22px;
+  }
+
+  .hd-sec-chip--lg svg {
+    width: 14px;
+    height: 14px;
+  }
+}

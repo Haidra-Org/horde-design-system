@@ -49,3 +49,70 @@
     border-top-color: var(--color-glass-border-dark-subtle);
   }
 }
+
+/* =================================================================
+   ===== HD family =====
+   The grouped-controls card and its title, on the --hd-* tokens. The
+   card's top edge and the title's hairline are the same device at two
+   scales, drawn in whatever identity the consumer supplies through
+   --hd-sec* / --hd-zone*. Dark mode is carried by the tokens; never add
+   a `.dark` rule here.
+   ================================================================= */
+
+@layer components {
+  .hd-card {
+    border: 1px solid var(--hd-card-border);
+    /* Cards echo the plane header's underline as a top edge, so the
+       plane's hue always reads as a horizontal rule, at plane scale and
+       at card scale. */
+    border-top: 2px solid var(--hd-zone-tint-border, var(--hd-card-border));
+    border-radius: var(--hd-radius-md);
+    padding: var(--hd-space-3);
+    background: var(--hd-card);
+    /* The rows inside a card sit one step tighter than the gaps between
+       cards: a card is a group of settings, not a page section. */
+    row-gap: var(--hd-space-2-5);
+  }
+
+  /* A phone gives the card back the space its padding was taking: half a
+     control column is as narrow as a phone, and the eyebrow starts
+     wrapping at the wider padding. */
+  @media (max-width: 639.98px) {
+    .hd-card {
+      padding: var(--hd-space-2-5);
+    }
+  }
+
+  /* Every section title is the same landmark: an uppercase eyebrow
+     followed by a hairline in the identity hue, running out to the end
+     of its row. The change of register (uppercase, tracked, ink) rather
+     than of colour is what separates a section title from the field
+     labels packed around it, so a long column of settings stays
+     scannable without gaining any new hues. */
+  .hd-card-title,
+  .hd-card-title--sm {
+    display: flex;
+    align-items: center;
+    gap: var(--hd-space-2);
+    min-width: 0;
+    font-family: inherit;
+    font-size: var(--hd-text-2xs);
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--hd-ink);
+  }
+
+  .hd-card-title::after,
+  .hd-card-title--sm::after {
+    content: '';
+    flex: 1 1 auto;
+    height: 1px;
+    /* A card carrying a section identity draws its hairline in that
+       section's hue; anything else keeps the plane's hue. */
+    background: var(
+      --hd-sec-tint-border,
+      var(--hd-zone-tint-border, var(--hd-border))
+    );
+  }
+}
