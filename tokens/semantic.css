@@ -54,7 +54,7 @@
      most of them land. Label 4.98:1 and muted 4.63:1 on the canvas,
      5.34:1 and 4.97:1 on the card, so small type clears AA wherever the
      pair is used. */
-  --hd-label: #5f6672;
+  --hd-label: #636e82;
   --hd-muted: #636b78;
 
   --hd-field: #ffffff;
@@ -152,8 +152,8 @@
   /* One visible step above the canvas; cards take a second step so
      grouped controls read as objects on the workspace rather than
      outlines in it. */
-  --hd-panel: #283449;
-  --hd-card: #303d54;
+  --hd-panel: #1c2330;
+  --hd-card: #1c2330;
   --hd-card-border: #48566f;
   --hd-border: #37445a;
   --hd-border-soft: #2e3a4e;
@@ -172,7 +172,7 @@
      lift that passes and label stays a step above it, because the two
      carry different weights of meaning and collapsing them to one value
      would say they do not. */
-  --hd-label: #a5abb6;
+  --hd-label: #c3c4c5;
   --hd-muted: #a0a7b2;
 
   --hd-field: #171e2b;
