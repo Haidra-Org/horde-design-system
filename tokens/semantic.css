@@ -136,7 +136,7 @@
   --hd-stage: #14161c;
   --hd-stage-rim: #2f3542;
   --hd-stage-ink: #e7eaf0;
-  /* 4.6:1 on --hd-stage: the quiet ink on the plate still carries meta
+  /* 6.95:1 on --hd-stage: the quiet ink on the plate still carries meta
      text. */
   --hd-stage-label: #9aa1ad;
   /* The pane the controls that sit on a frame are drawn on. Dark enough
