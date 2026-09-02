@@ -194,6 +194,9 @@
 
   --hd-accent-tint: rgba(29, 78, 216, 0.16);
   --hd-accent-tint-border: rgba(59, 130, 246, 0.35);
+  /* Lifted like the other domain hues so it clears AA as text on the slate
+     card; the tints below keep the light hue underneath. */
+  --hd-purple: #c084fc;
   --hd-purple-tint: rgba(147, 51, 234, 0.16);
   --hd-purple-tint-border: rgba(147, 51, 234, 0.4);
   --hd-green-tint: rgba(22, 163, 74, 0.18);
