@@ -51,10 +51,11 @@
   /* Both greys are measured against the deepest ground they sit on, the
      canvas, rather than the white panel: labels and hints are drawn on
      the panel, on the card and on the page floor, and the card is where
-     most of them land. Label 4.98:1 and muted 4.63:1 on the canvas,
-     5.34:1 and 4.97:1 on the card, so small type clears AA wherever the
-     pair is used. */
-  --hd-label: #636e82;
+     most of them land. Label 5.15:1 and muted 4.63:1 on the canvas,
+     5.52:1 and 4.97:1 on the card, so small type clears AA wherever the
+     pair is used. Label carries the heavier meaning of the two and sits
+     a step deeper than muted to say so. */
+  --hd-label: #5b6473;
   --hd-muted: #636b78;
 
   --hd-field: #ffffff;
@@ -77,6 +78,10 @@
   --hd-pop-shadow: 0 16px 40px rgba(15, 23, 42, 0.22);
 
   --hd-accent: #1d4ed8;
+  /* The accent as ink, where --hd-accent is the accent as a fill with
+     white on it. The two part company in the dark theme, where the fill
+     keeps its depth and the ink has to lift off it. */
+  --hd-accent-text: #1d4ed8;
   --hd-accent-hover: #1e40af;
   /* Ink on an accent fill; white in both themes because the fills stay
      saturated enough to carry it. */
@@ -192,6 +197,12 @@
   --hd-pop-accent: #74b0fb;
   --hd-pop-shadow: 0 22px 56px rgba(0, 0, 0, 0.66);
 
+  /* The accent as ink takes the same lifted blue for the same reason:
+     #1d4ed8 sinks into every dark ground it is set on, from 2.1:1 on a
+     tinted plate to 2.4:1 on the panel. Measured on the grounds it
+     lands on: 7.25:1 on the panel, 6.40:1 on the card, 6.54:1 on the
+     accent tint over the card. */
+  --hd-accent-text: #74b0fb;
   --hd-accent-tint: rgba(29, 78, 216, 0.16);
   --hd-accent-tint-border: rgba(59, 130, 246, 0.35);
   /* Lifted like the other domain hues so it clears AA as text on the slate

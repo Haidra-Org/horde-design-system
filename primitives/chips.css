@@ -170,22 +170,33 @@
 
   /* The chosen one wears its area's hue as a surface, so a card's
      selection is read in the same hue as the card's mark and top edge.
-     The hue is mixed back towards the card rather than laid on at full
-     strength: a panel of chips is read past on the way to what it
-     produces, and a saturated block holds the eye longer than the choice
-     it reports is worth. */
+     The light hues are deep enough to be laid on whole and still carry
+     white: 6.70:1 on the accent. Mixing them back towards the card is
+     what put the ink under AA, at 3.99:1 on the accent and 3.28:1 on the
+     deepest amber a consumer sets. A hue given to --hd-sec has to carry
+     white at 4.5:1 before it lands here. */
   .hd-chip--active {
-    /* The fill is mixed towards the card, which is dark in dark mode, so
-       the card colour cannot double as the ink on it. */
     color: var(--hd-on-accent);
+    border-color: var(--hd-sec, var(--hd-accent));
+    background: var(--hd-sec, var(--hd-accent));
+  }
+
+  /* The dark theme's hues are lifted so they can be read as ink on a
+     dark ground, which leaves none of them able to carry white at full
+     strength; the accent is the one exception. So the fill takes the
+     card back into the hue until white clears AA on every one of them:
+     4.78:1 at the shallowest, 11.07:1 on the accent. The ink stays
+     white rather than turning to the card colour, which is the ground
+     the fill is mixed with and would read as a hole in the chip. */
+  .dark .hd-chip--active {
     border-color: color-mix(
       in srgb,
-      var(--hd-sec, var(--hd-accent)) 60%,
+      var(--hd-sec, var(--hd-accent)) 40%,
       var(--hd-card)
     );
     background: color-mix(
       in srgb,
-      var(--hd-sec, var(--hd-accent)) 74%,
+      var(--hd-sec, var(--hd-accent)) 40%,
       var(--hd-card)
     );
   }
