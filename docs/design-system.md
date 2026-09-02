@@ -66,6 +66,7 @@ The family is built out from the elevation ladder rather than from a component l
 3. `font-family: inherit`. The family sets no typeface.
 4. Leave the caller's layout to the caller: position, stacking order and identity hue come from outside.
 5. Off-scale numbers need a reason. Use the scales, and keep a literal only where the value is doing something the scale cannot.
+6. Containers are flat; leaves are boxes. `.hd-subtabs` draws a surface and the hairline under it and nothing else, and a panel routed under it draws nothing: a shell, a region or a note that frames other content sits on the canvas. Fill and border belong to the things a reader acts on or reads as one object (`.hd-card`, `.hd-stat`, a dialog, a menu). A box inside a box is the smell; a container that needs structure gets a heading, not a frame.
 
 ---
 
