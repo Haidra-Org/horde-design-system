@@ -151,20 +151,22 @@ Plain custom properties on `:root`, with a `.dark` block that redefines the half
 
 `tokens/semantic.css` — each of these has a dark value:
 
-| Token group | Names                                                                                                                                                                    |
-| ----------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| Surfaces    | `--hd-canvas`, `--hd-panel`, `--hd-card`, `--hd-card-border`, `--hd-border`, `--hd-border-soft`, `--hd-border-subtle`                                                    |
-| Elevation   | `--hd-elev-1/2/3`                                                                                                                                                        |
-| Ink         | `--hd-ink`, `--hd-ink-2`, `--hd-label`, `--hd-muted`                                                                                                                     |
-| Fields      | `--hd-field`, `--hd-field-soft`, `--hd-field-border`                                                                                                                     |
-| Popover     | `--hd-pop-surface`, `--hd-pop-border`, `--hd-pop-hover`, `--hd-pop-stripe`, `--hd-pop-accent`, `--hd-pop-shadow`                                                         |
-| Accents     | `--hd-accent`, `--hd-accent-hover`, `--hd-accent-tint`, `--hd-accent-tint-border`, and the same shape for `--hd-purple*`, `--hd-green*`, `--hd-teal*` and `--hd-indigo*` |
-| Status      | `--hd-danger`, `--hd-danger-tint`, `--hd-danger-tint-border`, `--hd-changed`, `--hd-changed-tint`, `--hd-changed-tint-border`                                            |
-| Controls    | `--hd-seg-track`, `--hd-seg-active`, `--hd-seg-active-ink`, `--hd-switch-off`                                                                                            |
-| Motion      | `--hd-dur-fast`, `--hd-dur`, `--hd-ease` — the two durations go to `0ms` under `prefers-reduced-motion`                                                                  |
-| Stage       | `--hd-stage`, `--hd-stage-rim`, `--hd-stage-ink`, `--hd-stage-label`, `--hd-stage-scrim` — a dark lightbox that does not flip with the theme, except its rim             |
+| Token group | Names                                                                                                                                                                                                           |
+| ----------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Surfaces    | `--hd-canvas`, `--hd-panel`, `--hd-card`, `--hd-card-border`, `--hd-border`, `--hd-border-soft`, `--hd-border-subtle`                                                                                           |
+| Elevation   | `--hd-elev-1/2/3`                                                                                                                                                                                               |
+| Ink         | `--hd-ink`, `--hd-ink-2`, `--hd-label`, `--hd-muted`                                                                                                                                                            |
+| Fields      | `--hd-field`, `--hd-field-soft`, `--hd-field-border`                                                                                                                                                            |
+| Popover     | `--hd-pop-surface`, `--hd-pop-border`, `--hd-pop-hover`, `--hd-pop-stripe`, `--hd-pop-accent`, `--hd-pop-shadow`                                                                                                |
+| Accents     | `--hd-accent`, `--hd-accent-text`, `--hd-accent-hover`, `--hd-accent-tint`, `--hd-accent-tint-border`, `--hd-focus-ring`, and the same shape for `--hd-purple*`, `--hd-green*`, `--hd-teal*` and `--hd-indigo*` |
+| Status      | `--hd-danger`, `--hd-danger-tint`, `--hd-danger-tint-border`, `--hd-changed`, `--hd-changed-tint`, `--hd-changed-tint-border`                                                                                   |
+| Controls    | `--hd-seg-track`, `--hd-seg-active`, `--hd-seg-active-ink`, `--hd-switch-off`                                                                                                                                   |
+| Motion      | `--hd-dur-fast`, `--hd-dur`, `--hd-ease` — the two durations go to `0ms` under `prefers-reduced-motion`                                                                                                         |
+| Stage       | `--hd-stage`, `--hd-stage-rim`, `--hd-stage-ink`, `--hd-stage-label`, `--hd-stage-scrim` — a dark lightbox that does not flip with the theme, except its rim                                                    |
 
 `--hd-pop-accent` is the accent as text or icon on a popover surface; `--hd-accent` is a fill with white text on it, which is why one lightens in dark and the other does not.
+
+`--hd-focus-ring` is the accent as an outline, and the only colour a focus ring should be drawn in: it lightens in dark like `--hd-accent-text` does, because a ring is read against the surface behind the control it wraps and has to clear 3:1 there.
 
 The dark theme carries two surface ramps. The default is a slate matched to a consuming app's own dark body, so an HD plane sits level with the page around it; a root wearing `hd-deep` takes the neutral, deeper charcoal instead, for surfaces where pictures are judged and a hue in the surround would bias the eye. `hd-deep` restates only the surfaces, their edges, the fields, the popover planes and `--hd-label`/`--hd-muted`/`--hd-pop-accent`, and only under `.dark`.
 

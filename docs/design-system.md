@@ -273,6 +273,8 @@ Interactive elements use `box-shadow` focus rings:
 - Links / informational: `--shadow-focus-blue`
 - Buttons / brand: `--shadow-focus-purple`
 
+HD controls use an `outline` instead, always coloured `var(--hd-focus-ring)`, which flips in the dark theme so the ring clears 3:1 on every surface in the family.
+
 ### Reduced Motion
 
 All animations must respect `@media (prefers-reduced-motion: reduce)`. Content should be shown immediately without transitions.

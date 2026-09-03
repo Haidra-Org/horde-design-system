@@ -172,7 +172,7 @@
   /* Inset, because the row is only as tall as the tab and an outset ring
      would be clipped by the bar's bottom edge. */
   .hd-subtab:focus-visible {
-    outline: 2px solid var(--hd-accent);
+    outline: 2px solid var(--hd-focus-ring);
     outline-offset: -2px;
   }
 }

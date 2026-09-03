@@ -54,7 +54,7 @@
   /* Inset, because an item runs the full width of the menu's padding box
      and an outset ring would be clipped by the menu's own edge. */
   .hd-menu-item:focus-visible {
-    outline: 2px solid var(--hd-accent);
+    outline: 2px solid var(--hd-focus-ring);
     outline-offset: -2px;
   }
 }

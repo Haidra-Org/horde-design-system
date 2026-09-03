@@ -373,7 +373,7 @@
      a glow bleeding into the layout around it. */
   .hd-input:focus,
   .hd-textarea:focus {
-    outline: 2px solid var(--hd-accent);
+    outline: 2px solid var(--hd-focus-ring);
     outline-offset: 2px;
     border-color: var(--hd-accent);
   }
@@ -446,7 +446,7 @@
   }
 
   .hd-help-btn:focus-visible {
-    outline: 2px solid var(--hd-accent);
+    outline: 2px solid var(--hd-focus-ring);
     outline-offset: 2px;
   }
 
@@ -554,7 +554,7 @@
   }
 
   .hd-switch input:focus-visible ~ .hd-switch-track {
-    outline: 2px solid var(--hd-accent);
+    outline: 2px solid var(--hd-focus-ring);
     outline-offset: 2px;
   }
 

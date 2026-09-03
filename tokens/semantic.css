@@ -82,6 +82,12 @@
      white on it. The two part company in the dark theme, where the fill
      keeps its depth and the ink has to lift off it. */
   --hd-accent-text: #1d4ed8;
+  /* The focus ring, measured against the ground the focused control sits
+     on rather than against the control. It parts from --hd-accent for the
+     same reason the ink does: the accent holds its depth in both themes
+     and a ring has to clear 3:1 on whatever it is drawn over. 6.70:1 on
+     the panel, 6.19:1 on the card, 5.77:1 on the canvas. */
+  --hd-focus-ring: #1d4ed8;
   --hd-accent-hover: #1e40af;
   /* Ink on an accent fill; white in both themes because the fills stay
      saturated enough to carry it. */
@@ -203,6 +209,12 @@
      lands on: 7.25:1 on the panel, 6.40:1 on the card, 6.54:1 on the
      accent tint over the card. */
   --hd-accent-text: #74b0fb;
+  /* The ring lifts further than the ink, because it lands on every dark
+     ground the family has rather than only on the ones text sits on, and
+     the popover plane is the lightest of them: 6.06:1 there, 8.74:1 on
+     the card and the panel, 8.14:1 on the canvas. The deeper hd-deep ramp
+     only widens the margin, so it does not restate this. */
+  --hd-focus-ring: #93c5fd;
   --hd-accent-tint: rgba(29, 78, 216, 0.16);
   --hd-accent-tint-border: rgba(59, 130, 246, 0.35);
   /* Lifted like the other domain hues so it clears AA as text on the slate

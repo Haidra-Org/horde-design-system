@@ -125,7 +125,7 @@
 
   .tooltip-trigger:focus,
   .tooltip-wrapper:focus {
-    outline: 2px solid var(--color-brand-blue, #1d4ed8);
+    outline: 2px solid var(--hd-focus-ring);
     outline-offset: 2px;
     border-radius: 2px;
   }
