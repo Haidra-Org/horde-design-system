@@ -133,22 +133,24 @@
   --hd-seg-active-ink: #ffffff;
   --hd-switch-off: #e5e7eb;
 
-  /* The lightbox a picture is judged on. A rendered frame is judged
-     against a dark ground in every room where pictures are judged, and
-     the plate has to be unmistakably not the page it sits in, so these
-     do not flip with the theme: the stage is the same dark in both. Only
-     the rim moves, because the edge that separates the plate from a
-     white page is not the edge that separates it from a dark one. */
-  --hd-stage: #14161c;
-  --hd-stage-rim: #2f3542;
-  --hd-stage-ink: #e7eaf0;
-  /* 6.95:1 on --hd-stage: the quiet ink on the plate still carries meta
+  /* The plate a picture is judged on. It follows the theme like every
+     other surface: a plate that stayed dark on a light page read as a
+     region the theme had missed rather than as a lightbox. What makes it
+     a plate is that it sits a step below the canvas and carries its own
+     rim, not that it is dark. */
+  --hd-stage: #e4e7ed;
+  /* An edge, so it is measured as one: 3:1 or better on the panel, the
+     card, the canvas and the plate itself, since the same rim separates
+     the plate from whichever of those it is set in. */
+  --hd-stage-rim: #7a8495;
+  --hd-stage-ink: #111827;
+  /* 5.81:1 on --hd-stage: the quiet ink on the plate still carries meta
      text. */
-  --hd-stage-label: #9aa1ad;
-  /* The pane the controls that sit on a frame are drawn on. Dark enough
-     that the stage ink clears 4.5:1 over the brightest picture behind
-     it. */
-  --hd-stage-scrim: rgb(14 16 22 / 88%);
+  --hd-stage-label: #4f5866;
+  /* The pane the controls that sit on a frame are drawn on. Opaque enough
+     that the stage ink clears 4.5:1 over the darkest picture behind it
+     and the label over the brightest. */
+  --hd-stage-scrim: rgb(236 238 243 / 88%);
 }
 
 /* The dark theme has two surface ramps. This one, the default, is a
@@ -244,8 +246,17 @@
   --hd-seg-active-ink: #111827;
   --hd-switch-off: #3a3f47;
 
-  /* Lightened to clear 3:1 on the dark panel and card. */
+  /* The dark plate sits a step below the dark panel, as the light one
+     sits below the canvas. The rim is lightened to clear 3:1 on the
+     dark panel and card. */
+  --hd-stage: #14161c;
   --hd-stage-rim: #3b4252;
+  --hd-stage-ink: #e7eaf0;
+  /* 6.95:1 on --hd-stage. */
+  --hd-stage-label: #9aa1ad;
+  /* Dark enough that the stage ink clears 4.5:1 over the brightest
+     picture behind it. */
+  --hd-stage-scrim: rgb(14 16 22 / 88%);
 }
 
 /* The neutral ramp, for the rooms where pictures are judged. A rendered
