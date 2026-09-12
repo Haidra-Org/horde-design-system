@@ -159,8 +159,13 @@
    reading as a colder pit cut into it. The neutral ramp lives under
    `.hd-deep` after this block. Only the surfaces, their edges and the
    quiet inks differ between the two; everything else here is shared, as
-   are all the light values. */
-.dark {
+   are all the light values.
+
+   A region that must keep this ramp in the light theme (a plate that
+   pictures are read against, such as a hero mosaic) wears `hd-dark-plate`
+   and takes the same values, so the ramp is declared once. */
+.dark,
+.hd-dark-plate {
   --hd-canvas: #1f2937;
   /* One visible step above the canvas; cards take a second step so
      grouped controls read as objects on the workspace rather than
