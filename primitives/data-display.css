@@ -182,8 +182,8 @@
 
 /* =================================================================
    ===== HD family =====
-   The label/value row and the empty state, on the --hd-* tokens. Dark
-   mode is carried by the tokens; never add a `.dark` rule here.
+   The label/value row and the empty state, on the --hd-* tokens. The
+   tokens handle dark mode. Never add a `.dark` rule here.
    ================================================================= */
 
 @layer components {

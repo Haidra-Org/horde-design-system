@@ -2,8 +2,8 @@
    ===== HD family =====
    The dense record list: a column of one-line rows under an optional
    sortable header, both laid on the same grid so the two can never
-   disagree about which columns are showing. Dark mode is carried by
-   the tokens; never add a `.dark` rule here.
+   disagree about which columns are showing. The tokens
+   handle dark mode. Never add a `.dark` rule here.
    ================================================================= */
 
 @layer components {
@@ -13,7 +13,7 @@
     gap: var(--hd-space-1);
   }
 
-  /* The columns belong to the consumer: it knows which of its fields
+  /* The columns belong to the consumer: its fields determine which
      survive a phone. It declares them once as --hd-list-cols on the
      element wrapping the list, and the header and the rows both read
      it, so a breakpoint that changes the columns changes both. The
@@ -27,7 +27,7 @@
     gap: var(--hd-space-2);
   }
 
-  /* The header is not a row: it carries no plane, and it stands in by
+  /* The header is not a row: it has no plane, and it stands in by
      the row padding so its labels line up over the values below. */
   .hd-list-head {
     padding: 0 var(--hd-space-3) var(--hd-space-1);

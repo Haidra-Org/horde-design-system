@@ -109,8 +109,8 @@
 /* =================================================================
    ===== HD family =====
    The secondary tab row that sits under a page's own header, on the
-   --hd-* tokens. Independent of the tab primitives above. Dark mode is
-   carried by the tokens; never add a `.dark` rule here.
+   --hd-* tokens. Independent of the tab primitives above. The tokens
+   handle dark mode. Never add a `.dark` rule here.
    ================================================================= */
 
 @layer components {

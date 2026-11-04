@@ -321,8 +321,8 @@
    ===== HD family =====
    Text fields, their labels, and the per-field help trigger and note,
    on the --hd-* tokens. The help trigger and note take the plane's hue
-   through the --hd-zone* contract, falling back to the accent. Dark
-   mode is carried by the tokens; never add a `.dark` rule here.
+   through the --hd-zone* contract, falling back to the accent. The
+   tokens handle dark mode. Never add a `.dark` rule here.
    ================================================================= */
 
 @layer components {

@@ -138,8 +138,8 @@
    ===== HD family =====
    The choice chip, on the --hd-* tokens. It takes its hue from the
    section it is drawn in through the --hd-sec* contract, falling back
-   to the accent where the consumer supplies nothing. Dark mode is
-   carried by the tokens; never add a `.dark` rule here.
+   to the accent where the consumer supplies nothing. The tokens
+   handle dark mode. Never add a `.dark` rule here.
    ================================================================= */
 
 @layer components {
@@ -170,11 +170,11 @@
 
   /* The chosen one wears its area's hue as a surface, so a card's
      selection is read in the same hue as the card's mark and top edge.
-     The light hues are deep enough to be laid on whole and still carry
-     white: 6.70:1 on the accent. Mixing them back towards the card is
+     The light hues are deep enough to be laid on whole and still take
+     white text: 6.70:1 on the accent. Mixing them back towards the card is
      what put the ink under AA, at 3.99:1 on the accent and 3.28:1 on the
-     deepest amber a consumer sets. A hue given to --hd-sec has to carry
-     white at 4.5:1 before it lands here. */
+     deepest amber a consumer sets. A hue given to --hd-sec has to give
+     white text 4.5:1 before it lands here. */
   .hd-chip--active {
     color: var(--hd-on-accent);
     border-color: var(--hd-sec, var(--hd-accent));
@@ -182,8 +182,8 @@
   }
 
   /* The dark theme's hues are lifted so they can be read as ink on a
-     dark ground, which leaves none of them able to carry white at full
-     strength; the accent is the one exception. So the fill takes the
+     dark ground, which leaves none of them able to take white text at full
+     strength. The accent is the one exception. So the fill takes the
      card back into the hue until white clears AA on every one of them:
      4.78:1 at the shallowest, 11.07:1 on the accent. The ink stays
      white rather than turning to the card colour, which is the ground

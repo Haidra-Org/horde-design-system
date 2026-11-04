@@ -6,10 +6,10 @@
    These are plain custom properties on `:root` with a `.dark` block
    after it, not `@theme`: they generate no Tailwind utilities, and a
    primitive reads one name that changes value under `.dark`. That is
-   what lets the family carry both themes without a single
-   `.dark .hd-*` rule — never add one. `.dark .hd-deep` below is not an
+   what lets the family support both themes without a single
+   `.dark .hd-*` rule. Never add one. `.dark .hd-deep` below is not an
    exception: it rewrites token values for a subtree, and no primitive
-   knows it exists.
+   reads or depends on it.
 
    Two names are supplied by the consumer rather than declared here;
    see the identity contract at the foot of this file.
@@ -26,7 +26,7 @@
   --hd-border: #e5e7eb;
   --hd-border-soft: #f0f1f3;
   /* The quietest rule in the family, for dividing rows inside a surface
-     that is already carrying an edge of its own. */
+     that already has an edge of its own. */
   --hd-border-subtle: #eceef1;
 
   /* Depth, shared by every surface that raises. Elevation is a soft, low
@@ -53,7 +53,7 @@
      the panel, on the card and on the page floor, and the card is where
      most of them land. Label 5.15:1 and muted 4.63:1 on the canvas,
      5.52:1 and 4.97:1 on the card, so small type clears AA wherever the
-     pair is used. Label carries the heavier meaning of the two and sits
+     pair is used. Label has the heavier meaning of the two and sits
      a step deeper than muted to say so. */
   --hd-label: #5b6473;
   --hd-muted: #636b78;
@@ -90,10 +90,10 @@
   --hd-focus-ring: #1d4ed8;
   --hd-accent-hover: #1e40af;
   /* Ink on an accent fill; white in both themes because the fills stay
-     saturated enough to carry it. */
+     saturated enough to take it. */
   --hd-on-accent: #ffffff;
   --hd-accent-tint: #eff6ff;
-  /* Identity edges carry the hue at an alpha, as the dark theme does,
+  /* Identity edges use the hue at an alpha, as the dark theme does,
      rather than a pastel step: a 100-level pastel sits near 1.2:1 on a
      white card and the zone colour washes out of a tile edge, a group
      frame and an eyebrow rule alike. These land near 1.6:1, quiet but
@@ -115,14 +115,14 @@
   --hd-indigo: #4f46e5;
   --hd-indigo-tint: #eef2ff;
   --hd-indigo-tint-border: rgba(79, 70, 229, 0.32);
-  /* The one red: a field that will not submit as typed carries it on its
+  /* The one red: a field that will not submit as typed shows it on its
      edge, always beside a hint line, never as the only signal. */
   --hd-danger: #dc2626;
   --hd-danger-tint: #fee2e2;
   --hd-danger-tint-border: rgba(220, 38, 38, 0.32);
   /* The mark a folded group wears while it holds a value that is not the
      one the form starts at. Amber rather than red: it reports a choice,
-     not a fault. It carries a label, because a dot alone says nothing
+     not a fault. It comes with a label, because a dot alone says nothing
      aloud. */
   --hd-changed: #b45309;
   --hd-changed-tint: #fef3c7;
@@ -136,7 +136,7 @@
   /* The plate a picture is judged on. It follows the theme like every
      other surface: a plate that stayed dark on a light page read as a
      region the theme had missed rather than as a lightbox. What makes it
-     a plate is that it sits a step below the canvas and carries its own
+     a plate is that it sits a step below the canvas and has its own
      rim, not that it is dark. */
   --hd-stage: #e4e7ed;
   /* An edge, so it is measured as one: 3:1 or better on the panel, the
@@ -144,7 +144,7 @@
      the plate from whichever of those it is set in. */
   --hd-stage-rim: #7a8495;
   --hd-stage-ink: #111827;
-  /* 5.81:1 on --hd-stage: the quiet ink on the plate still carries meta
+  /* 5.81:1 on --hd-stage: the quiet ink on the plate still works for meta
      text. */
   --hd-stage-label: #4f5866;
   /* The pane the controls that sit on a frame are drawn on. Opaque enough
@@ -188,7 +188,7 @@
      muted 4.51:1 there, and higher on the panel and the canvas, so small
      type clears AA wherever the pair is used. Muted takes the smallest
      lift that passes and label stays a step above it, because the two
-     carry different weights of meaning and collapsing them to one value
+     have different weights of meaning and collapsing them to one value
      would say they do not. */
   --hd-label: #c3c4c5;
   --hd-muted: #a0a7b2;
@@ -268,8 +268,8 @@
    frame is read against whatever surrounds it, and a hue in the
    surround biases that reading, so those surfaces drop the consumer's
    slate for a charcoal that declares no colour of its own and sits
-   deeper, letting the plate carry the light. A root opts in by wearing
-   `hd-deep`; it changes nothing in the light theme, where the surfaces
+   deeper, letting the plate supply the light. A root opts in by wearing
+   `hd-deep`. It changes nothing in the light theme, where the surfaces
    are already near-neutral and the plate is the only dark thing on the
    page. */
 .dark .hd-deep {

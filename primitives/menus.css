@@ -2,10 +2,10 @@
    MENU PRIMITIVE (HD family)
    A popover list of actions, on the --hd-* tokens.
 
-   The menu carries its own plane (surface, edge, shadow, scrolling) but
-   no position: where it opens is the caller's business, so the caller
-   supplies position, offset and stacking order. Dark mode is carried by
-   the tokens; never add a `.dark` rule here.
+   The menu sets its own plane (surface, edge, shadow, scrolling) but
+   not its position. Where it opens is the caller's business, so the caller
+   supplies position, offset and stacking order. The tokens handle dark
+   mode. Never add a `.dark` rule here.
    ================================================================= */
 
 @layer components {

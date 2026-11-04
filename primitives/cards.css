@@ -55,7 +55,7 @@
    The grouped-controls card and its title, on the --hd-* tokens. The
    card's top edge and the title's hairline are the same device at two
    scales, drawn in whatever identity the consumer supplies through
-   --hd-sec* / --hd-zone*. Dark mode is carried by the tokens; never add
+   --hd-sec* / --hd-zone*. The tokens handle dark mode. Never add
    a `.dark` rule here.
    ================================================================= */
 
@@ -106,7 +106,7 @@
     content: '';
     flex: 1 1 auto;
     height: 1px;
-    /* A card carrying a section identity draws its hairline in that
+    /* A card with a section identity draws its hairline in that
        section's hue; anything else keeps the plane's hue. */
     background: var(
       --hd-sec-tint-border,
@@ -122,7 +122,7 @@
      as a line of the plane rather than as another card competing with
      the ones a reader cannot do without; open, it is a card like any
      other. The keyboard contract belongs to the consumer: the head
-     holds a button, and that button carries aria-expanded.
+     holds a button, and that button sets aria-expanded.
      ================================================================= */
 
   .hd-disclosure {

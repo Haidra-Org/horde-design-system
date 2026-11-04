@@ -15,7 +15,7 @@ The system ships two independent visual families. Pick one per surface; they are
 | ------------------- | ----------------------------------------------------------------- | ---------------------------------------------------------------------------- |
 | Look                | Translucent, blurred, gradient-lit                                | Opaque, dense, low-shadow working surfaces                                   |
 | Tokens              | `@theme` names in `tokens/colors.css`, `glass.css`, `spacing.css` | `--hd-*` custom properties in `tokens/scale.css`, `tokens/semantic.css`      |
-| Utilities generated | Yes — Tailwind builds `bg-*`/`text-*` from `@theme`               | No — `--hd-*` are plain custom properties and generate nothing               |
+| Utilities generated | Yes. Tailwind builds `bg-*`/`text-*` from `@theme`                | No. `--hd-*` are plain custom properties and generate nothing               |
 | Dark mode           | Static light/dark token pairs plus per-rule `.dark` overrides     | One token name whose value changes under `.dark`; never a `.dark .hd-*` rule |
 
 Neither family reads the other's tokens, so a change to one cannot move the other.
@@ -139,7 +139,7 @@ Glassmorphism design tokens for translucent surfaces with depth.
 
 Plain custom properties on `:root`, with a `.dark` block that redefines the half that flips. They generate no Tailwind utilities: read them with `var()`.
 
-`tokens/scale.css` — light and dark alike:
+`tokens/scale.css`, light and dark alike:
 
 | Token                       | Values                                         |
 | --------------------------- | ---------------------------------------------- |
@@ -147,9 +147,9 @@ Plain custom properties on `:root`, with a `.dark` block that redefines the half
 | `--hd-space-1 … -8`         | 4, 8, 10 (`-2-5`), 12, 16, 24, 32px            |
 | `--hd-radius-sm/md/lg/pill` | 8, 12, 16, 999px                               |
 | `--hd-control-h`            | 40px, with `--hd-control-h-dense` at 36px      |
-| `--hd-help-trigger`         | 24px — the box a per-field help glyph reserves |
+| `--hd-help-trigger`         | 24px, the box reserved for a per-field help glyph |
 
-`tokens/semantic.css` — each of these has a dark value:
+`tokens/semantic.css`, each of these has a dark value:
 
 | Token group | Names                                                                                                                                                                                                                  |
 | ----------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -161,14 +161,14 @@ Plain custom properties on `:root`, with a `.dark` block that redefines the half
 | Accents     | `--hd-accent`, `--hd-accent-text`, `--hd-accent-hover`, `--hd-accent-tint`, `--hd-accent-tint-border`, `--hd-focus-ring`, and the same shape for `--hd-purple*`, `--hd-green*`, `--hd-teal*` and `--hd-indigo*`        |
 | Status      | `--hd-danger`, `--hd-danger-tint`, `--hd-danger-tint-border`, `--hd-changed`, `--hd-changed-tint`, `--hd-changed-tint-border`                                                                                          |
 | Controls    | `--hd-seg-track`, `--hd-seg-active`, `--hd-seg-active-ink`, `--hd-switch-off`                                                                                                                                          |
-| Motion      | `--hd-dur-fast`, `--hd-dur`, `--hd-ease` — the two durations go to `0ms` under `prefers-reduced-motion`                                                                                                                |
-| Stage       | `--hd-stage`, `--hd-stage-rim`, `--hd-stage-ink`, `--hd-stage-label`, `--hd-stage-scrim` — the plate a picture is judged on: a step below the canvas with a 3:1 rim, light in the light theme and dark in the dark one |
+| Motion      | `--hd-dur-fast`, `--hd-dur`, `--hd-ease`. The two durations go to `0ms` under `prefers-reduced-motion`                                                                                                                |
+| Stage       | `--hd-stage`, `--hd-stage-rim`, `--hd-stage-ink`, `--hd-stage-label`, `--hd-stage-scrim`. The plate a picture is judged on: a step below the canvas with a 3:1 rim, light in the light theme and dark in the dark one |
 
 `--hd-pop-accent` is the accent as text or icon on a popover surface; `--hd-accent` is a fill with white text on it, which is why one lightens in dark and the other does not.
 
 `--hd-focus-ring` is the accent as an outline, and the only colour a focus ring should be drawn in: it lightens in dark like `--hd-accent-text` does, because a ring is read against the surface behind the control it wraps and has to clear 3:1 there.
 
-The dark theme carries two surface ramps. The default is a slate matched to a consuming app's own dark body, so an HD plane sits level with the page around it; a root wearing `hd-deep` takes the neutral, deeper charcoal instead, for surfaces where pictures are judged and a hue in the surround would bias the eye. `hd-deep` restates only the surfaces, their edges, the fields, the popover planes and `--hd-label`/`--hd-muted`/`--hd-pop-accent`, and only under `.dark`.
+The dark theme has two surface ramps. The default is a slate matched to a consuming app's own dark body, so an HD plane sits level with the page around it. A root wearing `hd-deep` takes the neutral, deeper charcoal instead, for surfaces where pictures are judged and a hue in the surround would bias the eye. `hd-deep` restates only the surfaces, their edges, the fields, the popover planes and `--hd-label`/`--hd-muted`/`--hd-pop-accent`, and only under `.dark`.
 
 #### Consumer-supplied identity
 
@@ -268,8 +268,8 @@ Rules for working in this family:
 
 - Read `--hd-*` only. A HD rule that reaches for a glass token has crossed the line between the two.
 - No `.dark` rules. If something needs to change in dark, it needs a token, not a selector.
-- `font-family: inherit` — the family sets no typeface, so a consumer's choice reaches it.
-- Layout that belongs to the caller stays with the caller: `.hd-menu` carries its plane but no position, and `.hd-subtab--active` carries its ink but no underline colour.
+- `font-family: inherit`: the family sets no typeface, so a consumer's choice reaches it.
+- Layout that belongs to the caller stays with the caller: `.hd-menu` sets its plane but not its position, and `.hd-subtab--active` sets its ink but not its underline colour.
 - Where a primitive needs a measurement only the consumer can know, it reads a custom property with a sane fallback rather than growing a modifier per case: `.hd-list-head` and `.hd-list-row` take their grid from `--hd-list-cols`, declared on whatever element wraps the list, so a breakpoint that changes the columns changes the header and the rows together.
 
 ## Extending Locally

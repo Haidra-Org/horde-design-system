@@ -4,7 +4,7 @@
 
    The selected option is reported with aria-pressed, so the styling
    hangs off that attribute rather than a class: the control cannot look
-   chosen without saying so. Dark mode is carried by the tokens; never
+   chosen without saying so. The tokens handle dark mode. Never
    add a `.dark` rule here.
    ================================================================= */
 

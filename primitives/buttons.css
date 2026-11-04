@@ -655,15 +655,15 @@
    ===== HD family =====
    One shape in four weights, on the --hd-* tokens. Independent of the
    glass family above: nothing here reads a glass token, and dark mode
-   is carried entirely by the tokens, so this section has no `.dark`
+   is handled entirely by the tokens, so this section has no `.dark`
    rules and must never gain one.
    ================================================================= */
 
 @layer components {
   /* The neutral weight is the base rule rather than a modifier of it, so
      the common case is one class. The three other weights therefore have
-     to restate the surface they replace — background, border colour, ink
-     and shadow — instead of only adding to it. */
+     to restate the surface they replace (background, border colour, ink
+     and shadow) instead of only adding to it. */
   .hd-btn {
     display: inline-flex;
     align-items: center;

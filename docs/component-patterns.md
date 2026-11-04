@@ -374,12 +374,12 @@ The neutral weight is the base rule, so the other three restate the surface they
 
 ```css
 .hd-badge           /* Small text mark, transparent edge for a caller to colour */
-.hd-sec-chip        /* 18px square carrying a section's glyph */
+.hd-sec-chip        /* 18px square showing a section's glyph */
 .hd-sec-chip--sm    /* 14px, for dense lists */
 .hd-sec-chip--lg    /* 22px, for page and section heads */
 ```
 
-`.hd-sec-chip` carries a glyph, never text: several identity hues fall under 4.5:1 on the surfaces it sits on.
+`.hd-sec-chip` shows a glyph, never text: several identity hues fall under 4.5:1 on the surfaces it sits on.
 
 ### Cards (`primitives/cards.css`)
 
@@ -398,7 +398,7 @@ The card's top edge and the title's hairline are the same identity rule at two s
 .hd-textarea--resize  /* Starts at two rows, three from 1024px, drag-to-grow */
 .hd-label
 .hd-sublabel
-.hd-help              /* display: contents — a wrapper transparent to layout */
+.hd-help              /* display: contents, so the wrapper does not affect layout */
 .hd-help-btn          /* The glyph; hue from --hd-zone, open state on aria-expanded */
 .hd-help-note         /* Full-width note under the row it explains */
 ```
@@ -419,7 +419,7 @@ Fields share one focus treatment: a ring outside the edge, never a glow. On coar
 .hd-subtabs          /* The bar; height behind --hd-subtab-h, default 45px */
 .hd-subtabs-scroll   /* The scrolling half, with the scrollbar hidden */
 .hd-subtab
-.hd-subtab--active   /* Ink only — the underline colour is the consumer's */
+.hd-subtab--active   /* Ink only, the underline colour is the consumer's */
 ```
 
 Only the tabs scroll, so anything parked at the far edge should be a sibling of `.hd-subtabs-scroll` rather than its last child.
@@ -441,7 +441,7 @@ Only the tabs scroll, so anything parked at the far edge should be a sibling of 
 .hd-menu-item
 ```
 
-`.hd-menu` carries no position: where it opens, and above what, is the caller's business.
+`.hd-menu` sets no position. Where it opens, and above what, is the caller's business.
 
 ---
 

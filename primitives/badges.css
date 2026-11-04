@@ -346,8 +346,8 @@
 /* =================================================================
    ===== HD family =====
    Two small marks on the --hd-* tokens: a text badge, and the square
-   identity chip that stands beside a section's title. Dark mode is
-   carried by the tokens; never add a `.dark` rule here.
+   identity chip that stands beside a section's title. The tokens handle
+   dark mode. Never add a `.dark` rule here.
    ================================================================= */
 
 @layer components {
@@ -363,7 +363,7 @@
     font-weight: 600;
   }
 
-  /* The identity chip carries a glyph, never text: the hues it is drawn
+  /* The identity chip shows a glyph, never text: the hues it is drawn
      in are audited as graphic colour and several of them fall under
      4.5:1 on the surfaces it sits on. */
   .hd-sec-chip {

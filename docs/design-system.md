@@ -6,7 +6,7 @@ Shared design language for [Haidra-Org](https://github.com/Haidra-Org) frontends
 
 ## Two families, two dark-mode conventions
 
-The system carries two visual families side by side. Everything below the next heading describes the glass family; the HD family is described in [its own section](#the-hd-family) and in the README's HD Token and Primitive references.
+The system has two visual families side by side. Everything below the next heading describes the glass family; the HD family is described in [its own section](#the-hd-family) and in the README's HD Token and Primitive references.
 
 They differ most in how dark mode is reached, and mixing the two conventions is the mistake to watch for:
 
@@ -21,7 +21,7 @@ A second difference matters when reaching for utilities: glass tokens live in `@
 
 A denser register for working surfaces: opaque planes, a low shadow ladder, small type, and 40px controls. It is used where someone is operating a tool rather than reading a page, and it is deliberately quiet, so that whatever the tool produces is the loudest thing on screen.
 
-### What the tokens carry
+### What the tokens define
 
 `tokens/scale.css` holds the type, space, radius and control scales; `tokens/semantic.css` holds surfaces, elevation, ink, fields, popovers, accents, status, motion and the picture stage. The elevation ladder is the spine of the family: **canvas** (the page floor) → **panel** (the workspace) → **card** (a group of controls). Deepening the canvas is what lets a white panel read as a raised plane instead of dissolving into the page.
 
