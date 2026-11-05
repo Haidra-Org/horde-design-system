@@ -116,8 +116,9 @@
   --hd-indigo-tint: #eef2ff;
   --hd-indigo-tint-border: rgba(79, 70, 229, 0.32);
   /* The one red: a field that will not submit as typed shows it on its
-     edge, always beside a hint line, never as the only signal. */
-  --hd-danger: #dc2626;
+     edge, always beside a hint line, never as the only signal. Red-700
+     rather than red-600, so danger text holds 4.5:1 on its own tint. */
+  --hd-danger: #b91c1c;
   --hd-danger-tint: #fee2e2;
   --hd-danger-tint-border: rgba(220, 38, 38, 0.32);
   /* The mark a folded group wears while it holds a value that is not the

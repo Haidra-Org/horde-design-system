@@ -38,13 +38,10 @@
     line-height: var(--text-2xl--line-height);
   }
 
-  /* Links — matches AiHordeFrontpage */
+  /* Links take the accent text token, which holds 4.5:1 on every surface in
+     both themes. Blue-500 on the dark surfaces measured about 4:1. */
   .link {
-    color: var(--color-blue-600);
-  }
-
-  .dark .link {
-    color: var(--color-blue-500);
+    color: var(--hd-accent-text);
   }
 
   .link:hover {
